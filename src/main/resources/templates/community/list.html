@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 목록</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}"/>
+</head>
+<body>
+<h1>게시판 목록</h1>
+
+<table border="1">
+    <!-- thead -->
+    <thead>
+    <tr>
+        <th>No.</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>등록일</th>
+    </tr>
+    </thead>
+
+    <!-- tbody -->
+    <tbody>
+    <tr th:each="cmu : ${cmuList}">
+        <td th:text="${cmu.board_no}">1</td>
+        <td><a th:href="@{/community/detail/{id}(id=${cmu.board_no})}" th:text="${cmu.board_title}">제목</a></td>
+        <td th:text="${cmu.member_id}">작성자</td>
+        <td th:text="${cmu.board_date}">2024-05-22</td>
+    </tr>
+    </tbody>
+
+</table>
+
+
+<a href="/community/add">새 글 작성</a>
+</body>
+</html>

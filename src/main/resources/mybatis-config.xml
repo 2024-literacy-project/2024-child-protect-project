@@ -4,5 +4,6 @@
 <configuration>
     <mappers>
         <mapper resource="mapper/TestMapper.xml"/>
+        <mapper resource="mapper/CmuMapper.xml"/>
     </mappers>
 </configuration>

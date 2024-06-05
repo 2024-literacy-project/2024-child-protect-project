@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ohgiraffers.childprotectproject.community.DTO.CmuDAO">
+
+    <!-- 리스트 -->
+    <select id="getAllCmuList" resultType="com.ohgiraffers.childprotectproject.community.DTO.CmuDTO">
+        SELECT * FROM board
+    </select>
+
+    <select id="getCmuByNo" parameterType="int" resultType="com.ohgiraffers.childprotectproject.community.DTO.CmuDTO">
+        SELECT * FROM board WHERE board_no = #{board_no}
+    </select>
+
+    <!-- 추가 -->
+    <insert id="insertCmu" parameterType="com.ohgiraffers.childprotectproject.community.DTO.CmuDTO">
+        INSERT INTO board (board_title, board_contents, board_date, member_id)
+        VALUES (#{board_title}, #{board_contents}, #{board_date}, #{member_id})
+    </insert>
+
+    <!-- 삭제 -->
+    <delete id="deleteCmu" parameterType="int">
+        DELETE FROM board WHERE board_no = #{board_no}
+    </delete>
+
+    <!-- 수정 -->
+    <update id="updateCmu" parameterType="com.ohgiraffers.childprotectproject.community.DTO.CmuDTO">
+        UPDATE board
+        SET board_title = #{board_title}, board_contents = #{board_contents}, board_date = #{board_date}, member_id = #{member_id}
+        WHERE board_no = #{board_no}
+    </update>
+
+    <!-- findById 메서드를 위한 SQL 쿼리 추가 -->
+    <select id="findById" parameterType="int" resultType="com.ohgiraffers.childprotectproject.community.DTO.CmuDTO">
+        SELECT * FROM board WHERE board_no = #{board_no}
+    </select>
+
+
+
+</mapper>
