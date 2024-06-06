@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns: th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 수정 페이지</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div >
+    <h1>member List</h1>
+    <table >
+        <thead>
+        <tr>
+            <th>No.</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Role</th>
+            <th>Guardians Role</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="member : ${members}">
+            <td th:text="${member.member_id}"></td>
+            <td th:text="${member.member_name}"></td>
+            <td th:text="${member.member_phone}"></td>
+            <td th:text="${member.member_role}"></td>
+            <td th:text="${member.guardians_role}"></td>
+            <td>
+                <a th:href="@{/members/{id}/edit(id=${member.member_no})}">Edit</a>
+                <a th:href="@{/members/{id}/delete(id=${member.member_no})}" >Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
