@@ -6,11 +6,12 @@ import com.ohgiraffers.childprotectproject.member.common.UserRole;
 import java.util.List;
 
 public interface MemberService {
-    MemberDTO createMember(MemberDTO member);
-    MemberDTO getMemberById(String member_id);
+    boolean registerMember(MemberDTO member);
+    MemberDTO login(String memberId, String password);
     List<MemberDTO> getAllMembers();
-
-    MemberDTO updateMember(int member_no, MemberDTO member);
-    void deleteMember(int member_no);
-    UserRole getMemberRole(int member_no);
+    MemberDTO getMemberById(String memberId);
+    boolean updateMember(MemberDTO member);
+    boolean deleteMember(int memberNo);
+    UserRole getMemberRole(int memberNo);
+    MemberDTO selectMemberById(String memberId);
 }

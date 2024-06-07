@@ -1,39 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" xmlns: th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>회원 수정 페이지</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <title>회원 수정</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}"/>
 </head>
 <body>
-<div >
-    <h1>member List</h1>
-    <table >
-        <thead>
-        <tr>
-            <th>No.</th>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Role</th>
-            <th>Guardians Role</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="member : ${members}">
-            <td th:text="${member.member_id}"></td>
-            <td th:text="${member.member_name}"></td>
-            <td th:text="${member.member_phone}"></td>
-            <td th:text="${member.member_role}"></td>
-            <td th:text="${member.guardians_role}"></td>
-            <td>
-                <a th:href="@{/members/{id}/edit(id=${member.member_no})}">Edit</a>
-                <a th:href="@{/members/{id}/delete(id=${member.member_no})}" >Delete</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
+<h1>회원 수정</h1>
+<form action="/member/update" method="post">
+    <input type="hidden" id="memberNo" name="memberNo" th:value="${member.memberNo}">
+    <label for="memberId">아이디:</label>
+    <input type="text" id="memberId" name="memberId" th:value="${member.memberId}" required>
+    <br>
+    <label for="password">비밀번호:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <label for="role">역할:</label>
+    <select id="role" name="role" th:value="${member.role}">
+        <option value="USER">사용자</option>
+        <option value="ADMIN">관리자</option>
+    </select>
+    <br>
+    <button type="submit">수정</button>
+</form>
 </body>
 </html>

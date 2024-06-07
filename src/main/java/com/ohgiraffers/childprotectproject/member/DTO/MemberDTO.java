@@ -92,4 +92,6 @@ public class MemberDTO {
                 ", guardians_role='" + guardians_role + '\'' +
                 '}';
     }
+
+
 }

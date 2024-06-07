@@ -9,22 +9,30 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+
 @Service
 public class MemberServiceImpl implements MemberService {
 
-    @Autowired
-    private MemberDAO memberDAO;
+    private final MemberDAO memberDAO;
 
-    @Override
-    public MemberDTO createMember(MemberDTO member) {
-        int insertedMemberNo = memberDAO.insertMember(member);
-        member.setMember_no(insertedMemberNo);
-        return member;
+    @Autowired
+    public MemberServiceImpl(MemberDAO memberDAO) {
+        this.memberDAO = memberDAO;
     }
 
     @Override
-    public MemberDTO getMemberById(String member_id) {
-        return memberDAO.selectMemberById(member_id);
+    public boolean registerMember(MemberDTO member) {
+        return memberDAO.insertMember(member) == 1;
+    }
+
+    @Override
+    public MemberDTO login(String memberId, String password) {
+        MemberDTO member = memberDAO.selectMemberById(memberId);
+        if (member != null && member.getMember_pw().equals(password)) {
+            return member;
+        }
+        return null;
     }
 
     @Override
@@ -33,19 +41,27 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public MemberDTO updateMember(int member_no, MemberDTO member) {
-        member.setMember_no(member_no);
-        memberDAO.updateMember(member);
-        return member;
+    public MemberDTO getMemberById(String memberId) {
+        return memberDAO.selectMemberById(memberId);
     }
 
     @Override
-    public void deleteMember(int member_no) {
-        memberDAO.deleteMember(member_no);
+    public boolean updateMember(MemberDTO member) {
+        return memberDAO.updateMember(member) == 1;
     }
 
     @Override
-    public UserRole getMemberRole(int member_no) {
-        return memberDAO.getMemberRole(member_no);
+    public boolean deleteMember(int memberNo) {
+        return memberDAO.deleteMember(memberNo) == 1;
+    }
+
+    @Override
+    public UserRole getMemberRole(int memberNo) {
+        return memberDAO.getMemberRole(memberNo);
+    }
+
+    @Override
+    public MemberDTO selectMemberById(String memberId) {
+        return null;
     }
 }
