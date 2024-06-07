@@ -16,6 +16,8 @@ public class MemberServiceImpl implements MemberService {
 
     private final MemberDAO memberDAO;
 
+
+
     @Autowired
     public MemberServiceImpl(MemberDAO memberDAO) {
         this.memberDAO = memberDAO;
@@ -27,9 +29,9 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public MemberDTO login(String memberId, String password) {
-        MemberDTO member = memberDAO.selectMemberById(memberId);
-        if (member != null && member.getMember_pw().equals(password)) {
+    public MemberDTO login(String member_id, String member_pw) {
+        MemberDTO member = memberDAO.selectMemberById(member_id);
+        if (member != null && member.getMember_pw().equals(member_pw)) {
             return member;
         }
         return null;
@@ -41,8 +43,8 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public MemberDTO getMemberById(String memberId) {
-        return memberDAO.selectMemberById(memberId);
+    public MemberDTO getMemberById(String member_id) {
+        return memberDAO.selectMemberById(member_id);
     }
 
     @Override
@@ -51,17 +53,18 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public boolean deleteMember(int memberNo) {
-        return memberDAO.deleteMember(memberNo) == 1;
+    public boolean deleteMember(int member_no) {
+        return memberDAO.deleteMember(member_no) == 1;
     }
 
     @Override
-    public UserRole getMemberRole(int memberNo) {
-        return memberDAO.getMemberRole(memberNo);
+    public UserRole getMemberRole(int member_no) {
+        return memberDAO.getMemberRole(member_no);
     }
 
     @Override
-    public MemberDTO selectMemberById(String memberId) {
-        return null;
+    public MemberDTO selectMemberById(String member_id) {
+        // Implementation matches the getMemberById method, assuming they perform the same action.
+        return memberDAO.getMemberById(member_id);
     }
 }

@@ -15,5 +15,5 @@ public interface MemberDAO {
 
         int deleteMember(int member_no);
         UserRole getMemberRole(int member_no);
-        MemberDTO getMemberById(String memberId);
+        MemberDTO getMemberById(String member_id);
 }
