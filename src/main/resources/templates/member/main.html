@@ -3,8 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+<!--<style>
+    a{
+        text-decoration: none;
+    }
+    .con02-div{
+        margin-right: 20px;
+        text-align: center;
+    }
+    .con02-btn{
+        width: 100px;
+        height: 100px;
+    }
+</style>-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
 </head>
 <body>
+    <!-- header -->
+    <header th:replace="~{/common/header :: headerFragment}">
+        <h1>HEADER</h1>
+    </header>
+
+    <!-- contents -->
     <h1>안녕하세요:)</h1>
     <p>환영합니다, <span th:text="${member_id}"></span> 님!</p>
     <form action="/member/logout" method="get">
@@ -13,36 +33,51 @@
 
     <!-- ----------------------------------------------------- -->
     <hr>
-    <div style="border:1px solid gray; margin-bottom: 10px;">
-        <p>지문 사전등록 신청</p>
-        <p>아동, 여성, 장애인 경찰지원 센터에서 아동들의 실종을 방지하고
-           실종 발생 시 신속한 발견을 위해서
-           지문 사전등록제를 운영하고 있습니다.
-        </p>
+    <section>
+    <div style="display: flex; justify-content: center;">
+        <div style="border:1px solid gray; margin-bottom: 10px; width: 50%; height: 200px">
+            <p>지문 사전등록 신청</p>
+            <p>아동, 여성, 장애인 경찰지원 센터에서 아동들의 실종을 방지하고
+               실종 발생 시 신속한 발견을 위해서
+               지문 사전등록제를 운영하고 있습니다.
+            </p>
+        </div>
+
+        <div style="border:1px solid gray; width: 50%; height: 200px;">
+            <p>실종아동 찾기</p>
+            <p>실종아동찾기 센터는 여러분의 가정을 지키는 사랑의 메신저입니다.</p>
+        </div>
     </div>
 
-    <div style="border:1px solid gray;">
-        <p>실종아동 찾기</p>
-        <p>실종아동찾기 센터는 여러분의 가정을 지키는 사랑의 메신저입니다.</p>
-    </div>
     <hr>
-    <div>
-        <div>
-            <button><a href="#" style="text-decoration-line: none">그림</a></button>
-            <p>내 주변 아동안전이킴이집</p>
+    <div style="display: flex; justify-content: center;">
+        <div class="con02-div">
+            <button class="con02-btn"><a href="#">그림</a></button>
+            <p>내 주변 <br/> 아동안전이킴이집</p>
         </div>
-        <div>
-            <button><a href="#" style="text-decoration-line: none">그림</a></button>
-            <p>자율방범대 커뮤니티</p>
+
+        <div class="con02-div">
+            <button class="con02-btn"><a href="#">그림</a></button>
+            <p>자율방범대 <br/> 커뮤니티</p>
         </div>
-        <div>
-            <button><a href="#" style="text-decoration-line: none">그림</a></button>
-            <p>내 근처 아동수호천사 보기</p>
+
+        <div class="con02-div">
+            <button class="con02-btn"><a href="#">그림</a></button>
+            <p>내 근처 <br/> 아동수호천사 보기</p>
         </div>
-        <div>
-            <button><a href="#" style="text-decoration-line: none">그림</a></button>
+
+        <div class="con02-div">
+            <button class="con02-btn"><a href="#">그림</a></button>
             <p>비상상황 메뉴얼</p>
         </div>
+
     </div>
+    </section>
+
+    <!-- footer -->
+    <footer th:insert="~{/common/footer :: footerFragment}">
+        <h1>FOOTER</h1>
+    </footer>
+
 </body>
 </html>

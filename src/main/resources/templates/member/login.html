@@ -10,6 +10,12 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}"/>
 </head>
 <body>
+    <!-- header -->
+    <header th:replace="~{/common/header :: headerFragment}">
+        <h1>HEADER</h1>
+    </header>
+
+    <!-- contents -->
 <!--<h1>로그인</h1>-->
 <!--<form action="/member/login" method="post">-->
 <!--    <label for="member_id">아이디:</label>-->
@@ -43,6 +49,12 @@
 <!--            alert([[${loginError}]]);-->
 <!--        </script>-->
     </form>
+
+
+    <!-- footer -->
+    <footer th:insert="~{/common/footer :: footerFragment}">
+        <h1>FOOTER</h1>
+    </footer>
 
 </body>
 </html>
