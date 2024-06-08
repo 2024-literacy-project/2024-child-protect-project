@@ -3,20 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-<!--<style>
+<style>
     a{
         text-decoration: none;
     }
-    .con02-div{
+    /* header */
+    header{
+        text-align: center;
+    }
+
+    /* contents */
+    /* content01 */
+    .content01{
+        display: flex;
+        justify-content: center;
+    }
+    .con01-div01{
+        border:1px solid gray;
+        width: 40%;
+        height: 200px;
         margin-right: 20px;
+    }
+    .con01-div02{
+        border:1px solid gray;
+        width: 40%;
+        height: 200px;
+    }
+
+    /* content02 */
+    .content02{
+        display: flex;
+        justify-content: center;
+    }
+    .con02-div{
+        margin-right: 8%;
         text-align: center;
     }
     .con02-btn{
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
+        border-radius: 75px;
+        border: 0px;
+        box-shadow: 1px 1px 1px gray;
     }
-</style>-->
-    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+    /* footer */
+    footer{
+        text-align: center;
+    }
+</style>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/member/main.css}">
 </head>
 <body>
     <!-- header -->
@@ -34,23 +69,30 @@
     <!-- ----------------------------------------------------- -->
     <hr>
     <section>
-    <div style="display: flex; justify-content: center;">
-        <div style="border:1px solid gray; margin-bottom: 10px; width: 50%; height: 200px">
-            <p>지문 사전등록 신청</p>
-            <p>아동, 여성, 장애인 경찰지원 센터에서 아동들의 실종을 방지하고
-               실종 발생 시 신속한 발견을 위해서
-               지문 사전등록제를 운영하고 있습니다.
-            </p>
+    <div class="content01">
+
+        <div class="con01-div01">
+            <div>
+                <h1>지문 사전등록 신청</h1>
+                <p>아동, 여성, 장애인 경찰지원 센터에서 아동들의 실종을 방지하고
+                   실종 발생 시 신속한 발견을 위해서
+                   지문 사전등록제를 운영하고 있습니다.
+                </p>
+            </div>
+            <div>사진</div>
         </div>
 
-        <div style="border:1px solid gray; width: 50%; height: 200px;">
-            <p>실종아동 찾기</p>
-            <p>실종아동찾기 센터는 여러분의 가정을 지키는 사랑의 메신저입니다.</p>
+        <div class="con01-div02">
+            <div>사진</div>
+            <div>
+                <h1>실종아동 찾기</h1>
+                <p>실종아동찾기 센터는 여러분의 가정을 지키는 사랑의 메신저입니다.</p>
+            </div>
         </div>
     </div>
 
     <hr>
-    <div style="display: flex; justify-content: center;">
+    <div class="content02">
         <div class="con02-div">
             <button class="con02-btn"><a href="#">그림</a></button>
             <p>내 주변 <br/> 아동안전이킴이집</p>

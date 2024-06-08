@@ -7,9 +7,20 @@
         a{
             text-decoration-line: none;
         }
+        .aside-div{
+            border: 1px solid gray;
+            width: 180px;
+        }
+        /* 바로가기 */
+        .shortcut{
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        /* table */
         table{
-            width: 200px;
-            margin-left: 25px;
+            width: 150px;
+            margin-left: 15px;
             height: 500px;
             border-collapse: collapse;
             margin-bottom: 25px;
@@ -21,33 +32,37 @@
 </head>
 <body>
 
-<div style="border: 1px solid gray; width: 250px;">
-    <p style="text-align: center">바로가기</p>
-    <table border="1">
-<!--        <thead>-->
-<!--            <tr>-->
-<!--                <th>바로가기</th>-->
-<!--            </tr>-->
-<!--        </thead>-->
-        <tbody style="text-align: center;">
-            <tr>
-                <td><a href="#">내 주변 <br/>아동안전지킴이집</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">자율방범대 <br/> 커뮤니티</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">내 근처 <br/> 아동수호천사</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">비상 상황 메뉴얼</a></td>
-            </tr>
-            <tr>
-                <td><a href="#">실종아동센터 <br/> 182</a></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<aside th:fragment="asideFragment" class="aside">
+    <div class="aside-div">
+
+        <p class="shortcut">바로가기</p>
+
+        <table border="1">
+    <!--        <thead>-->
+    <!--            <tr>-->
+    <!--                <th>바로가기</th>-->
+    <!--            </tr>-->
+    <!--        </thead>-->
+            <tbody style="text-align: center;">
+                <tr>
+                    <td><a href="#">내 주변 <br/>아동안전지킴이집</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">자율방범대 <br/> 커뮤니티</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">내 근처 <br/> 아동수호천사</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">비상 상황 메뉴얼</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">실종아동센터 <br/> 182</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</aside>
 
 </body>
 </html>
