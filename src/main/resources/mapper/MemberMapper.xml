@@ -3,6 +3,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ohgiraffers.childprotectproject.member.DTO.MemberDAO">
+
+    <!--  로그인에 사용  -->
+    <select id="findByMemberIdAndPassword" parameterType="map" resultType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
+        SELECT member_id
+        FROM member
+        WHERE member_id = #{member_id} AND member_pw = #{member_pw}
+    </select>
+
+    <!---->
     <insert id="insertMember" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
         INSERT INTO member (member_id, member_pw, member_name, member_phone, member_role, guardians_role)
         VALUES (#{member_id}, #{member_pw}, #{member_name}, #{member_phone}, #{member_role}, #{guardians_role})

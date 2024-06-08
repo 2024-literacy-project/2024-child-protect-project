@@ -23,18 +23,24 @@ public class MemberServiceImpl implements MemberService {
         this.memberDAO = memberDAO;
     }
 
+    /* 로그인 */
+//    @Override
+//    public MemberDTO login(String member_id, String member_pw) {
+//        MemberDTO member = memberDAO.selectMemberById(member_id);
+//        if (member != null && member.getMember_pw().equals(member_pw)) {
+//            return member;
+//        }
+//        return null;
+//    }
+    @Override
+    public MemberDTO login(String member_id, String member_pw) {
+        return memberDAO.findByMemberIdAndPassword(member_id, member_pw);
+    }
+
+    // ----------------------------------------
     @Override
     public boolean registerMember(MemberDTO member) {
         return memberDAO.insertMember(member) == 1;
-    }
-
-    @Override
-    public MemberDTO login(String member_id, String member_pw) {
-        MemberDTO member = memberDAO.selectMemberById(member_id);
-        if (member != null && member.getMember_pw().equals(member_pw)) {
-            return member;
-        }
-        return null;
     }
 
     @Override
