@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+import java.util.Optional;
 
 
 @Service
@@ -48,6 +48,23 @@ public class MemberServiceImpl implements MemberService {
         return memberDAO.saveMember(member) > 0;
     }
 
+    /* 사용자리스트 (관리자용) */
+    // 보기
+    @Override
+    public List<MemberDTO> getAllMemberList(){
+        return memberDAO.getAllMemberList();
+    }
+    // 수정
+    @Override
+    public void updateMember(MemberDTO member){
+        memberDAO.updateMember(member);
+    }
+    // 특정 id로 조회
+    @Override
+    public Optional<MemberDTO> findByMemberId(String member_id){
+        MemberDTO memberDTO = memberDAO.findByMemberId(member_id);
+        return Optional.ofNullable(memberDTO);
+    }
 
 
     // ----------------------------------------
@@ -61,10 +78,10 @@ public class MemberServiceImpl implements MemberService {
         return memberDAO.selectMemberById(member_id);
     }
 
-    @Override
-    public boolean updateMember(MemberDTO member) {
-        return memberDAO.updateMember(member) == 1;
-    }
+//    @Override
+//    public boolean updateMember(MemberDTO member) {
+//        return memberDAO.updateMember(member) == 1;
+//    }
 
     @Override
     public boolean deleteMember(int member_no) {

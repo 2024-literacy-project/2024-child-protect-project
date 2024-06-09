@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/member")
@@ -59,7 +60,7 @@ public class MemberController{
 
         if (loggedInUser != null) {
             model.addAttribute("member_id", loggedInUser.getMember_id());
-            return "member/main"; // 'main.html' 파일을 반환
+            return "main/main"; // 'main.html' 파일을 반환
 
         } else {
             return "redirect:/member/login"; // 로그인 안된 상태이면 로그인 페이지로 리디렉션
@@ -96,6 +97,32 @@ public class MemberController{
     }
 
     // ----------------------------------------
+    /* 사용자리스트 (관리자용) */
+    // 보기
+    @GetMapping("/userList")
+    public String getAllMemberList(Model model){
+        model.addAttribute("memberList", memberServiceImpl.getAllMemberList());
+        return "member/userList";
+    }
+    // 수정
+    @GetMapping("/editList/{member_id}")
+    public String showUpdateMemberForm(@PathVariable String member_id, Model model){
+        Optional<MemberDTO> memberDTO = memberServiceImpl.findByMemberId(member_id);
+        if (memberDTO.isPresent()){
+            model.addAttribute("member", memberDTO.get());
+            return "member/editList";
+        } else {
+            return "member/errorPage";
+        }
+    }
+    @PostMapping("/editList")
+    public String updateMember(@ModelAttribute MemberDTO member){
+        memberServiceImpl.updateMember(member);
+        return "redirect:/member/userList";
+    }
+
+
+    // ----------------------------------------
     @GetMapping("/{member_id}")
     public MemberDTO getMember(@PathVariable String member_id) {
         return memberServiceImpl.getMemberById(member_id);
@@ -106,11 +133,16 @@ public class MemberController{
         return memberServiceImpl.getAllMembers();
     }
 
-    @PutMapping
-    public String updateMember(@RequestBody MemberDTO member) {
-        boolean result = memberServiceImpl.updateMember(member);
-        return result ? "Member information update successful" : "Member information update failed";
-    }
+//    @PutMapping
+//    public String updateMember(@RequestBody MemberDTO member) {
+//        boolean result = memberServiceImpl.updateMember(member);
+//        return result ? "Member information update successful" : "Member information update failed";
+//    }
+//    @PutMapping
+//    public String updateMember(@ModelAttribute MemberDTO member) {
+//        boolean result = memberServiceImpl.updateMember(member);
+//        return result ? "redirect:/member/userList" : "error";
+//    }
 
     @DeleteMapping("/{member_no}")
     public String deleteMember(@PathVariable int member_no) {

@@ -66,6 +66,11 @@
         <button type="submit">로그아웃</button>
     </form>
 
+    <!-- 회원리스트보기 버튼 -->
+    <div th:if="${member_id == 'admin'}">
+        <button type="button" onclick="location.href='/member/userList'">회원목록 관리</button>
+    </div>
+
     <!-- ----------------------------------------------------- -->
     <hr>
     <section>

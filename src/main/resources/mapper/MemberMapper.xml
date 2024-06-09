@@ -17,6 +17,23 @@
         VALUES (#{member_id}, #{member_pw}, #{member_name}, #{member_phone})
     </insert>
 
+    <!-- 사용자리스트 (관리자용)-->
+    <!-- 보기 -->
+    <select id="getAllMemberList" resultType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
+        SELECT * FROM member
+    </select>
+    <!-- 수정 -->
+    <update id="updateMember" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
+        UPDATE member
+        SET member_id = #{member_id}, member_pw=#{member_pw}, member_name=#{member_name}, member_phone=#{member_phone}
+        WHERE member_id = #{member_id}
+    </update>
+    <!-- 특정 id로 조회 -->
+    <select id="findByMemberId" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
+        SELECT * FROM member WHERE member_id = #{member_id}
+    </select>
+
+
     <!---->
     <insert id="insertMember" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
         INSERT INTO member (member_id, member_pw, member_name, member_phone, member_role, guardians_role)
@@ -36,11 +53,11 @@
         SELECT * FROM member
     </select>
 
-    <update id="updateMember" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
-        UPDATE member
-        SET member_pw = #{member_pw}, member_name = #{member_name}, member_phone = #{member_phone}, member_role = #{member_role}, guardians_role = #{guardians_role}
-        WHERE member_no = #{member_no}
-    </update>
+<!--    <update id="updateMember" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">-->
+<!--        UPDATE member-->
+<!--        SET member_pw = #{member_pw}, member_name = #{member_name}, member_phone = #{member_phone}, member_role = #{member_role}, guardians_role = #{guardians_role}-->
+<!--        WHERE member_no = #{member_no}-->
+<!--    </update>-->
 
     <delete id="deleteMember" parameterType="int">
         DELETE FROM member WHERE member_no = #{member_no}

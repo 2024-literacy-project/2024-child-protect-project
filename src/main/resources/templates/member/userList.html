@@ -7,27 +7,33 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}"/>
 </head>
 <body>
+
 <h1>회원 리스트</h1>
+
 <table border="1">
     <thead>
     <tr>
-        <th>회원 번호</th>
-        <th>아이디</th>
-        <th>역할</th>
+        <th>회원 아이디</th>
+        <th>회원 비밀번호</th>
+        <th>회원 이름</th>
+        <th>회원 전화번호</th>
         <th>수정</th>
         <th>삭제</th>
     </tr>
     </thead>
     <tbody>
     <!-- 회원 리스트를 여기에 출력 -->
-    <tr th:each="member : ${members}">
-        <td th:text="${member.memberNo}"></td>
-        <td th:text="${member.memberId}"></td>
-        <td th:text="${member.role}"></td>
-        <td><a th:href="@{/member/edit/{memberNo}(memberNo=${member.memberNo})}">수정</a></td>
-        <td><a th:href="@{/member/delete/{memberNo}(memberNo=${member.memberNo})}" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a></td>
+    <tr th:each="member : ${memberList}">
+        <td th:text="${member.member_id}"></td>
+        <td th:text="${member.member_pw}"></td>
+        <td th:text="${member.member_name}"></td>
+        <td th:text="${member.member_phone}"></td>
+
+        <td><a th:href="@{/member/editList/{member_id}(member_id=${member.member_id})}">수정</a></td>
+        <td><a th:href="@{/member/delete/{member_id}(member_id=${member.member_id})}" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a></td>
     </tr>
     </tbody>
 </table>
+
 </body>
 </html>
