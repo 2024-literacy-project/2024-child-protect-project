@@ -12,32 +12,33 @@
             width: 180px;
         }
         /* 바로가기 */
-        .shortcut{
+        .aside-shortcut{
             text-align: center;
             margin-top: 30px;
             margin-bottom: 30px;
         }
         /* table */
-        table{
+        .aside-tbl{
             width: 150px;
             margin-left: 15px;
             height: 500px;
             border-collapse: collapse;
             margin-bottom: 25px;
         }
-        tbody>tr>td{
+        .aside-tbl>tbody>tr>td{
             height: 100px;
         }
     </style>
 </head>
 <body>
 
-<aside th:fragment="asideFragment" class="aside">
+<!--<aside th:fragment="asideFragment" class="aside">-->
+<aside class="aside">
     <div class="aside-div">
 
-        <p class="shortcut">바로가기</p>
+        <p class="aside-shortcut">바로가기</p>
 
-        <table border="1">
+        <table border="1" class="aside-tbl">
     <!--        <thead>-->
     <!--            <tr>-->
     <!--                <th>바로가기</th>-->

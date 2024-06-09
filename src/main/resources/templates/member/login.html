@@ -7,13 +7,48 @@
 <!--    <script th:if="${loginError != null}">-->
 <!--        alert([[${loginError}]]);-->
 <!--    </script>-->
+    <style>
+        /* header */
+        header{
+            text-align: center;
+        }
+
+        /* contents */
+        /* input box */
+        .member_id{
+            width: 400px;
+            height: 35px;
+            margin-bottom: 10px;
+        }
+        .member_pw{
+            width: 400px;
+            height: 35px;
+        }
+        /* btn */
+        .login-btn{
+            width: 180px;
+            height: 35px;
+            margin-left: 10px;
+            margin-right: 30px;
+        }
+        .signup-btn{
+            width: 180px;
+            height: 35px;
+        }
+
+        /* footer */
+        footer{
+            text-align: center;
+        }
+    </style>
+
     <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}"/>
 </head>
 <body>
-    <!-- header -->
-    <header th:replace="~{/common/header :: headerFragment}">
-        <h1>HEADER</h1>
-    </header>
+<!-- header -->
+<header th:replace="~{/common/header :: headerFragment}">
+    <h1>HEADER</h1>
+</header>
 
     <!-- contents -->
 <!--<h1>로그인</h1>-->
@@ -28,43 +63,49 @@
 <!--</form>-->
 <!--<p th:text="${error}"></p>-->
 
-    <h1>로그인</h1>
-    <form action="/member/login" method="post">
+<section style="display: flex; justify-content: center;">
+    <div>
 
-        <div>
-<!--            <label for="member_id">아이디 :</label>-->
-            <input type="text" id="member_id" name="member_id" required placeholder="아이디">
-        </div>
-        <div>
-<!--            <label for="member_pw">비밀번호 :</label>-->
-            <input type="password" id="member_pw" name="member_pw" required placeholder="비밀번호">
-        </div>
+        <h1 style="text-align: center;">로그인</h1>
+        <form action="/member/login" method="post">
 
-        <div th:if="${loginError}" th:text="${loginError}"></div>
-
-        <div style="display: flex; margin-top: 20px;">
             <div>
-                <button type="submit">로그인</button>
+    <!--            <label for="member_id">아이디 :</label>-->
+                <input type="text" id="member_id" name="member_id" required placeholder="아이디" class="member_id">
             </div>
             <div>
-                <button type="button" onclick="location.href='/member/register'">회원가입</button>
+    <!--            <label for="member_pw">비밀번호 :</label>-->
+                <input type="password" id="member_pw" name="member_pw" required placeholder="비밀번호" class="member_pw">
             </div>
-        </div>
 
-<!--        <div th:if="${loginError}" th:text="${loginError}"></div>-->
+            <div th:if="${loginError}" th:text="${loginError}"></div>
 
-<!--        <div th:if="${param.error}" th:text="'아이디나 비밀번호가 일치하지 않습니다.'"></div>-->
+            <div style="display: flex; margin-top: 20px;">
+                <div>
+                    <button type="submit" class="login-btn">로그인</button>
+                </div>
+                <div>
+                    <button type="button" onclick="location.href='/member/register'" class="signup-btn">회원가입</button>
+                </div>
+            </div>
 
-<!--        <script th:if="${loginError != null}">-->
-<!--            alert([[${loginError}]]);-->
-<!--        </script>-->
-    </form>
+    <!--        <div th:if="${loginError}" th:text="${loginError}"></div>-->
+
+    <!--        <div th:if="${param.error}" th:text="'아이디나 비밀번호가 일치하지 않습니다.'"></div>-->
+
+    <!--        <script th:if="${loginError != null}">-->
+    <!--            alert([[${loginError}]]);-->
+    <!--        </script>-->
+        </form>
+
+    </div>
+</section>
 
 
-    <!-- footer -->
-    <footer th:insert="~{/common/footer :: footerFragment}">
-        <h1>FOOTER</h1>
-    </footer>
+<!-- footer -->
+<footer th:insert="~{/common/footer :: footerFragment}">
+    <h1>FOOTER</h1>
+</footer>
 
 </body>
 </html>

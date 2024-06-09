@@ -3,49 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <title>회원 가입</title>
+    <style>
+        /* header */
+        header{
+            text-align: center;
+        }
+        /* contents */
+        /* input box */
+        .member_id{
+            width: 400px;
+            height: 35px;
+            margin-bottom: 10px;
+        }
+        .member_pw{
+            width: 400px;
+            height: 35px;
+            margin-bottom: 10px;
+        }
+        .member_name{
+            width: 400px;
+            height: 35px;
+            margin-bottom: 10px;
+        }
+        .member_phone{
+            width: 400px;
+            height: 35px;
+            margin-bottom: 10px;
+        }
+        /* btn */
+        .signup-btn{
+            width: 300px;
+            height: 40px;
+            margin-left: 50px;
+        }
+
+        /* footer */
+        footer{
+            text-align: center;
+        }
+
+    </style>
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}"/>
 </head>
 <body>
 
-    <!-- header -->
-    <header th:replace="~{/common/header :: headerFragment}">
-        <h1>HEADER</h1>
-    </header>
+<!-- header -->
+<header th:replace="~{/common/header :: headerFragment}">
+    <h1>HEADER</h1>
+</header>
 
     <!-- contents -->
-    <h1>회원가입</h1>
-    <form action="/member/register" method="post">
+<section style="display: flex; justify-content: center;">
+    <div>
 
-    <!--    <label for="member_id">아이디 :</label>-->
-        <input type="text" id="member_id" name="member_id" required placeholder="아이디">
-        <br>
-    <!--    <label for="member_pw">비밀번호 :</label>-->
-        <input type="password" id="member_pw" name="member_pw" required placeholder="비밀번호">
-        <br>
-    <!--    <label for="member_name">이름 :</label>-->
-        <input type="text" id="member_name" name="member_name" required placeholder="이름">
-        <br>
-    <!--    <label for="member_phone">전화번호 :</label>-->
-        <input type="text" id="member_phone" name="member_phone" required placeholder="전화번호">
-        <br>
-    <!--    <label for="role">역할:</label>
-        <select id="role" name="role">
-            <option value="USER">사용자</option>
-            <option value="ADMIN">관리자</option>
-        </select>
-        <br>-->
+        <h1 style="text-align: center;">회원가입</h1>
+        <form action="/member/register" method="post">
 
-        <button type="submit">회원가입</button>
+            <div>
+                <!--    <label for="member_id">아이디 :</label>-->
+                <input type="text" id="member_id" name="member_id" required placeholder="아이디" class="member_id">
+            </div>
+            <div>
+                <!--    <label for="member_pw">비밀번호 :</label>-->
+                <input type="password" id="member_pw" name="member_pw" required placeholder="비밀번호" class="member_pw">
+            </div>
+            <div>
+                <!--    <label for="member_name">이름 :</label>-->
+                <input type="text" id="member_name" name="member_name" required placeholder="이름" class="member_name">
+            </div>
+            <div>
+                <!--    <label for="member_phone">전화번호 :</label>-->
+                <input type="text" id="member_phone" name="member_phone" required placeholder="전화번호" class="member_phone">
+            </div>
 
-        <div th:if="${registrationError}" th:text="${registrationError}"></div>
+        <!-- <div>
+                <label for="role">역할:</label>
+                <select id="role" name="role">
+                    <option value="USER">사용자</option>
+                    <option value="ADMIN">관리자</option>
+                </select>
+            <br>
+            </div>-->
 
-    </form>
+            <div>
+                <button type="submit" class="signup-btn">회원가입</button>
+            </div>
 
-    <!-- footer -->
-    <footer th:insert="~{/common/footer :: footerFragment}">
-        <h1>FOOTER</h1>
-    </footer>
+            <div th:if="${registrationError}" th:text="${registrationError}"></div>
+
+        </form>
+
+    </div>
+</section>
+
+<!-- footer -->
+<footer th:insert="~{/common/footer :: footerFragment}">
+    <h1>FOOTER</h1>
+</footer>
 
 </body>
 </html>

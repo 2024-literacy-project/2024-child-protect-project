@@ -1,34 +1,155 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>게시글 수정</title>
-  <link rel="stylesheet" href="/css/styles.css">
+    <meta charset="UTF-8">
+    <title>게시글 수정</title>
+    <style>
+        /* ==== header ==== */
+        header{
+            text-align: center;
+        }
+        /* ==== aside ==== */
+        a{
+            text-decoration-line: none;
+        }
+        aside{
+            margin-left: 9%;
+        }
+        .aside-div{
+            border: 1px solid gray;
+            width: 200px;
+        }
+        /* 바로가기 */
+        .aside-shortcut{
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        /* table */
+        .aside-tbl{
+            width: 160px;
+            margin-left: 20px;
+            height: 500px;
+            border-collapse: collapse;
+            margin-bottom: 25px;
+        }
+        .aside-tbl>tbody>tr>td{
+            height: 100px;
+        }
+        /* ==== section (게시판) ==== */
+        .board-sec{
+            border: 1px solid gray;
+            width: 65%;
+            margin-left: 4%;
+        }
+        .board-tbl{
+            border-collapse: collapse;
+            width: 95%;
+            height: 500px;
+        }
+        /* ==== footer ==== */
+        footer{
+            text-align: center;
+        }
+    </style>
+
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-<h1>게시글 수정</h1>
-<form action="/community/update" method="post">
-  <input type="hidden" name="board_no" th:value="${cmu.board_no}">
-  <table border="1">
-    <tr>
-      <th>제목</th>
-      <td><input type="text" name="board_title" th:value="${cmu.board_title}" required></td>
-    </tr>
-    <tr>
-      <th>작성자</th>
-      <td><input type="text" name="member_id" th:value="${cmu.member_id}" required></td>
-    </tr>
-    <tr>
-      <th>내용</th>
-      <td><textarea name="board_contents" rows="10" required th:text="${cmu.board_contents}"></textarea></td>
-    </tr>
-    <tr>
-      <th>날짜</th>
-      <td><input type="text" name="board_date" th:value="${cmu.board_date}" required></td>
-    </tr>
-  </table>
-  <button type="submit">수정</button>
-  <a href="/community/list">취소</a>
-</form>
+<!-- header -->
+<header th:replace="~{/common/header :: headerFragment}">
+  <h1>HEADER</h1>
+</header>
+
+<!-- contents-->
+<div style="display: flex;">
+    <!-- aside -->
+    <!--    <aside th:replace="~{/common/aside :: asideFragment}">-->
+    <!--        <h1>aside</h1>-->
+    <!--    </aside>-->
+    <aside class="aside">
+        <div class="aside-div">
+
+            <p class="aside-shortcut">바로가기</p>
+
+            <table border="1" class="aside-tbl">
+                <!--        <thead>-->
+                <!--            <tr>-->
+                <!--                <th>바로가기</th>-->
+                <!--            </tr>-->
+                <!--        </thead>-->
+                <tbody style="text-align: center;">
+                <tr>
+                    <td><a href="#">내 주변 <br/>아동안전지킴이집</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">자율방범대 <br/> 커뮤니티</a></td>
+                </tr>
+                <tr>
+                   <td><a href="#">내 근처 <br/> 아동수호천사</a></td>
+                </tr>
+                <tr>
+                   <td><a href="#">비상 상황 메뉴얼</a></td>
+                </tr>
+                <tr>
+                   <td><a href="#">실종아동센터 <br/> 182</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </aside>
+    <!-- 게시판 -->
+    <section class="board-sec">
+        <div style="margin-left: 10%;">
+            <h1>글 수정</h1>
+
+            <form action="/community/update" method="post">
+                <input type="hidden" name="board_no" th:value="${cmu.board_no}">
+                <table border="1" class="board-tbl">
+                    <tr>
+                        <th>제목</th>
+                        <td>
+                            <input type="text" name="board_title" th:value="${cmu.board_title}" required style="border: 1px solid lightgray; width: 70%;height: 25px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>작성자</th>
+                        <td>
+                            <input type="text" name="member_id" th:value="${cmu.member_id}" required style="border: 1px solid lightgray; width: 70%;height: 25px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>내용</th>
+                        <td>
+                            <textarea name="board_contents" rows="10" required th:text="${cmu.board_contents}" style="border: 1px solid lightgray; width: 70%;height: 80%;"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>날짜</th>
+                        <td>
+                            <input type="text" name="board_date" th:value="${cmu.board_date}" required style="border: 1px solid lightgray; width: 50%;height: 25px;">
+                        </td>
+                    </tr>
+                </table>
+
+                <div style="margin-top: 10px;">
+                    <button type="submit">수정</button>
+                    <button>
+                        <a href="/community/list">취소</a>
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </section>
+
+</div>
+
+<!-- footer -->
+<footer th:insert="~{/common/footer :: footerFragment}">
+  <h1>FOOTER</h1>
+</footer>
+
 </body>
 </html>
