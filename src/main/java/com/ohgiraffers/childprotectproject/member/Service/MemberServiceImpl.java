@@ -38,11 +38,19 @@ public class MemberServiceImpl implements MemberService {
     }
 
     // ----------------------------------------
+    /* 회원가입 */
+//    @Override
+//    public boolean registerMember(MemberDTO member) {
+//        return memberDAO.insertMember(member) == 1;
+//    }
     @Override
     public boolean registerMember(MemberDTO member) {
-        return memberDAO.insertMember(member) == 1;
+        return memberDAO.saveMember(member) > 0;
     }
 
+
+
+    // ----------------------------------------
     @Override
     public List<MemberDTO> getAllMembers() {
         return memberDAO.selectAllMembers();

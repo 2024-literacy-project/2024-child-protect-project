@@ -73,12 +73,29 @@ public class MemberController{
     }
 
     // ----------------------------------------
-    @PostMapping
-    public String addMember(@RequestBody MemberDTO member) {
-        boolean result = memberServiceImpl.registerMember(member);
-        return result ? "Member registration successful" : "Member registration failed";
+    /* 회원가입 */
+//    @PostMapping("/register")
+//    public String addMember(@RequestBody MemberDTO member) {
+//        boolean result = memberServiceImpl.registerMember(member);
+//        return result ? "Member registration successful" : "Member registration failed";
+//    }
+    @GetMapping("/register")
+    public String showRegistrationForm() {
+        return "member/register"; // 'register.html' 파일을 반환
     }
 
+    @PostMapping("/register")
+    public String addMember(@ModelAttribute MemberDTO member, Model model) {
+        boolean result = memberServiceImpl.registerMember(member);
+        if (result) {
+            return "redirect:/member/login"; // 회원가입 성공 시 로그인 페이지로 리디렉션
+        } else {
+            model.addAttribute("registrationError", "회원가입에 실패했습니다. 다시 시도해주세요.");
+            return "member/register"; // 회원가입 실패 시 다시 회원가입 페이지
+        }
+    }
+
+    // ----------------------------------------
     @GetMapping("/{member_id}")
     public MemberDTO getMember(@PathVariable String member_id) {
         return memberServiceImpl.getMemberById(member_id);

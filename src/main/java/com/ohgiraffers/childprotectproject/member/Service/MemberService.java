@@ -10,8 +10,11 @@ public interface MemberService {
     /* 로그인 */
     MemberDTO login(String member_id, String member_pw);
 
-    //
+    /* 회원가입 */
     boolean registerMember(MemberDTO member);
+
+    //
+//    boolean registerMember(MemberDTO member);
     List<MemberDTO> getAllMembers();
     MemberDTO getMemberById(String member_id);
     boolean updateMember(MemberDTO member);

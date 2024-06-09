@@ -11,6 +11,12 @@
         WHERE member_id = #{member_id} AND member_pw = #{member_pw}
     </select>
 
+    <!-- 회원가입 -->
+    <insert id="saveMember" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
+        INSERT INTO member (member_id, member_pw, member_name, member_phone)
+        VALUES (#{member_id}, #{member_pw}, #{member_name}, #{member_phone})
+    </insert>
+
     <!---->
     <insert id="insertMember" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
         INSERT INTO member (member_id, member_pw, member_name, member_phone, member_role, guardians_role)
