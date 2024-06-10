@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <title>회원 가입</title>
     <style>
+        a{
+            text-decoration: none;
+        }
+        #wrap{
+            min-height: 100%;
+            position: relative;
+            /*padding-bottom: 50px;*/
+        }
         /* header */
         header{
             text-align: center;
@@ -40,13 +48,19 @@
         /* footer */
         footer{
             text-align: center;
+            width: 100%;
+            /*position: absolute;*/
+            /*position: fixed;*/
+            bottom: 0px;
+            height: 80px;
         }
 
     </style>
 
-    <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/member/register.css}"/>
 </head>
 <body>
+<div id="wrap">
 
 <!-- header -->
 <header th:replace="~{/common/header :: headerFragment}">
@@ -102,5 +116,6 @@
     <h1>FOOTER</h1>
 </footer>
 
+</div>
 </body>
 </html>

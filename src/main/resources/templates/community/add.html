@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <title>새 글 작성</title>
     <style>
+        a{
+            text-decoration: none;
+        }
+        #wrap{
+            min-height: 100%;
+            position: relative;
+            /*padding-bottom: 50px;*/
+        }
         /* ==== header ==== */
         header{
             text-align: center;
@@ -48,14 +56,22 @@
             height: 500px;
         }
         /* ==== footer ==== */
+        /* footer */
         footer{
             text-align: center;
+            width: 100%;
+            /*position: absolute;*/
+            /*position: fixed;*/
+            bottom: 0px;
+            height: 80px;
         }
     </style>
 
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/community/add.css}"/>
 </head>
 <body>
+<div id="wrap">
+
 <!-- header -->
 <header th:replace="~{/common/header :: headerFragment}">
     <h1>HEADER</h1>
@@ -178,10 +194,12 @@
 
 </div>
 
+<!-- --------------------------------------------------------- -->
 <!-- footer -->
 <footer th:insert="~{/common/footer :: footerFragment}">
     <h1>FOOTER</h1>
 </footer>
 
+</div>
 </body>
 </html>

@@ -11,7 +11,7 @@ public interface CmuService {
     /* 리스트 */
     List<CmuDTO> getAllCmuList();
 
-    CmuDTO getCmuByNo(int board_no);
+    CmuDTO getCmuByNo(int board_no);    //상세, 삭제 에 사용
 
     /* 추가 */
     void insertCmu(CmuDTO cmu);
@@ -23,7 +23,7 @@ public interface CmuService {
     void updateCmu(CmuDTO cmu);
 
     /* 특정 ID로 조회 */
-    Optional<CmuDTO> findById(int board_no);
+    Optional<CmuDTO> findById(int board_no);    //수정에 사용
 
 
 

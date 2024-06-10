@@ -16,8 +16,6 @@ public interface MemberDAO {
 
         // ----------------------------------------------------
         /* 회원가입 */
-//        @Insert("INSERT INTO members (member_id, member_pw, member_name, member_phone) VALUES (#{member_id}, #{member_pw}, #{member_name}, #{member_phone})")
-//        int saveMember(MemberDTO member);
         int saveMember(MemberDTO member);
 
         // ----------------------------------------------------
@@ -35,14 +33,5 @@ public interface MemberDAO {
 
         // ----------------------------------------------------
 
-//        int insertMember(MemberDTO member);
 
-//        MemberDTO selectMemberById(String member_id);
-//        List<MemberDTO> selectAllMembers();
-
-//        int updateMember(MemberDTO member);
-
-//        int deleteMember(int member_no);
-        UserRole getMemberRole(int member_no);
-        MemberDTO getMemberById(String member_id);
 }

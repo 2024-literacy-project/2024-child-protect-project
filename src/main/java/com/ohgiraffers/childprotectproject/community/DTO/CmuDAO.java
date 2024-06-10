@@ -7,7 +7,7 @@ public interface CmuDAO {
     /* 리스트 */
     List<CmuDTO> getAllCmuList();
 
-    CmuDTO getCmuByNo(int board_no);
+    CmuDTO getCmuByNo(int board_no);    //상세, 삭제 에 사용
 
     /* 추가 */
     void insertCmu(CmuDTO cmu);
@@ -19,7 +19,7 @@ public interface CmuDAO {
     void updateCmu(CmuDTO cmu);
 
 
-    CmuDTO findById(int board_no);
+    CmuDTO findById(int board_no);      //수정에 사용
 
 
 

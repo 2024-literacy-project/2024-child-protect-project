@@ -27,14 +27,4 @@ public interface MemberService {
     void deleteMember(String member_id);
 
 
-    //
-//    boolean registerMember(MemberDTO member);
-
-//    List<MemberDTO> getAllMembers();
-//    MemberDTO getMemberById(String member_id);
-
-//    boolean updateMember(MemberDTO member);
-//    boolean deleteMember(int member_no);
-    UserRole getMemberRole(int member_no);
-    MemberDTO selectMemberById(String member_id);
 }

@@ -21,7 +21,7 @@ public class CmuServiceImpl implements CmuService {
     }
 
     @Override
-    public CmuDTO getCmuByNo(int board_no) {
+    public CmuDTO getCmuByNo(int board_no) {    //상세, 삭제 에 사용
         return cmuDAO.getCmuByNo(board_no);
     }
 
@@ -45,7 +45,7 @@ public class CmuServiceImpl implements CmuService {
 
     /* 특정 ID로 조회 */
     @Override
-    public Optional<CmuDTO> findById(int board_no) {
+    public Optional<CmuDTO> findById(int board_no) {        //수정에 사용
 //        CmuDTO cmuDTO = cmuDAO.getCmuByNo(question_no);
         CmuDTO cmuDTO = cmuDAO.findById(board_no);
         return Optional.ofNullable(cmuDTO);

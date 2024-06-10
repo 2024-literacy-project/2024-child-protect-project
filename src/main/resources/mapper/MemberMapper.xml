@@ -14,7 +14,7 @@
     <!-- 회원가입 -->
     <insert id="saveMember" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
         INSERT INTO member (member_id, member_pw, member_name, member_phone, member_role, guardians_role)
-        VALUES (#{member_id}, #{member_pw}, #{member_name}, #{member_phone}, '사용자', '미승인')
+        VALUES (#{member_id}, #{member_pw}, #{member_name}, #{member_phone}, '사용자', 'N')
     </insert>
 
     <!-- 사용자리스트 (관리자용)-->
@@ -38,39 +38,6 @@
         DELETE FROM member WHERE member_id = #{member_id}
     </delete>
 
-
-
     <!---->
-<!--    <insert id="insertMember" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">-->
-<!--        INSERT INTO member (member_id, member_pw, member_name, member_phone, member_role, guardians_role)-->
-<!--        VALUES (#{member_id}, #{member_pw}, #{member_name}, #{member_phone}, #{member_role}, #{guardians_role})-->
-<!--    </insert>-->
-
-    <select id="selectMemberById" parameterType="String" resultType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
-        SELECT * FROM member WHERE member_id = #{member_id}
-    </select>
-
-
-<!--    <select id="getMemberById" parameterType="String" resultType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">-->
-<!--        SELECT * FROM member WHERE member_id = #{member_id}-->
-<!--    </select>-->
-
-<!--    <select id="selectAllMembers" resultType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">-->
-<!--        SELECT * FROM member-->
-<!--    </select>-->
-
-<!--    <update id="updateMember" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">-->
-<!--        UPDATE member-->
-<!--        SET member_pw = #{member_pw}, member_name = #{member_name}, member_phone = #{member_phone}, member_role = #{member_role}, guardians_role = #{guardians_role}-->
-<!--        WHERE member_no = #{member_no}-->
-<!--    </update>-->
-
-<!--    <delete id="deleteMember" parameterType="int">-->
-<!--        DELETE FROM member WHERE member_no = #{member_no}-->
-<!--    </delete>-->
-
-    <select id="getMemberRole" parameterType="int" resultType="com.ohgiraffers.childprotectproject.member.common.UserRole">
-        SELECT member_role FROM member WHERE member_no = #{member_no}
-    </select>
 
 </mapper>

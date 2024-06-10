@@ -16,8 +16,6 @@ public class MemberServiceImpl implements MemberService {
 
     private final MemberDAO memberDAO;
 
-
-
     @Autowired
     public MemberServiceImpl(MemberDAO memberDAO) {
         this.memberDAO = memberDAO;
@@ -48,6 +46,7 @@ public class MemberServiceImpl implements MemberService {
         return memberDAO.saveMember(member) > 0;
     }
 
+    // ----------------------------------------
     /* 사용자리스트 (관리자용) */
     // 보기
     @Override
@@ -74,34 +73,5 @@ public class MemberServiceImpl implements MemberService {
 
 
     // ----------------------------------------
-//    @Override
-//    public List<MemberDTO> getAllMembers() {
-//        return memberDAO.selectAllMembers();
-//    }
-//
-//    @Override
-//    public MemberDTO getMemberById(String member_id) {
-//        return memberDAO.selectMemberById(member_id);
-//    }
 
-//    @Override
-//    public boolean updateMember(MemberDTO member) {
-//        return memberDAO.updateMember(member) == 1;
-//    }
-
-//    @Override
-//    public boolean deleteMember(int member_no) {
-//        return memberDAO.deleteMember(member_no) == 1;
-//    }
-
-    @Override
-    public UserRole getMemberRole(int member_no) {
-        return memberDAO.getMemberRole(member_no);
-    }
-
-    @Override
-    public MemberDTO selectMemberById(String member_id) {
-        // Implementation matches the getMemberById method, assuming they perform the same action.
-        return memberDAO.getMemberById(member_id);
-    }
 }

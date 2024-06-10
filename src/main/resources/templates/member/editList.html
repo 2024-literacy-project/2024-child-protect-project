@@ -3,10 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <title>회원 수정</title>
+    <style>
+        a{
+            text-decoration: none;
+        }
+        #wrap{
+            min-height: 100%;
+            position: relative;
+            /*padding-bottom: 50px;*/
+        }
+        /* header */
+        header{
+            text-align: center;
+        }
 
-    <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}"/>
+        /* footer */
+        footer{
+            text-align: center;
+            width: 100%;
+            /*position: absolute;*/
+            /*position: fixed;*/
+            bottom: 0px;
+            height: 80px;
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/member/editList.css}"/>
 </head>
 <body>
+<div id="wrap">
+
+<!-- header -->
+<header th:replace="~{/common/header :: headerFragment}">
+    <h1>HEADER</h1>
+</header>
+
+<!-- --------------------------------------------------------- -->
+<!-- login : o -->
+<div th:if="${member_id}">
+    <!--    <h1>안녕하세요:)</h1>-->
+    <p> <span th:text="${member_id}"></span> 님!</p>
+    <form action="/member/logout" method="get">
+        <button type="submit">로그아웃</button>
+    </form>
+</div>
+
+<!-- login : x -->
+<div th:if="${member_id == null}">
+    <form action="/member/login" method="get">
+        <button type="submit">로그인</button>
+    </form>
+    <form action="/member/register" method="get">
+        <button type="submit">회원가입</button>
+    </form>
+</div>
+
+<!-- 회원리스트보기 버튼(관리자용) -->
+<div th:if="${member_id == 'admin'}">
+    <button type="button" onclick="location.href='/member/userList'">회원목록 관리</button>
+</div>
+
+<!-- --------------------------------------------------------- -->
+<!-- contents-->
 <h1>회원 수정</h1>
 
 <form action="/member/editList" method="post">
@@ -45,6 +103,12 @@
     <button type="submit">수정</button>
     <a href="/member/userList">취소</a>
 </form>
+
+<!-- --------------------------------------------------------- -->
+<!-- footer -->
+<footer th:insert="~{/common/footer :: footerFragment}">
+    <h1>FOOTER</h1>
+</footer>
 
 </body>
 </html>
