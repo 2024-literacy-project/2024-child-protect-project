@@ -122,6 +122,12 @@ public class MemberController{
         memberServiceImpl.updateMember(member);
         return "redirect:/member/userList";
     }
+    // 삭제
+    @GetMapping("/delete/{member_id}")
+    public String deleteCmu(@PathVariable String member_id) {
+        memberServiceImpl.deleteMember(member_id);
+        return "redirect:/member/userList";
+    }
 
 
     // ----------------------------------------
@@ -146,9 +152,9 @@ public class MemberController{
 //        return result ? "redirect:/member/userList" : "error";
 //    }
 
-    @DeleteMapping("/{member_no}")
-    public String deleteMember(@PathVariable int member_no) {
-        boolean result = memberServiceImpl.deleteMember(member_no);
-        return result ? "Member deletion successful" : "Member deletion failed";
-    }
+//    @DeleteMapping("/{member_no}")
+//    public String deleteMember(@PathVariable int member_no) {
+//        boolean result = memberServiceImpl.deleteMember(member_no);
+//        return result ? "Member deletion successful" : "Member deletion failed";
+//    }
 }

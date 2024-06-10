@@ -30,6 +30,9 @@ public interface MemberDAO {
         // 특정 id로 조회
         MemberDTO findByMemberId(String member_id);
 
+        // 삭제
+        void deleteMember(String member_id);
+
         // ----------------------------------------------------
 
         int insertMember(MemberDTO member);
@@ -39,7 +42,7 @@ public interface MemberDAO {
 
 //        int updateMember(MemberDTO member);
 
-        int deleteMember(int member_no);
+//        int deleteMember(int member_no);
         UserRole getMemberRole(int member_no);
         MemberDTO getMemberById(String member_id);
 }

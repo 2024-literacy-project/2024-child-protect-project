@@ -17,6 +17,8 @@
         <th>회원 비밀번호</th>
         <th>회원 이름</th>
         <th>회원 전화번호</th>
+        <th>권한</th>
+        <th>방범대 권한</th>
         <th>수정</th>
         <th>삭제</th>
     </tr>
@@ -28,6 +30,8 @@
         <td th:text="${member.member_pw}"></td>
         <td th:text="${member.member_name}"></td>
         <td th:text="${member.member_phone}"></td>
+        <td th:text="${member.member_role}"></td>
+        <td th:text="${member.guardians_role}"></td>
 
         <td><a th:href="@{/member/editList/{member_id}(member_id=${member.member_id})}">수정</a></td>
         <td><a th:href="@{/member/delete/{member_id}(member_id=${member.member_id})}" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a></td>

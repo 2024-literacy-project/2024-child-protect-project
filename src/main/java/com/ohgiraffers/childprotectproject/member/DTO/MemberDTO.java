@@ -8,13 +8,16 @@ public class MemberDTO {
     private String member_pw;
     private String member_name;
     private String member_phone;
-    private UserRole member_role;
+
+//    private UserRole member_role;
+    private String member_role;
+
     private String guardians_role;
 
     public MemberDTO() {
     }
 
-    public MemberDTO(int member_no, String member_id, String member_pw, String member_name, String member_phone, UserRole member_role, String guardians_role) {
+    public MemberDTO(int member_no, String member_id, String member_pw, String member_name, String member_phone, String member_role, String guardians_role) {
         this.member_no = member_no;
         this.member_id = member_id;
         this.member_pw = member_pw;
@@ -64,11 +67,11 @@ public class MemberDTO {
         this.member_phone = member_phone;
     }
 
-    public UserRole getMember_role() {
+    public String getMember_role() {
         return member_role;
     }
 
-    public void setMember_role(UserRole member_role) {
+    public void setMember_role(String member_role) {
         this.member_role = member_role;
     }
 

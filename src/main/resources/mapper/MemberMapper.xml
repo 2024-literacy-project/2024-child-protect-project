@@ -13,8 +13,8 @@
 
     <!-- 회원가입 -->
     <insert id="saveMember" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
-        INSERT INTO member (member_id, member_pw, member_name, member_phone)
-        VALUES (#{member_id}, #{member_pw}, #{member_name}, #{member_phone})
+        INSERT INTO member (member_id, member_pw, member_name, member_phone, member_role, guardians_role)
+        VALUES (#{member_id}, #{member_pw}, #{member_name}, #{member_phone}, '사용자', '미승인')
     </insert>
 
     <!-- 사용자리스트 (관리자용)-->
@@ -25,13 +25,19 @@
     <!-- 수정 -->
     <update id="updateMember" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
         UPDATE member
-        SET member_id = #{member_id}, member_pw=#{member_pw}, member_name=#{member_name}, member_phone=#{member_phone}
+        SET member_id = #{member_id}, member_pw=#{member_pw}, member_name=#{member_name}, member_phone=#{member_phone}, member_role=#{member_role}, guardians_role=#{guardians_role}
         WHERE member_id = #{member_id}
     </update>
     <!-- 특정 id로 조회 -->
     <select id="findByMemberId" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
         SELECT * FROM member WHERE member_id = #{member_id}
     </select>
+
+    <!-- 삭제 -->
+    <delete id="deleteMember" parameterType="string">
+        DELETE FROM member WHERE member_id = #{member_id}
+    </delete>
+
 
 
     <!---->
@@ -59,9 +65,9 @@
 <!--        WHERE member_no = #{member_no}-->
 <!--    </update>-->
 
-    <delete id="deleteMember" parameterType="int">
-        DELETE FROM member WHERE member_no = #{member_no}
-    </delete>
+<!--    <delete id="deleteMember" parameterType="int">-->
+<!--        DELETE FROM member WHERE member_no = #{member_no}-->
+<!--    </delete>-->
 
     <select id="getMemberRole" parameterType="int" resultType="com.ohgiraffers.childprotectproject.member.common.UserRole">
         SELECT member_role FROM member WHERE member_no = #{member_no}

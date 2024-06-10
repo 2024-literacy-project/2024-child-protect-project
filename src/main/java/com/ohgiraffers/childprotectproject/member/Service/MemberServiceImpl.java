@@ -66,6 +66,12 @@ public class MemberServiceImpl implements MemberService {
         return Optional.ofNullable(memberDTO);
     }
 
+    // 삭제
+    @Override
+    public void deleteMember(String member_id){
+        memberDAO.deleteMember(member_id);
+    }
+
 
     // ----------------------------------------
     @Override
@@ -83,10 +89,10 @@ public class MemberServiceImpl implements MemberService {
 //        return memberDAO.updateMember(member) == 1;
 //    }
 
-    @Override
-    public boolean deleteMember(int member_no) {
-        return memberDAO.deleteMember(member_no) == 1;
-    }
+//    @Override
+//    public boolean deleteMember(int member_no) {
+//        return memberDAO.deleteMember(member_no) == 1;
+//    }
 
     @Override
     public UserRole getMemberRole(int member_no) {
