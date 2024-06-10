@@ -70,7 +70,8 @@ public class MemberController{
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate(); // 세션 무효화
-        return "redirect:/member/login"; // 로그아웃 후 로그인 페이지로 리디렉션
+//        return "redirect:/member/login"; // 로그아웃 후 로그인 페이지로 리디렉션
+        return "redirect:/";
     }
 
     // ----------------------------------------
@@ -89,7 +90,8 @@ public class MemberController{
     public String addMember(@ModelAttribute MemberDTO member, Model model) {
         boolean result = memberServiceImpl.registerMember(member);
         if (result) {
-            return "redirect:/member/login"; // 회원가입 성공 시 로그인 페이지로 리디렉션
+//            return "redirect:/member/login"; // 회원가입 성공 시 로그인 페이지로 리디렉션
+            return "redirect:/";    //
         } else {
             model.addAttribute("registrationError", "회원가입에 실패했습니다. 다시 시도해주세요.");
             return "member/register"; // 회원가입 실패 시 다시 회원가입 페이지
