@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Location Data</title>
+</head>
+<body>
+<h1>Location Data</h1>
+
+<!--&lt;!&ndash; Form to input latitude and longitude values &ndash;&gt;-->
+<!--<form action="/fetchData" method="get">-->
+<!--    <label for="minLat">Minimum Latitude:</label>-->
+<!--    <input type="text" id="minLat" name="minLat" required>-->
+<!--    <br>-->
+<!--    <label for="maxLat">Maximum Latitude:</label>-->
+<!--    <input type="text" id="maxLat" name="maxLat" required>-->
+<!--    <br>-->
+<!--    <label for="minLon">Minimum Longitude:</label>-->
+<!--    <input type="text" id="minLon" name="minLon" required>-->
+<!--    <br>-->
+<!--    <label for="maxLon">Maximum Longitude:</label>-->
+<!--    <input type="text" id="maxLon" name="maxLon" required>-->
+<!--    <br>-->
+<!--    <button type="submit">Fetch Data</button>-->
+<!--</form>-->
+
+<!-- Table to display location data -->
+<table>
+    <thead>
+    <tr>
+        <th>RN</th>
+        <th>Business Name</th>
+        <th>Telephone</th>
+        <th>Address</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Class Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="location : ${locationDataList}">
+        <td th:text="${location.rn}">RN</td>
+        <td th:text="${location.bsshNm}">Business Name</td>
+        <td th:text="${location.telno}">Telephone</td>
+        <td th:text="${location.adres}">Address</td>
+        <td th:text="${location.lcinfoLa}">Latitude</td>
+        <td th:text="${location.lcinfoLo}">Longitude</td>
+        <td th:text="${location.clNm}">Class Name</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

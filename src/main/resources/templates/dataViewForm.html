@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch Public Data</title>
+</head>
+<body>
+<!-- Form to input latitude and longitude values -->
+<form action="/fetchData" method="get">
+    <label for="minLat">Minimum Latitude:</label>
+    <input type="text" id="minLat" name="minLat" required>
+    <br>
+    <label for="minLon">Minimum Longitude:</label>
+    <input type="text" id="minLon" name="minLon" required>
+    <br>
+    <label for="maxLat">Maximum Latitude:</label>
+    <input type="text" id="maxLat" name="maxLat" required>
+    <br>
+    <label for="maxLon">Maximum Longitude:</label>
+    <input type="text" id="maxLon" name="maxLon" required>
+    <br>
+    <button type="submit">Fetch Data</button>
+</form>
+
+</body>
+</html>
