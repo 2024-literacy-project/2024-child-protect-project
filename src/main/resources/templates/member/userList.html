@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>사용자 리스트</title>
+    <style>
+        .green {
+            color: green;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}"/>
 </head>
@@ -31,7 +40,9 @@
         <td th:text="${member.member_name}"></td>
         <td th:text="${member.member_phone}"></td>
         <td th:text="${member.member_role}"></td>
-        <td th:text="${member.guardians_role}"></td>
+        <td th:text="${member.guardians_role}"
+            th:classappend="${member.guardians_role} == '미승인' ? 'red' : 'green'">
+        </td>
 
         <td><a th:href="@{/member/editList/{member_id}(member_id=${member.member_id})}">수정</a></td>
         <td><a th:href="@{/member/delete/{member_id}(member_id=${member.member_id})}" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a></td>

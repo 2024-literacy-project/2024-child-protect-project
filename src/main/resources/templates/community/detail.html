@@ -129,6 +129,13 @@
         <div style="margin-left: 10%;">
             <h1>글 상세</h1>
 
+            <!-- 오류 메시지 표시 -->
+            <div th:if="${errorMessage}" style="color: red; font-weight: bold;">
+                <p th:text="${errorMessage}"></p>
+            </div>
+
+
+            <!---->
             <table border="1" class="board-tbl">
                 <tr>
                     <th>제목</th>

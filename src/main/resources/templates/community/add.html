@@ -140,7 +140,15 @@
                     <tr>
                         <th>작성자</th>
                         <td>
-                            <input type="text" name="member_id" required style="border: 1px solid lightgray; width: 70%;height: 25px;">
+<!--                            <input type="text" name="member_id" required style="border: 1px solid lightgray; width: 70%;height: 25px;">-->
+                            <input type="text" name="member_id" th:value="${member_id}" readonly style="border: 1px solid white;">
+                           <!-- <div th:if="${member_id}">
+                                <p><span th:text="${member_id}"></span></p>
+                            </div>-->
+<!--                            <div th:if="${member_id}">
+                                <p><span th:text="${member_id}"></span></p>
+                                <input type="hidden" name="member_id" th:value="${member_id}">
+                            </div>-->
                         </td>
                     </tr>
                     <tr>

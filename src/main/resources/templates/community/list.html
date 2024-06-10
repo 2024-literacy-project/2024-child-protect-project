@@ -129,6 +129,12 @@
         <div style="margin-left: 10%;">
             <h1>우리 동네 자율방범대 목록</h1>
 
+            <!-- 에러 메시지 출력 -->
+            <div th:if="${errorMessage}" style="color: red;">
+                <p th:text="${errorMessage}"></p>
+            </div>
+
+            <!---->
             <table border="1" class="board-tbl" style="text-align: center;">
                 <!-- thead -->
                 <thead>
