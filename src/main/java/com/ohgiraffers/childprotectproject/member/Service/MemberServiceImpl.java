@@ -74,15 +74,15 @@ public class MemberServiceImpl implements MemberService {
 
 
     // ----------------------------------------
-    @Override
-    public List<MemberDTO> getAllMembers() {
-        return memberDAO.selectAllMembers();
-    }
-
-    @Override
-    public MemberDTO getMemberById(String member_id) {
-        return memberDAO.selectMemberById(member_id);
-    }
+//    @Override
+//    public List<MemberDTO> getAllMembers() {
+//        return memberDAO.selectAllMembers();
+//    }
+//
+//    @Override
+//    public MemberDTO getMemberById(String member_id) {
+//        return memberDAO.selectMemberById(member_id);
+//    }
 
 //    @Override
 //    public boolean updateMember(MemberDTO member) {

@@ -131,15 +131,15 @@ public class MemberController{
 
 
     // ----------------------------------------
-    @GetMapping("/{member_id}")
-    public MemberDTO getMember(@PathVariable String member_id) {
-        return memberServiceImpl.getMemberById(member_id);
-    }
-
-    @GetMapping
-    public List<MemberDTO> getAllMembers() {
-        return memberServiceImpl.getAllMembers();
-    }
+//    @GetMapping("/{member_id}")
+//    public MemberDTO getMember(@PathVariable String member_id) {
+//        return memberServiceImpl.getMemberById(member_id);
+//    }
+//
+//    @GetMapping
+//    public List<MemberDTO> getAllMembers() {
+//        return memberServiceImpl.getAllMembers();
+//    }
 
 //    @PutMapping
 //    public String updateMember(@RequestBody MemberDTO member) {

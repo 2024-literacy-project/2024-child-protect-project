@@ -35,10 +35,10 @@ public interface MemberDAO {
 
         // ----------------------------------------------------
 
-        int insertMember(MemberDTO member);
+//        int insertMember(MemberDTO member);
 
-        MemberDTO selectMemberById(String member_id);
-        List<MemberDTO> selectAllMembers();
+//        MemberDTO selectMemberById(String member_id);
+//        List<MemberDTO> selectAllMembers();
 
 //        int updateMember(MemberDTO member);
 

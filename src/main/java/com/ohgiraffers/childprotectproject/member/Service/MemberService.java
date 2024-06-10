@@ -29,8 +29,10 @@ public interface MemberService {
 
     //
 //    boolean registerMember(MemberDTO member);
-    List<MemberDTO> getAllMembers();
-    MemberDTO getMemberById(String member_id);
+
+//    List<MemberDTO> getAllMembers();
+//    MemberDTO getMemberById(String member_id);
+
 //    boolean updateMember(MemberDTO member);
 //    boolean deleteMember(int member_no);
     UserRole getMemberRole(int member_no);

@@ -41,23 +41,23 @@
 
 
     <!---->
-    <insert id="insertMember" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
-        INSERT INTO member (member_id, member_pw, member_name, member_phone, member_role, guardians_role)
-        VALUES (#{member_id}, #{member_pw}, #{member_name}, #{member_phone}, #{member_role}, #{guardians_role})
-    </insert>
+<!--    <insert id="insertMember" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">-->
+<!--        INSERT INTO member (member_id, member_pw, member_name, member_phone, member_role, guardians_role)-->
+<!--        VALUES (#{member_id}, #{member_pw}, #{member_name}, #{member_phone}, #{member_role}, #{guardians_role})-->
+<!--    </insert>-->
 
     <select id="selectMemberById" parameterType="String" resultType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
         SELECT * FROM member WHERE member_id = #{member_id}
     </select>
 
 
-    <select id="getMemberById" parameterType="String" resultType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
-        SELECT * FROM member WHERE member_id = #{member_id}
-    </select>
+<!--    <select id="getMemberById" parameterType="String" resultType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">-->
+<!--        SELECT * FROM member WHERE member_id = #{member_id}-->
+<!--    </select>-->
 
-    <select id="selectAllMembers" resultType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
-        SELECT * FROM member
-    </select>
+<!--    <select id="selectAllMembers" resultType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">-->
+<!--        SELECT * FROM member-->
+<!--    </select>-->
 
 <!--    <update id="updateMember" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">-->
 <!--        UPDATE member-->
@@ -72,4 +72,5 @@
     <select id="getMemberRole" parameterType="int" resultType="com.ohgiraffers.childprotectproject.member.common.UserRole">
         SELECT member_role FROM member WHERE member_no = #{member_no}
     </select>
+
 </mapper>
