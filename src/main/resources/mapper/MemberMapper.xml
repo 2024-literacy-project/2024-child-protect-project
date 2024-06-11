@@ -6,7 +6,7 @@
 
     <!--  로그인에 사용  -->
     <select id="findByMemberIdAndPassword" parameterType="map" resultType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
-        SELECT member_id
+        SELECT *
         FROM member
         WHERE member_id = #{member_id} AND member_pw = #{member_pw}
     </select>
@@ -29,7 +29,8 @@
         WHERE member_id = #{member_id}
     </update>
     <!-- 특정 id로 조회 -->
-    <select id="findByMemberId" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
+<!--    <select id="findByMemberId" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">-->
+    <select id="findByMemberId" parameterType="string" resultType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
         SELECT * FROM member WHERE member_id = #{member_id}
     </select>
 

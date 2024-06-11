@@ -67,10 +67,42 @@
 
     <div style="display: flex; justify-content: center;">
         <!-- aside -->
-        <aside th:replact="~{/common/aside :: asideFragment}">
-            <h1>aside</h1>
-        </aside>
+<!--        <aside th:replace="~{/common/aside :: asideFragment}">-->
+<!--            <h1>aside</h1>-->
+<!--        </aside>-->
 
+
+        <aside class="aside">
+            <div class="aside-div">
+
+                <p class="aside-shortcut">바로가기</p>
+
+                <table border="1" class="aside-tbl">
+                    <!--        <thead>-->
+                    <!--            <tr>-->
+                    <!--                <th>바로가기</th>-->
+                    <!--            </tr>-->
+                    <!--        </thead>-->
+                    <tbody style="text-align: center;">
+                    <tr>
+                        <td><a href="#">내 주변 <br/>아동안전지킴이집</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">자율방범대 <br/> 커뮤니티</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">내 근처 <br/> 아동수호천사</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">비상 상황 메뉴얼</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">실종아동센터 <br/> 182</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </aside>
         <!-- content01 -->
         <section class="content01">
             <div style="border: 1px solid gray;">

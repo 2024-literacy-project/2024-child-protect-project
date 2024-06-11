@@ -5,6 +5,7 @@ import com.ohgiraffers.childprotectproject.community.Service.CmuService;
 import com.ohgiraffers.childprotectproject.community.Service.CmuServiceImpl;
 import com.ohgiraffers.childprotectproject.member.DTO.MemberDTO;
 import jakarta.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -79,33 +80,35 @@ public class CmuController {
     @GetMapping("/add")
     public String showAddForm(HttpSession session, Model model, RedirectAttributes redirectAttributes) {
         model.addAttribute("cmu", new CmuDTO());
-
         MemberDTO loggedInUser = (MemberDTO) session.getAttribute("loggedInUser");
 
-/*        if(loggedInUser == null){
-            return "redirect:/member/login";        //로그인 안되면 글작성 못하고 로그인 페이지로 이동.
-        }*/
-
         if (loggedInUser != null) {
-            model.addAttribute("member_id", loggedInUser.getMember_id());
+            model.addAttribute("member_id" , loggedInUser.getMember_id());
+            model.addAttribute("member_pw" , loggedInUser.getMember_pw());
+            session.setAttribute("loggedInUser", loggedInUser);
         } else {
             return "redirect:/member/login";        //로그인 안되면 글작성 못하고 로그인 페이지로 이동.
         }
-
-        return "community/add";
+        System.out.println("로그인된 사용자 ID: " + loggedInUser.getMember_id());
+        System.out.println("로그인된 사용자 pw: " + loggedInUser.getMember_pw());
+        System.out.println("로그인된 사용자 name: " + loggedInUser.getMember_name());
+        System.out.println("로그인된 사용자 role: " + loggedInUser.getMember_role());
+        System.out.println("로그인된 사용자의 guardians_role: " + loggedInUser.getGuardians_role());
+//            return "community/add
 
         //승인된 사용자만 쓸 수 있도록...
-/*        String guardiansRole = loggedInUser.getGuardians_role();
-//        if ("Y".equals(guardiansRole) || loggedInUser.getGuardians_role().equals("관리자"))
-//        if (loggedInUser.getGuardians_role().equals("Y") || loggedInUser.getGuardians_role().equals("관리자"))
-        if (guardiansRole != null && (loggedInUser.getGuardians_role().equals("Y") || loggedInUser.getGuardians_role().equals("관리자"))) {
+            String guardiansRole = loggedInUser.getGuardians_role();
+
+        if (guardiansRole != null && (guardiansRole.equalsIgnoreCase("Y") || guardiansRole.equalsIgnoreCase("관리자"))) {
             model.addAttribute("member_id", loggedInUser.getMember_id());
             return "community/add";
         } else {
             redirectAttributes.addFlashAttribute("errorMessage", "승인된 사용자만 글을 작성할 수 있습니다.");
             return "redirect:/community/list";
-        }*/
+        }
     }
+
+
 
 /*    @PostMapping("/add")
     public String insertCmu(@ModelAttribute CmuDTO cmu) {

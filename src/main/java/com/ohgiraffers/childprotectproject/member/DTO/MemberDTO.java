@@ -1,6 +1,6 @@
 package com.ohgiraffers.childprotectproject.member.DTO;
 
-import com.ohgiraffers.childprotectproject.member.common.UserRole;
+
 
 public class MemberDTO {
     private int member_no;
@@ -9,7 +9,7 @@ public class MemberDTO {
     private String member_name;
     private String member_phone;
 
-//    private UserRole member_role;
+
     private String member_role;
 
     private String guardians_role;
@@ -91,10 +91,8 @@ public class MemberDTO {
                 ", member_pw='" + member_pw + '\'' +
                 ", member_name='" + member_name + '\'' +
                 ", member_phone='" + member_phone + '\'' +
-                ", member_role=" + member_role +
+                ", member_role='" + member_role + '\'' +
                 ", guardians_role='" + guardians_role + '\'' +
                 '}';
     }
-
-
 }
