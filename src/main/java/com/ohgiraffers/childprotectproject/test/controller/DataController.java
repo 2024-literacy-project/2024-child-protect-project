@@ -29,6 +29,6 @@ public class DataController {
                             Model model) {
         List<LocationData> locationDataList = apiService.fetchPublicData(minLat, minLon, maxLat, maxLon);
         model.addAttribute("locationDataList", locationDataList);
-        return "dataView"; // Thymeleaf template name
+        return "test/test"; // Thymeleaf template name
     }
 }

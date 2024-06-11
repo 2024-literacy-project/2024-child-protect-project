@@ -11,6 +11,8 @@
 <body>
 <h1>아동안전지킴이집 위치 찾기</h1>
 
+<button onclick="safeMarker()">마커 생성</button>
+
 <div class="option">
     <form onsubmit="searchPlaces(); return false;">
         <div class="searchText">지역 검색 <input type="text" id="keyword" class="searchBox" size="15">
@@ -23,7 +25,7 @@
     <div id="map" style="width:100%;height:500px;position:relative;overflow:hidden;">
         <div class="curBtn">
             <div class="current_location" style="position: absolute; z-index: 2">
-                <span id="curBtn" onclick="sendLocation()"><img src="https://img.icons8.com/?size=50&id=3396&format=png&color=000000"></span>
+                <button id="curBtn"><img src="https://img.icons8.com/?size=50&id=3396&format=png&color=000000"></button>
             </div>
         </div>
     </div>
@@ -34,15 +36,54 @@
     </div>
 </div>
 
+<!-- Table to display location data -->
+<table>
+    <thead>
+    <tr>
+        <th>RN</th>
+        <th>Business Name</th>
+        <th>Telephone</th>
+        <th>Address</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Class Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="location : ${locationDataList}">
+        <td th:text="${location.rn}">RN</td>
+        <td th:text="${location.bsshNm}">Business Name</td>
+        <td th:text="${location.telno}">Telephone</td>
+        <td th:text="${location.adres}">Address</td>
+        <td th:text="${location.lcinfoLa}">Latitude</td>
+        <td th:text="${location.lcinfoLo}">Longitude</td>
+        <td th:text="${location.clNm}">Class Name</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- JSON 데이터를 포함시킵니다 -->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var locationData = /*[[${locationDataList}]]*/ [];
+    /*]]>*/
+</script>
+
+
 <script>
+    const curBtn = document.getElementById("curBtn");
+    curBtn.addEventListener("click", sendLocation);
+    // curBtn.addEventListener("click", displayMarker2);
+
     // 마커를 담을 배열
     var markers = [];
 
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         mapOption = {
             center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-            level: 4 // 지도의 확대 레벨
+            level: 6 // 지도의 확대 레벨
         };
+
 
     // 지도 생성
     var map = new kakao.maps.Map(mapContainer, mapOption);
@@ -63,6 +104,29 @@
             displayMarker(locPosition);
         });
 
+    // JSON 데이터를 파싱하여 리스트로 변환합니다
+    var locationList = JSON.parse(JSON.stringify(locationData));
+
+    // locationList를 사용하여 원하는 작업을 수행할 수 있습니다
+    console.log(locationList);
+    console.log(locationList[0].lcinfoLa);
+    console.log(locationList[0].lcinfoLo);
+    console.log(locationList.length)
+
+    // function displayMarker2() {
+    //
+    //     var safetyHouse = new kakao.maps.LatLng(locationList[0].lcinfoLa, locationList[0].lcinfoLo);
+    //
+    //     // 마커 생성
+    //     var marker = new kakao.maps.Marker({
+    //         map: map,
+    //         position: safetyHouse
+    //     });
+    //
+    //     displayMarker(safetyHouse);
+    // }
+
+
     function sendLocation() {
         navigator.geolocation.getCurrentPosition(
             function(position) {
@@ -72,9 +136,12 @@
                 // 마커 표시
                 displayMarker(locPosition);
                 // 범위 계산
-                const bounds = calculateBounds(lat, lon, 3); // km 범위 계산
+                const bounds = calculateBounds(lat, lon, 2); // km 범위 계산
                 // fetchData로 이동하면서 계산된 범위 전달
                 window.location.href = `/fetchData?minLat=${bounds.minLat}&maxLat=${bounds.maxLat}&minLon=${bounds.minLon}&maxLon=${bounds.maxLon}`;
+
+                // displayMarker2();
+
             });
     }
 
@@ -216,6 +283,44 @@
         return marker;
     }
 
+
+
+
+    function safeMarker() {
+        // 마커 이미지의 이미지 주소입니다
+        var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+
+        for (var i = 0; i < locationList.length; i ++) {
+
+            var safetyHouse = new kakao.maps.LatLng(locationList[i].lcinfoLa, locationList[i].lcinfoLo);
+
+            // 마커 이미지의 이미지 크기 입니다
+            var imageSize = new kakao.maps.Size(24, 35);
+
+            // 마커 이미지를 생성합니다
+            var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+            // 마커를 생성합니다
+            var marker = new kakao.maps.Marker({
+                map: map, // 마커를 표시할 지도
+                position: safetyHouse, // 마커를 표시할 위치
+                // title: locationList[i].bsshNm, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                image: markerImage // 마커 이미지
+            });
+
+            // 마커와 검색 결과 항목에 클릭 이벤트 등록
+            (function (marker, title, adres) {
+                kakao.maps.event.addListener(marker, 'click', function () {
+                    displayInfowindow(marker, title, adres);
+                });
+            })(marker, locationList[i].bsshNm, locationList[i].adres);
+
+            marker.setMap(map); // 지도 위에 마커 표시
+            markers.push(marker);  // 배열에 생성된 마커 추가
+        }
+            return marker;
+    }
+
     // 지도 위에 표시되고 있는 마커 모두 제거
     function removeMarker() {
         for ( var i = 0; i < markers.length; i++ ) {
@@ -252,8 +357,9 @@
     }
 
     // 클릭한 마커에 인포윈도우 표시
-    function displayInfowindow(marker, title) {
-        var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
+    function displayInfowindow(marker, title, adres) {
+        var infotitle = `안전가게명: ${title}<br>주소: ${adres}`;
+        var content = `<div style="width:100%; line-height: 17px; padding:5px; z-index:1;">${infotitle}</div>`;
         infowindow.setContent(content);
         infowindow.open(map, marker);
     }
