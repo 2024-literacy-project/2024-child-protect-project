@@ -48,5 +48,22 @@
     </tr>
     </tbody>
 </table>
+
+<!-- JSON 데이터를 포함시킵니다 -->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var locationData = /*[[${locationDataList}]]*/ [];
+    /*]]>*/
+</script>
+
+<script>
+    // JSON 데이터를 파싱하여 리스트로 변환합니다
+    var locationList = JSON.parse(JSON.stringify(locationData));
+
+    // locationList를 사용하여 원하는 작업을 수행할 수 있습니다
+    console.log(locationList);
+    console.log(locationList[0].lcinfoLa);
+    console.log(locationList[0].lcinfoLo);
+</script>
 </body>
 </html>

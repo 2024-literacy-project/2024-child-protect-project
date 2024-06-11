@@ -72,7 +72,7 @@
                 // 마커 표시
                 displayMarker(locPosition);
                 // 범위 계산
-                const bounds = calculateBounds(lat, lon, 2); // 1km 범위 계산
+                const bounds = calculateBounds(lat, lon, 3); // km 범위 계산
                 // fetchData로 이동하면서 계산된 범위 전달
                 window.location.href = `/fetchData?minLat=${bounds.minLat}&maxLat=${bounds.maxLat}&minLon=${bounds.minLon}&maxLon=${bounds.maxLon}`;
             });
