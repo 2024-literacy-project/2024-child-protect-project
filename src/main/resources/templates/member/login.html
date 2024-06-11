@@ -8,21 +8,26 @@
 <!--        alert([[${loginError}]]);-->
 <!--    </script>-->
     <style>
+        a{
+            text-decoration-line: none;
+        }
         /* header */
         header{
             text-align: center;
+            /*position: fixed;*/
+            height: 60px;
         }
 
         /* contents */
         /* input box */
         .member_id{
-            width: 400px;
-            height: 35px;
-            margin-bottom: 10px;
+            /*width: 400px;*/
+            /*height: 35px;*/
+            /*margin-bottom: 10px;*/
         }
         .member_pw{
-            width: 400px;
-            height: 35px;
+            /*width: 400px;*/
+            /*height: 35px;*/
         }
         /* btn */
         .login-btn{
@@ -41,7 +46,7 @@
             text-align: center;
             width: 100%;
             /*position: absolute;*/
-            position: fixed;
+            /*position: fixed;*/
             bottom: 0px;
         }
     </style>
@@ -67,29 +72,36 @@
 <!--</form>-->
 <!--<p th:text="${error}"></p>-->
 
-<section style="display: flex; justify-content: center;">
-    <div>
+<section style="display: flex; justify-content: center; background-color: #E5F3F5; height: 700px;">
+    <div style="margin-top: 80px;">
 
-        <h1 style="text-align: center;">로그인</h1>
+        <h1 style="text-align: center; margin-bottom: 30px;">로그인</h1>
         <form action="/member/login" method="post">
 
             <div>
     <!--            <label for="member_id">아이디 :</label>-->
-                <input type="text" id="member_id" name="member_id" required placeholder="아이디" class="member_id">
+                <input type="text" id="member_id" name="member_id" required placeholder="    아이디" class="member_id"
+                       style="width: 400px;height: 45px; border-radius: 10px;margin-bottom: 20px;border: 1px solid #F5F5F5; ">
             </div>
             <div>
     <!--            <label for="member_pw">비밀번호 :</label>-->
-                <input type="password" id="member_pw" name="member_pw" required placeholder="비밀번호" class="member_pw">
+                <input type="password" id="member_pw" name="member_pw" required placeholder="    비밀번호" class="member_pw"
+                        style="width: 400px;height: 45px; border-radius: 10px; border: 1px solid #F5F5F5;">
             </div>
 
             <div th:if="${loginError}" th:text="${loginError}"></div>
 
             <div style="display: flex; margin-top: 20px;">
                 <div>
-                    <button type="submit" class="login-btn">로그인</button>
+                    <button type="submit" class="login-btn" style="margin-top: 10px; margin-left:30px; border: 1px solid #F5F5F5; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 150px; height: 40px; border-radius: 5px;">
+                        로그인
+                    </button>
                 </div>
                 <div>
-                    <button type="button" onclick="location.href='/member/register'" class="signup-btn">회원가입</button>
+                    <button type="button" onclick="location.href='/member/register'" class="signup-btn"
+                            style="margin-top: 10px; border: 1px solid #F5F5F5; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 150px; height: 40px; border-radius: 5px;">
+                        회원가입
+                    </button>
                 </div>
             </div>
 
@@ -107,7 +119,7 @@
 
 
 <!-- footer -->
-<footer th:insert="~{/common/footer :: footerFragment}">
+<footer th:insert="~{/common/footer :: footerFragment}" style="background-color: white; height: 80px;">
     <h1>FOOTER</h1>
 </footer>
 

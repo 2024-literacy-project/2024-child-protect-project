@@ -8,13 +8,15 @@
             text-decoration: none;
         }
         #wrap{
-            min-height: 100%;
-            position: relative;
+            /*min-height: 100%;*/
+            /*position: relative;*/
             /*padding-bottom: 50px;*/
         }
         /* header */
         header{
             text-align: center;
+            /*position: fixed;*/
+            height: 60px;
         }
         /* contents */
         /* input box */
@@ -52,7 +54,6 @@
             /*position: absolute;*/
             /*position: fixed;*/
             bottom: 0px;
-            height: 80px;
         }
 
     </style>
@@ -68,27 +69,31 @@
 </header>
 
     <!-- contents -->
-<section style="display: flex; justify-content: center;">
-    <div>
+<section style="display: flex; justify-content: center; background-color: #E5F3F5; height: 700px;">
+    <div style="margin-top: 80px;">
 
-        <h1 style="text-align: center;">회원가입</h1>
+        <h1 style="text-align: center;  margin-bottom: 30px;">회원가입</h1>
         <form action="/member/register" method="post">
 
             <div>
                 <!--    <label for="member_id">아이디 :</label>-->
-                <input type="text" id="member_id" name="member_id" required placeholder="아이디" class="member_id">
+                <input type="text" id="member_id" name="member_id" required placeholder="    아이디" class="member_id"
+                       style="width: 400px;height: 45px; border-radius: 10px;margin-bottom: 20px;border: 1px solid #F5F5F5; ">
             </div>
             <div>
                 <!--    <label for="member_pw">비밀번호 :</label>-->
-                <input type="password" id="member_pw" name="member_pw" required placeholder="비밀번호" class="member_pw">
+                <input type="password" id="member_pw" name="member_pw" required placeholder="    비밀번호" class="member_pw"
+                       style="width: 400px;height: 45px; border-radius: 10px;margin-bottom: 20px;border: 1px solid #F5F5F5; ">
             </div>
             <div>
                 <!--    <label for="member_name">이름 :</label>-->
-                <input type="text" id="member_name" name="member_name" required placeholder="이름" class="member_name">
+                <input type="text" id="member_name" name="member_name" required placeholder="    이름" class="member_name"
+                       style="width: 400px;height: 45px; border-radius: 10px;margin-bottom: 20px;border: 1px solid #F5F5F5; ">
             </div>
             <div>
                 <!--    <label for="member_phone">전화번호 :</label>-->
-                <input type="text" id="member_phone" name="member_phone" required placeholder="전화번호" class="member_phone">
+                <input type="text" id="member_phone" name="member_phone" required placeholder="    전화번호" class="member_phone"
+                       style="width: 400px;height: 45px; border-radius: 10px;margin-bottom: 20px;border: 1px solid #F5F5F5; ">
             </div>
 
         <!-- <div>
@@ -101,7 +106,9 @@
             </div>-->
 
             <div>
-                <button type="submit" class="signup-btn">회원가입</button>
+                <button type="submit" class="signup-btn" style="margin-top: 10px; margin-left:80px; border: 1px solid #F5F5F5; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 250px; height: 40px; border-radius: 5px;">
+                    회원가입
+                </button>
             </div>
 
             <div th:if="${registrationError}" th:text="${registrationError}"></div>
@@ -112,7 +119,7 @@
 </section>
 
 <!-- footer -->
-<footer th:insert="~{/common/footer :: footerFragment}">
+<footer th:insert="~{/common/footer :: footerFragment}"style="background-color: white; height: 80px;">
     <h1>FOOTER</h1>
 </footer>
 

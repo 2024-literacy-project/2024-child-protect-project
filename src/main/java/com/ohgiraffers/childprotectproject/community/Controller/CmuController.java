@@ -92,10 +92,10 @@ public class CmuController {
             return "redirect:/member/login";        //로그인 안되면 글작성 못하고 로그인 페이지로 이동.
         }
 
-        return "community/add";
+//        return "community/add";
 
         //승인된 사용자만 쓸 수 있도록...
-/*        String guardiansRole = loggedInUser.getGuardians_role();
+        String guardiansRole = loggedInUser.getGuardians_role();
 //        if ("Y".equals(guardiansRole) || loggedInUser.getGuardians_role().equals("관리자"))
 //        if (loggedInUser.getGuardians_role().equals("Y") || loggedInUser.getGuardians_role().equals("관리자"))
         if (guardiansRole != null && (loggedInUser.getGuardians_role().equals("Y") || loggedInUser.getGuardians_role().equals("관리자"))) {
@@ -104,7 +104,7 @@ public class CmuController {
         } else {
             redirectAttributes.addFlashAttribute("errorMessage", "승인된 사용자만 글을 작성할 수 있습니다.");
             return "redirect:/community/list";
-        }*/
+        }
     }
 
 /*    @PostMapping("/add")

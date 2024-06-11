@@ -6,7 +6,8 @@
 
     <!--  로그인에 사용  -->
     <select id="findByMemberIdAndPassword" parameterType="map" resultType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
-        SELECT member_id
+--         SELECT member_id
+        SELECT *
         FROM member
         WHERE member_id = #{member_id} AND member_pw = #{member_pw}
     </select>
