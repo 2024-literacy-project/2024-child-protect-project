@@ -6,9 +6,9 @@
  
 
 
-![readme_mockup2](https://github.com/2024-literacy-project/2024-child-protect-project/assets/129252557/127e3449-a477-4805-8485-7055a9e1132b)
 
 
+<img src="https://github.com/2024-literacy-project/2024-child-protect-project/assets/129252557/127e3449-a477-4805-8485-7055a9e1132b" alt="사진" width="750" height="600">
                   
 
 
