@@ -7,10 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class DataController {
 
     @GetMapping("/a")
@@ -22,13 +23,15 @@ public class DataController {
     private ApiService apiService;
 
     @GetMapping("/fetchData")
-    public String fetchData(@RequestParam("minLat") double minLat,
+    public List<LocationData> fetchData(@RequestParam("minLat") double minLat,
                             @RequestParam("minLon") double minLon,
                             @RequestParam("maxLat") double maxLat,
                             @RequestParam("maxLon") double maxLon,
                             Model model) {
-        List<LocationData> locationDataList = apiService.fetchPublicData(minLat, minLon, maxLat, maxLon);
-        model.addAttribute("locationDataList", locationDataList);
-        return "test/test"; // Thymeleaf template name
+        //List<LocationData> locationDataList =
+        //model.addAttribute("locationDataList", locationDataList);
+        //return "test/test"; // Thymeleaf template name
+
+        return apiService.fetchPublicData(minLat, minLon, maxLat, maxLon);
     }
 }
