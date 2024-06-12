@@ -3,39 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>사용자 리스트</title>
-    <style>
-        a{
-            text-decoration: none;
-        }
-        #wrap{
-            min-height: 100%;
-            position: relative;
-            /*padding-bottom: 50px;*/
-        }
-        /* header */
-        header{
-            text-align: center;
-        }
-
-        /* 승인, 미승인 */
-        .green {
-            color: green;
-        }
-
-        .red {
-            color: red;
-        }
-
-        /* footer */
-        footer{
-            text-align: center;
-            width: 100%;
-            /*position: absolute;*/
-            /*position: fixed;*/
-            bottom: 0px;
-            height: 80px;
-        }
-    </style>
+    <style></style>
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/member/userList.css}"/>
 </head>
@@ -51,7 +19,7 @@
 <div>
     <!-- login : o -->
 
-    <div th:if="${member_id}" style="display: flex;">
+    <div th:if="${member_id}" style="display: flex; justify-content: right; margin-right: 150px; margin-bottom: 20px;">
         <div style="margin-right: 10px;">
             <p> <span th:text="${member_id}"></span> 님</p>
         </div>
@@ -65,7 +33,7 @@
     </div>
 
     <!-- login : x -->
-    <div th:if="${member_id == null}" style="display: flex;">
+    <div th:if="${member_id == null}" style="display: flex; justify-content: right; margin-right: 150px; margin-bottom: 20px;">
         <div>
             <form action="/member/login" method="get">
                 <button type="submit"
@@ -84,12 +52,12 @@
     </div>
 
     <!-- 회원리스트보기 버튼(관리자용) -->
-    <div th:if="${member_id == 'admin'}">
-        <button type="button" onclick="location.href='/member/userList'"
-                style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">
-            회원목록 관리
-        </button>
-    </div>
+<!--    <div th:if="${member_id == 'admin'}">-->
+<!--        <button type="button" onclick="location.href='/member/userList'"-->
+<!--                style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">-->
+<!--            회원목록 관리-->
+<!--        </button>-->
+<!--    </div>-->
 
 </div>
 
@@ -121,7 +89,7 @@
                     <td style="height: 100px;"><a onclick="location.href='/community/list'">자율방범대 <br/> 커뮤니티</a></td>
                 </tr>
                 <tr>
-                    <td style="height: 100px;"><a href="#">내 근처 <br/> 아동수호천사</a></td>
+                    <td style="height: 100px;"><a onclick="location.href='/angel/angel'">내 근처 <br/> 아동수호천사</a></td>
                 </tr>
                 <tr>
                     <td style="height: 100px;"><a  onclick="location.href='/manual/manual'">비상 상황 메뉴얼</a></td>

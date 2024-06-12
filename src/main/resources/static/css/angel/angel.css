@@ -105,34 +105,5 @@ footer{
     border: 1px solid lightgray;
     box-shadow: 1px 1px 1px lightgray;
 }
-/* 버튼 */
-.btn{
-    margin-top: 10px;
-}
-.btn-list {
-    margin-top: 10px;
-    border: 1px solid #F5F5F5;
-    background-color: #F5F5F5;
-    box-shadow: 1px 1px 1px gray;
-    width: 80px;
-    height: 35px;
-    border-radius: 5px;
-}
-.btn-update {
-    margin-top: 10px;
-    border: 1px solid #F5F5F5;
-    background-color: #F5F5F5;
-    box-shadow: 1px 1px 1px gray;
-    width: 70px;
-    height: 35px;
-    border-radius: 5px;
-}
-.btn-del {
-    margin-top: 10px;
-    border: 1px solid #F5F5F5;
-    background-color: #F5F5F5;
-    box-shadow: 1px 1px 1px gray;
-    width: 70px;
-    height: 35px;
-    border-radius: 5px;
-}
+/* */
+

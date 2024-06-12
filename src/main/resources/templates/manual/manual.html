@@ -3,74 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        a{
-            text-decoration-line: none;
-        }
-        /* header */
-        header{
-            text-align: center;
-        }
-        /* ==== content01 ==== */
-        .content01{
-            /*width: 35%;*/
-            /*margin-left: 50px;*/
-        }
-        /* manual01 */
-        .manual01{
-            border: 1px solid white;
-            margin-bottom: 15px;
-            width: 90%;
-            margin-left: 5%;
-            background-color: #E5F3F5;
-            border-radius: 10px;
-        }
-        .manual01>p{
-            text-align: center;
-        }
-        .manual01-p01{
-            /*border: 1px solid #F5F5F5;*/
-            color: mediumblue;
-        }
-        .manual01-p02{
-            border: 1px solid white;
-            width: 90%;
-            margin-left: 20px;
-            background-color: white;
-            border-radius: 8px;
-        }
-        /* manual02 */
-        .manual02{
-            border: 1px solid white;
-            margin-bottom: 18px;
-            width: 90%;
-            margin-left: 5%;
-            background-color: #F5F5F5;
-            border-radius: 10px;
-            box-shadow: 3px 3px 3px lightgray;
-
-        }
-        /* manual03 */
-        .manual03{
-            border: 1px solid white;
-            margin-bottom: 18px;
-            width: 90%;
-            margin-left: 5%;
-            background-color: #F5F5F5;
-            border-radius: 10px;
-            box-shadow: 3px 3px 3px lightgray;
-        }
-
-        /* ==== content02 ==== */
-        .content02{
-            /*width: 35%;*/
-            /*margin-left: 30px;*/
-        }
-        /* footer */
-        footer{
-            text-align: center;
-        }
-    </style>
+    <style></style>
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/manual/manual.css}">
 </head>
@@ -84,7 +17,7 @@
 <div>
     <!-- login : o -->
 
-    <div th:if="${member_id}" style="display: flex;">
+    <div th:if="${member_id}" style="display: flex; justify-content: right; margin-right: 150px; margin-bottom: 20px;">
         <div style="margin-right: 10px;">
             <p> <span th:text="${member_id}"></span> 님</p>
         </div>
@@ -95,10 +28,18 @@
                 </button>
             </form>
         </div>
+        <!---->
+        <!-- 회원리스트보기 버튼(관리자용) -->
+        <div th:if="${member_id == 'admin'}" style="margin-left: 20px;">
+            <button type="button" onclick="location.href='/member/userList'"
+                    style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">
+                회원목록 관리
+            </button>
+        </div>
     </div>
 
     <!-- login : x -->
-    <div th:if="${member_id == null}" style="display: flex;">
+    <div th:if="${member_id == null}" style="display: flex; justify-content: right; margin-right: 150px; margin-bottom: 20px;">
         <div>
             <form action="/member/login" method="get">
                 <button type="submit"
@@ -116,47 +57,46 @@
         </div>
     </div>
 
-    <!-- 회원리스트보기 버튼(관리자용) -->
-    <div th:if="${member_id == 'admin'}">
-        <button type="button" onclick="location.href='/member/userList'"
-                style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">
-            회원목록 관리
-        </button>
-    </div>
+    <!--    &lt;!&ndash; 회원리스트보기 버튼(관리자용) &ndash;&gt;-->
+    <!--    <div th:if="${member_id == 'admin'}">-->
+    <!--        <button type="button" onclick="location.href='/member/userList'"-->
+    <!--                style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">-->
+    <!--            회원목록 관리-->
+    <!--        </button>-->
+    <!--    </div>-->
 
 </div>
 
 <!-- --------------------------------------------------------- -->
-<div style="display: flex;">
+<!-- contents-->
+<div class="contents">
     <!-- aside -->
-    <!--    <aside th:replace="~{/common/aside :: asideFragment}">-->
-    <!--        <h1>aside</h1>-->
-    <!--    </aside>-->
-    <aside class="aside" style="margin-left: 10%;">
-        <div class="aside-div" style="border: 1px solid white;width: 220px;border-radius: 10px; background-color: #E5F3F5; height: 650px;">
-
-            <p class="aside-shortcut" style="text-align: center;margin-top: 30px;margin-bottom: 30px;font-size: 20px; font-weight: bolder">
+    <aside class="aside">
+        <div class="aside-div" >
+            <!-- 바로가기 -->
+            <p class="aside-shortcut">
                 바로가기
             </p>
 
-            <table border="1" class="aside-tbl" style="background-color: white;width: 160px;margin-left: 30px;height: 500px;border-collapse: collapse;margin-bottom: 25px; border: 1px solid lightgray; box-shadow: 1px 1px 1px lightgray;">
+            <!-- 간편창 -->
+            <table border="1" class="aside-tbl">
                 <!--        <thead>-->
                 <!--            <tr>-->
                 <!--                <th>바로가기</th>-->
                 <!--            </tr>-->
                 <!--        </thead>-->
-                <tbody style="text-align: center;">
+                <tbody>
                 <tr>
-                    <td style="height: 100px;"><a href="#" >내 주변 <br/>아동안전지킴이집</a></td>
+                    <td class="aside-td"><a href="#" >내 주변 <br/>아동안전지킴이집</a></td>
                 </tr>
                 <tr>
-                    <td style="height: 100px;"><a onclick="location.href='/community/list'">자율방범대 <br/> 커뮤니티</a></td>
+                    <td class="aside-td"><a onclick="location.href='/community/list'">자율방범대 <br/> 커뮤니티</a></td>
                 </tr>
                 <tr>
-                    <td style="height: 100px;"><a href="#">내 근처 <br/> 아동수호천사</a></td>
+                    <td class="aside-td"><a onclick="location.href='/angel/angel'">내 근처 <br/> 아동수호천사</a></td>
                 </tr>
                 <tr>
-                    <td style="height: 100px;"><a href="#">비상 상황 메뉴얼</a></td>
+                    <td class="aside-td"><a  onclick="location.href='/manual/manual'">비상 상황 메뉴얼</a></td>
                 </tr>
                 <tr>
                     <td><a href="#">실종아동센터 <br/> 182</a></td>
@@ -165,30 +105,28 @@
             </table>
         </div>
     </aside>
-    <!-- contents -->
-<!--    <h1 style="text-align: center">아동안전지킴이집 안전메뉴얼</h1>-->
+    <!-- section -->
+    <!-- 게시판 -->
+    <section class="section">
 
-<!--    <div >-->
-        <!-- aside -->
-<!--        <aside th:replact="~{/common/aside :: asideFragment}">-->
-<!--            <h1>aside</h1>-->
-<!--        </aside>-->
-
-    <section style="display: flex; justify-content: center; background-color: #E5F3F5; width: 65%; border-radius: 12px;margin-left: 25px;">
         <!-- content01 -->
+        <div class="content01">
+            <p class="con01-title">아동안전지킴이집 안전메뉴얼</p>
 
-        <div class="content01" style="width: 45% ;margin-left: 30px;">
-            <p style="text-align: center; font-size: 28px; font-weight: bolder;">아동안전지킴이집 안전메뉴얼</p>
+            <div class="con01-div01">
+                <p class="con01-div01-p01">아동안전지킴이집이란</p>
 
-            <div style="border: 1px solid #F5F5F5; background-color: white; border-radius: 7px; box-shadow: 1px 1px 1px lightgray; margin-bottom: 20px;">
-                <h3>아동안전지킴이집이란</h3>
-                <p>사진</p>
+                <div class=".image-guardians">
+                    <!--사진-->
+                </div>
 
-                <p>학교주변, 통학로, 공원 주변의 문구점, 편의점, 약국 등을 아동안전지킴이집으로 지정하여
-                    위험에 처한 아동을 임시보호하고 경찰에 인계하는 곳.
+                <p class="con01-div01-p02">
+                    학교주변, 통학로, 공원 주변의 문구점, 편의점, 약국 등을 <br> 아동안전지킴이집으로 지정하여
+                    위험에 처한 아동을 <br> 임시보호하고 경찰에 인계하는 곳.
                 </p>
             </div>
-            <div style="border: 1px solid #F5F5F5; background-color: white; border-radius: 7px; box-shadow: 1px 1px 1px lightgray; margin-bottom: 30px;">
+
+            <div class="con01-div02">
                 <h3>아동안전지킴이집은?</h3>
                 <h4>아이들을 도와주세요!</h4>
 
@@ -218,12 +156,11 @@
             </div>
         </div>
         <!-- 02  -->
-        <div class="content02" style="width: 45%;margin-left: 30px;">
-            <div style="border: 1px solid #F5F5F5; margin-top: 95px; background-color: white; border-radius: 7px; box-shadow: 1px 1px 1px lightgray; margin-bottom: 35px;">
+        <div class="content02">
+            <div class="con02-div01">
                 <h3>어린이들은?</h3>
                 <h4>도움이 필요할 때!</h4>
 
-<!--                <p>낯선 사람이 말을 걸 때</p>-->
                 <div class="manual02">
                     <p>1. 부모님의 허락 없이는 누구든지 따라가면 안돼요!</p>
                 </div>
@@ -237,14 +174,14 @@
                     <p>4. 낯선 사람이 주는 선물을 받아서는 안 돼요!</p>
                 </div>
                 <div class="manual02" style="margin-bottom: 25px;">
-                    <p>5. 낯선 사람이 따라오거나 말을 걸 때엔 절대 따라가지 말고
+                    <p style="width: 95%;margin-left: 2%;">5. 낯선 사람이 따라오거나 말을 걸 때엔 절대 따라가지 말고
                         도움이 필요한 상황이 발생했을 시 가까운 곳에 있는 아동안전지킴이집으로 들어가 도움을 요청하세요!
                     </p>
                 </div>
 
             </div>
 
-            <div style="border: 1px solid #F5F5F5; background-color: white; border-radius: 7px; box-shadow: 1px 1px 1px lightgray;">
+            <div class="con02-div02">
                 <h3>부모님들은?</h3>
                 <h4>아이에게 미리 알려주세요!</h4>
 

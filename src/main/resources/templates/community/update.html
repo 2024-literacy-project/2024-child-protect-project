@@ -3,35 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>게시글 수정</title>
-    <style>
-        a{
-            text-decoration: none;
-        }
-        #wrap{
-            min-height: 100%;
-            position: relative;
-            /*padding-bottom: 50px;*/
-        }
-        /* ==== header ==== */
-        header{
-            text-align: center;
-        }
-        /* ==== aside ==== */
-        a{
-            text-decoration-line: none;
-        }
-
-        /* ==== footer ==== */
-        /* footer */
-        footer{
-            text-align: center;
-            width: 100%;
-            /*position: absolute;*/
-            /*position: fixed;*/
-            bottom: 0px;
-            height: 80px;
-        }
-    </style>
+    <style></style>
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/community/update.css}"/>
 </head>
@@ -47,7 +19,7 @@
 <div>
     <!-- login : o -->
 
-    <div th:if="${member_id}" style="display: flex;">
+    <div th:if="${member_id}" style="display: flex; justify-content: right; margin-right: 150px; margin-bottom: 20px;">
         <div style="margin-right: 10px;">
             <p> <span th:text="${member_id}"></span> 님</p>
         </div>
@@ -58,10 +30,18 @@
                 </button>
             </form>
         </div>
+        <!---->
+        <!-- 회원리스트보기 버튼(관리자용) -->
+        <div th:if="${member_id == 'admin'}" style="margin-left: 20px;">
+            <button type="button" onclick="location.href='/member/userList'"
+                    style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">
+                회원목록 관리
+            </button>
+        </div>
     </div>
 
     <!-- login : x -->
-    <div th:if="${member_id == null}" style="display: flex;">
+    <div th:if="${member_id == null}" style="display: flex; justify-content: right; margin-right: 150px; margin-bottom: 20px;">
         <div>
             <form action="/member/login" method="get">
                 <button type="submit"
@@ -79,48 +59,46 @@
         </div>
     </div>
 
-    <!-- 회원리스트보기 버튼(관리자용) -->
-    <div th:if="${member_id == 'admin'}">
-        <button type="button" onclick="location.href='/member/userList'"
-                style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">
-            회원목록 관리
-        </button>
-    </div>
+    <!--    &lt;!&ndash; 회원리스트보기 버튼(관리자용) &ndash;&gt;-->
+    <!--    <div th:if="${member_id == 'admin'}">-->
+    <!--        <button type="button" onclick="location.href='/member/userList'"-->
+    <!--                style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">-->
+    <!--            회원목록 관리-->
+    <!--        </button>-->
+    <!--    </div>-->
 
 </div>
 
 <!-- --------------------------------------------------------- -->
 <!-- contents-->
-<div style="display: flex;">
+<div class="contents">
     <!-- aside -->
-    <!--    <aside th:replace="~{/common/aside :: asideFragment}">-->
-    <!--        <h1>aside</h1>-->
-    <!--    </aside>-->
-    <aside class="aside" style="margin-left: 10%;">
-        <div class="aside-div" style="border: 1px solid white;width: 220px;border-radius: 10px; background-color: #E5F3F5; height: 650px;">
-
-            <p class="aside-shortcut" style="text-align: center;margin-top: 30px;margin-bottom: 30px;font-size: 20px; font-weight: bolder">
+    <aside class="aside">
+        <div class="aside-div" >
+            <!-- 바로가기 -->
+            <p class="aside-shortcut">
                 바로가기
             </p>
 
-            <table border="1" class="aside-tbl" style="background-color: white;width: 160px;margin-left: 30px;height: 500px;border-collapse: collapse;margin-bottom: 25px; border: 1px solid lightgray; box-shadow: 1px 1px 1px lightgray;">
+            <!-- 간편창 -->
+            <table border="1" class="aside-tbl">
                 <!--        <thead>-->
                 <!--            <tr>-->
                 <!--                <th>바로가기</th>-->
                 <!--            </tr>-->
                 <!--        </thead>-->
-                <tbody style="text-align: center;">
+                <tbody>
                 <tr>
-                    <td style="height: 100px;"><a href="#" >내 주변 <br/>아동안전지킴이집</a></td>
+                    <td class="aside-td"><a href="#" >내 주변 <br/>아동안전지킴이집</a></td>
                 </tr>
                 <tr>
-                    <td style="height: 100px;"><a onclick="location.href='/community/list'">자율방범대 <br/> 커뮤니티</a></td>
+                    <td class="aside-td"><a onclick="location.href='/community/list'">자율방범대 <br/> 커뮤니티</a></td>
                 </tr>
                 <tr>
-                    <td style="height: 100px;"><a href="#">내 근처 <br/> 아동수호천사</a></td>
+                    <td class="aside-td"><a onclick="location.href='/angel/angel'">내 근처 <br/> 아동수호천사</a></td>
                 </tr>
                 <tr>
-                    <td style="height: 100px;"><a  onclick="location.href='/manual/manual'">비상 상황 메뉴얼</a></td>
+                    <td class="aside-td"><a  onclick="location.href='/manual/manual'">비상 상황 메뉴얼</a></td>
                 </tr>
                 <tr>
                     <td><a href="#">실종아동센터 <br/> 182</a></td>
@@ -129,10 +107,14 @@
             </table>
         </div>
     </aside>
+    <!-- section -->
     <!-- 게시판 -->
-    <section class="board-sec" style="border: 1px solid white; border-radius: 10px; width: 65%; margin-left: 3%; background-color: #E5F3F5;box-shadow: 1px 1px 1px lightgray; ">
-        <div style="margin-left: 7%; width: 90%">
-            <p style="font-size: 30px; font-weight: bolder;">글 수정</p>
+    <!-- 게시글 상세 -->
+    <section class="section">
+
+        <div class="sec-div">
+
+            <p class="sec-title">글 수정</p>
 
             <!-- 에러 메시지 출력 -->
             <div th:if="${errorMessage}" style="color: red;">
@@ -142,40 +124,45 @@
             <!---->
             <form action="/community/update" method="post">
                 <input type="hidden" name="board_no" th:value="${cmu.board_no}">
-                <table border="1" class="board-tbl" style="text-align: center; border-collapse: collapse;width: 95%;height: 470px; background-color: white;border: 1px solid lightgray; box-shadow: 1px 1px 1px lightgray;">
+
+                <table border="1" class="sec-tbl">
                     <tr>
                         <th>제목</th>
                         <td>
-                            <input type="text" name="board_title" th:value="${cmu.board_title}" required style="border: 1px solid lightgray; width: 70%;height: 25px;">
+                            <input type="text" name="board_title" th:value="${cmu.board_title}" required class="sec-tbl-title">
                         </td>
                     </tr>
                     <tr>
                         <th>작성자</th>
                         <td>
-<!--                            <input type="text" name="member_id" th:value="${cmu.member_id}" required style="border: 1px solid lightgray; width: 70%;height: 25px;">-->
-                            <input type="text" name="member_id" th:value="${cmu.member_id}" required style="border: 1px solid white;" readonly>
+                            <input type="text" name="member_id" th:value="${cmu.member_id}" required class="sec-tbl-member" readonly>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>지역</th>
+                        <td>
+                            <textarea name="region" rows="10" required th:text="${cmu.region}" class="sec-tbl-region"></textarea>
                         </td>
                     </tr>
                     <tr>
                         <th>내용</th>
                         <td>
-                            <textarea name="board_contents" rows="10" required th:text="${cmu.board_contents}" style="border: 1px solid lightgray; width: 70%;height: 80%;"></textarea>
+                            <textarea name="board_contents" rows="10" required th:text="${cmu.board_contents}" class="sec-tbl-cont"></textarea>
                         </td>
                     </tr>
                     <tr>
                         <th>날짜</th>
                         <td>
-                            <input type="text" name="board_date" th:value="${cmu.board_date}" required style="border: 1px solid lightgray; width: 50%;height: 25px;">
+                            <input type="text" name="board_date" th:value="${cmu.board_date}" required class="sec-tbl-date">
                         </td>
                     </tr>
                 </table>
 
-                <div style="margin-top: 10px;">
-                    <button type="submit"
-                            style="margin-top: 10px; border: 1px solid #F5F5F5; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 70px; height: 35px; border-radius: 5px;">
+                <div class="btn">
+                    <button type="submit" class="btn-update">
                         수정
                     </button>
-                    <button style="margin-top: 10px; border: 1px solid #F5F5F5; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 70px; height: 35px; border-radius: 5px;">
+                    <button class="btn-cancel">
                         <a href="/community/list">취소</a>
                     </button>
                 </div>

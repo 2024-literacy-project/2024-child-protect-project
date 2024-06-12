@@ -15,8 +15,8 @@
 
     <!-- 추가 -->
     <insert id="insertCmu" parameterType="com.ohgiraffers.childprotectproject.community.DTO.CmuDTO">
-        INSERT INTO board (board_title, board_contents, board_date, member_id)
-        VALUES (#{board_title}, #{board_contents}, #{board_date}, #{member_id})
+        INSERT INTO board (board_title, member_id, region, board_contents, board_date)
+        VALUES (#{board_title}, #{member_id}, #{region}, #{board_contents}, #{board_date})
     </insert>
 
     <!-- 삭제 -->
@@ -27,7 +27,7 @@
     <!-- 수정 -->
     <update id="updateCmu" parameterType="com.ohgiraffers.childprotectproject.community.DTO.CmuDTO">
         UPDATE board
-        SET board_title = #{board_title}, board_contents = #{board_contents}, board_date = #{board_date}, member_id = #{member_id}
+        SET board_title = #{board_title}, member_id = #{member_id}, region = #{region}, board_contents = #{board_contents}, board_date = #{board_date}
         WHERE board_no = #{board_no}
     </update>
 

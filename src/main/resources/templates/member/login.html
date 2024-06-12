@@ -7,49 +7,7 @@
 <!--    <script th:if="${loginError != null}">-->
 <!--        alert([[${loginError}]]);-->
 <!--    </script>-->
-    <style>
-        a{
-            text-decoration-line: none;
-        }
-        /* header */
-        header{
-            text-align: center;
-            /*position: fixed;*/
-            height: 60px;
-        }
-
-        /* contents */
-        /* input box */
-        .member_id{
-            /*width: 400px;*/
-            /*height: 35px;*/
-            /*margin-bottom: 10px;*/
-        }
-        .member_pw{
-            /*width: 400px;*/
-            /*height: 35px;*/
-        }
-        /* btn */
-        .login-btn{
-            width: 180px;
-            height: 35px;
-            margin-left: 10px;
-            margin-right: 30px;
-        }
-        .signup-btn{
-            width: 180px;
-            height: 35px;
-        }
-
-        /* footer */
-        footer{
-            text-align: center;
-            width: 100%;
-            /*position: absolute;*/
-            /*position: fixed;*/
-            bottom: 0px;
-        }
-    </style>
+    <style></style>
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/member/login.css}"/>
 </head>
@@ -59,20 +17,8 @@
     <h1>HEADER</h1>
 </header>
 
-    <!-- contents -->
-<!--<h1>로그인</h1>-->
-<!--<form action="/member/login" method="post">-->
-<!--    <label for="member_id">아이디:</label>-->
-<!--    <input type="text" id="member_id" name="member_id" required>-->
-<!--    <br>-->
-<!--    <label for="member_pw">비밀번호:</label>-->
-<!--    <input type="password" id="member_pw" name="member_pw" required>-->
-<!--    <br>-->
-<!--    <button type="submit">로그인</button>-->
-<!--</form>-->
-<!--<p th:text="${error}"></p>-->
 
-<section style="display: flex; justify-content: center; background-color: #E5F3F5; height: 700px;">
+<section style="display: flex; justify-content: center; background-color: #E5F3F5; height: 600px;">
     <div style="margin-top: 80px;">
 
         <h1 style="text-align: center; margin-bottom: 30px;">로그인</h1>
@@ -81,7 +27,8 @@
             <div>
     <!--            <label for="member_id">아이디 :</label>-->
                 <input type="text" id="member_id" name="member_id" required placeholder="    아이디" class="member_id"
-                       style="width: 400px;height: 45px; border-radius: 10px;margin-bottom: 20px;border: 1px solid #F5F5F5; ">
+                       style="width: 400px;height: 45px; border-radius: 10px;
+                       margin-bottom: 30px;border: 1px solid #F5F5F5; ">
             </div>
             <div>
     <!--            <label for="member_pw">비밀번호 :</label>-->
@@ -91,9 +38,10 @@
 
             <div th:if="${loginError}" th:text="${loginError}"></div>
 
-            <div style="display: flex; margin-top: 20px;">
+            <div style="display: flex; margin-top: 25px;">
                 <div>
-                    <button type="submit" class="login-btn" style="margin-top: 10px; margin-left:30px; border: 1px solid #F5F5F5; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 150px; height: 40px; border-radius: 5px;">
+                    <button type="submit" class="login-btn"
+                            style="margin-top: 10px; margin-left:30px; border: 1px solid #F5F5F5; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 150px; height: 40px; border-radius: 5px;">
                         로그인
                     </button>
                 </div>
@@ -105,13 +53,6 @@
                 </div>
             </div>
 
-    <!--        <div th:if="${loginError}" th:text="${loginError}"></div>-->
-
-    <!--        <div th:if="${param.error}" th:text="'아이디나 비밀번호가 일치하지 않습니다.'"></div>-->
-
-    <!--        <script th:if="${loginError != null}">-->
-    <!--            alert([[${loginError}]]);-->
-    <!--        </script>-->
         </form>
 
     </div>
@@ -119,7 +60,7 @@
 
 
 <!-- footer -->
-<footer th:insert="~{/common/footer :: footerFragment}" style="background-color: white; height: 80px;">
+<footer th:insert="~{/common/footer :: footerFragment}">
     <h1>FOOTER</h1>
 </footer>
 

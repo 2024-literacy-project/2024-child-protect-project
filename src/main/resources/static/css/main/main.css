@@ -1,1 +1,163 @@
 body{}
+/* 공통 */
+a{
+    text-decoration: none;
+}
+#wrap{
+    min-height: 100%;
+    position: relative;
+    /*padding-bottom: 50px;*/
+}
+/* header */
+header{
+    text-align: center;
+    height: 60px;
+}
+.header-home{
+    /*font-size: 30px;*/
+    /*font-weight: bolder;*/
+}
+.logo{
+    background-image: url("../../img/headerlogo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    width: 120px;
+    height: 65px;
+
+}
+/* footer */
+footer{
+    text-align: center;
+    width: 100%;
+    /*position: absolute;*/
+    /*position: fixed;*/
+    bottom: 0px;
+    height: 80px;
+    background-color: white;
+    height: 80px;
+}
+/* ---------------------------------- */
+/* contents */
+.section{
+    margin-bottom: 20px;
+}
+
+/* content01 */
+.content01 {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+/* 지문 등록 */
+.con01-div01 {
+    display: flex;
+    justify-content: center;
+    border: 1px solid lightgray;
+    width: 700px;
+    height: 280px;
+    border-radius: 10px;
+    margin-right: 50px;
+    box-shadow: 3px 3px 3px gray;
+}
+.con01-div01-01 {
+    width: 420px;
+    height: 180px;
+    margin-top: 30px;
+}
+.con01-div01-p01 {
+    font-size: 28px;
+    font-weight: bolder;
+    margin-left: 25px;
+}
+.con01-div01-p02 {
+    width: 400px;
+    font-size: 19px;
+    margin-left: 20px;
+}
+/* 지문 등록 사진 */
+.image-finger {
+    background-image: url("../../img/fingerprint.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    border: 1px solid white;
+    width: 155px;
+    height: 180px;
+    margin-top: 55px;
+}
+/* 실종 아동 찾기 */
+.con01-div02 {
+    display: flex;
+    justify-content: center;
+    border: 1px solid lightgray;
+    width: 700px;
+    height: 280px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px gray;
+}
+
+
+/* 실종 아동 찾기 */
+/* 사진 */
+.image-182 {
+    background-image: url("../../img/call.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    width: 110px;
+    height: 180px;
+    margin-top: 55px;
+}
+.con02-div02-01 {
+    width: 90px;
+    height: 190px;
+    margin-top: 30px;
+}
+.p-182 {
+    font-size: 65px;
+    text-align: center;
+    font-weight: bolder;
+}
+.con02-div02-02 {
+    width: 380px;
+    text-align: center;
+    height: 190px;
+    margin-top: 45px;
+    margin-left: 15px;
+}
+.con02-div02-02-p01 {
+    font-size: 30px;
+    font-weight: bolder;
+}
+.con02-div02-02-p02{
+    font-size: 20px;
+}
+
+/* content02 */
+.content02 {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-left: 5%;
+}
+.con02-div{
+    margin-right: 8%;text-align: center;
+}
+.con02-btn{
+    width: 170px;
+    height: 170px;
+    border-radius: 83px;
+    border: 0px;
+    box-shadow: 1px 1px 1px gray;
+    background-color: #E5F3F5;
+}
+.con02-p {
+    font-weight: bolder;
+    font-size: larger;
+}
+

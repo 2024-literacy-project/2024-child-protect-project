@@ -16,16 +16,17 @@ public class CmuDTO {
 
     private String member_id;
 
-
+    private  String region;
     public CmuDTO() {
     }
 
-    public CmuDTO(int board_no, String board_title, String board_contents, LocalDate board_date, String member_id) {
+    public CmuDTO(int board_no, String board_title, String board_contents, LocalDate board_date, String member_id, String region) {
         this.board_no = board_no;
         this.board_title = board_title;
         this.board_contents = board_contents;
         this.board_date = board_date;
         this.member_id = member_id;
+        this.region = region;
     }
 
     public int getBoard_no() {
@@ -68,6 +69,14 @@ public class CmuDTO {
         this.member_id = member_id;
     }
 
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
     @Override
     public String toString() {
         return "CmuDTO{" +
@@ -76,6 +85,8 @@ public class CmuDTO {
                 ", board_contents='" + board_contents + '\'' +
                 ", board_date=" + board_date +
                 ", member_id='" + member_id + '\'' +
+                ", region='" + region + '\'' +
                 '}';
     }
+
 }

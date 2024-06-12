@@ -1,1 +1,204 @@
 body{}
+/* 공통 */
+a{
+    text-decoration: none;
+}
+#wrap{
+    min-height: 100%;
+    position: relative;
+    /*padding-bottom: 50px;*/
+}
+header{
+    text-align: center;
+    height: 60px;
+}
+.header-home{
+    /*font-size: 30px;*/
+    /*font-weight: bolder;*/
+}
+.logo{
+    background-image: url("../../img/headerlogo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    width: 120px;
+    height: 65px;
+
+}
+/* footer */
+footer{
+    text-align: center;
+    width: 100%;
+    /*position: absolute;*/
+    /*position: fixed;*/
+    bottom: 0px;
+    height: 80px;
+    background-color: white;
+    /*height: 80px;*/
+}
+/* ---------------------------------- */
+/* contents */
+.contents{
+    display: flex;
+}
+/* aside */
+.aside{
+    margin-left: 10%;
+}
+.aside-div {
+    border: 1px solid white;
+    width: 220px;
+    border-radius: 10px;
+    background-color: #E5F3F5;
+    height: 650px;
+}
+/* 바로가기 */
+.aside-shortcut {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+/* 간편창 */
+.aside-tbl {
+    background-color: white;
+    width: 160px;
+    margin-left: 30px;
+    height: 500px;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    border: 1px solid lightgray;
+    box-shadow: 1px 1px 1px lightgray;
+}
+.aside-tbl>tbody{
+    text-align: center;
+}
+.aside-td{
+    height: 100px;
+}
+/* section */
+.section {
+    display: flex;
+    justify-content: center;
+    background-color: #E5F3F5;
+    width: 65%;
+    border-radius: 12px;
+    margin-left: 3%;
+    text-align: center;
+}
+/* content01 */
+.content01 {
+    width: 45%;
+    margin-left: 30px;
+}
+.con01-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bolder;
+}
+.con01-div01 {
+    border: 1px solid #F5F5F5;
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 1px 1px 1px lightgray;
+    margin-bottom: 20px;
+}
+.con01-div01-p01 {
+    font-size: 23px;
+    font-weight: bolder;
+    margin-left: 5%
+}
+/* 아동 안전지킴이집 사진 */
+.\.image-guardians {
+    border: 1px solid lightgray;
+    /*width: 80px;*/
+    background-image: url("../../img/guardians.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    width: 65%;
+    height: 230px;
+    margin-left: 17%;
+}
+.con01-div01-p02 {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.con01-div02 {
+    border: 1px solid #F5F5F5;
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 1px 1px 1px lightgray;
+    margin-bottom: 30px;
+}
+
+/* manual01 */
+.manual01{
+    border: 1px solid white;
+    margin-bottom: 15px;
+    width: 90%;
+    margin-left: 5%;
+    background-color: #E5F3F5;
+    border-radius: 10px;
+}
+.manual01>p{
+    text-align: center;
+}
+.manual01-p01{
+    /*border: 1px solid #F5F5F5;*/
+    color: mediumblue;
+}
+.manual01-p02{
+    border: 1px solid white;
+    width: 90%;
+    margin-left: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+/* content02 */
+.content02 {
+    width: 45%;
+    margin-left: 30px;
+}
+.con02-div01 {
+    border: 1px solid #F5F5F5;
+    margin-top: 95px;
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 1px 1px 1px lightgray;
+    margin-bottom: 35px;
+}
+/* manual02 */
+.manual02{
+    border: 1px solid white;
+    margin-bottom: 18px;
+    width: 90%;
+    margin-left: 5%;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px lightgray;
+
+}
+/* manual03 */
+.manual03{
+    border: 1px solid white;
+    margin-bottom: 18px;
+    width: 90%;
+    margin-left: 5%;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px lightgray;
+}
+
+.con02-div02 {
+    border: 1px solid #F5F5F5;
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 1px 1px 1px lightgray;
+}
+
+

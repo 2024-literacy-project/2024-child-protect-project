@@ -99,11 +99,25 @@ public class MemberController{
     // ----------------------------------------
     /* 사용자리스트 (관리자용) */
     // 보기
+//    @GetMapping("/userList")
+//    public String getAllMemberList(Model model){
+//        model.addAttribute("memberList", memberServiceImpl.getAllMemberList());
+//        return "member/userList";
+//    }
     @GetMapping("/userList")
-    public String getAllMemberList(Model model){
+    public String getAllMemberList(HttpSession session, Model model) {
         model.addAttribute("memberList", memberServiceImpl.getAllMemberList());
-        return "member/userList";
+
+        MemberDTO loggedInUser = (MemberDTO) session.getAttribute("loggedInUser");
+        if (loggedInUser != null) {
+            model.addAttribute("member_id", loggedInUser.getMember_id());
+            return "member/userList";
+        } else {
+            return "redirect:/member/login"; // 로그인 안된 상태이면 로그인 페이지로 리디렉션
+        }
     }
+
+
     // 수정
     @GetMapping("/editList/{member_id}")
     public String showUpdateMemberForm(@PathVariable String member_id, Model model){
@@ -120,6 +134,7 @@ public class MemberController{
         memberServiceImpl.updateMember(member);
         return "redirect:/member/userList";
     }
+
     // 삭제
     @GetMapping("/delete/{member_id}")
     public String deleteCmu(@PathVariable String member_id) {
