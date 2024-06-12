@@ -13,6 +13,12 @@
 
 <button onclick="safeMarker()">마커 생성</button>
 
+
+    <input type="Checkbox" class='radioButton' label='Option 1' name='radiobtn' value="1" onclick="sendLocation(value)" ><label>1km</label>
+    <input type='Checkbox' class='radioButton' label='Option 2' name='radiobtn' value="2" onclick="sendLocation(value)" ><label>2km</label>
+    <input type='Checkbox' class='radioButton' label='Option 3' name='radiobtn' value="3" onclick="sendLocation(value)" ><label>3km</label>
+    <input type='Checkbox' class='radioButton' label='Option 3' name='radiobtn' value="5" onclick="sendLocation(value)" ><label>5km</label>
+
 <div class="option">
     <form onsubmit="searchPlaces(); return false;">
         <div class="searchText">지역 검색 <input type="text" id="keyword" class="searchBox" size="15">
@@ -81,7 +87,7 @@
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         mapOption = {
             center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-            level: 6 // 지도의 확대 레벨
+            level: 7 // 지도의 확대 레벨
         };
 
 
@@ -111,7 +117,7 @@
     console.log(locationList);
     console.log(locationList[0].lcinfoLa);
     console.log(locationList[0].lcinfoLo);
-    console.log(locationList.length)
+    console.log(locationList.length);
 
     // function displayMarker2() {
     //
@@ -127,7 +133,7 @@
     // }
 
 
-    function sendLocation() {
+    function sendLocation(value) {
         navigator.geolocation.getCurrentPosition(
             function(position) {
                 var lat = position.coords.latitude, // 위도
@@ -136,11 +142,11 @@
                 // 마커 표시
                 displayMarker(locPosition);
                 // 범위 계산
-                const bounds = calculateBounds(lat, lon, 2); // km 범위 계산
+                const bounds = calculateBounds(lat, lon, value); // km 범위 계산
                 // fetchData로 이동하면서 계산된 범위 전달
                 window.location.href = `/fetchData?minLat=${bounds.minLat}&maxLat=${bounds.maxLat}&minLon=${bounds.minLon}&maxLon=${bounds.maxLon}`;
 
-                // displayMarker2();
+                return value;
 
             });
     }
