@@ -18,12 +18,11 @@
 
  ### ① 지역사회문제 : 아동 관련 범죄 증가
 
- ####  1. 아동 지킴이집 인지도 부족
+ ####  1.아동 지킴이집 인지도 부족
  -  
-   
- #### 2. 실종아동 접수 증가
+ #### 2.실종아동 접수 증가
  -  
- #### 3. 꾸준히 일어나는 아동 관련 범죄(유괴, 납치)
+ #### 3.꾸준히 일어나는 아동 관련 범죄(유괴, 납치)
  -  
 
 
@@ -121,101 +120,39 @@
 
 
 
-## 4. 안전 드림
-### ① 이지펜 (ezpen)
-  <div align="left"> <img src="https://github.com/2024-literacy-project/2024-literacy-project/assets/129252557/d96717a8-8e95-43cc-943c-8cb5aeedfd4a)" alt="사진" width="150" height="150">
 
-- 문학,비문학과 같은 교육적인 글만 제공 
-- 정적인 콘텐츠 제공
+## 4. 유사 프로그램 분석
+### ① 안전드림
+  <div align="left"> <img src="https://github.com/2024-literacy-project/2024-child-protect-project/assets/129252557/7501d40e-18b8-4d82-b6c0-7bc0c5d8ce8f)" alt="사진" width="350" height="150">
 
+- 사회적 약자 대상 범죄에 대한 피해 신고 접수와 신속한 구조 활동을 지원하기 위해 경찰청 아동∙여성∙장애인 경찰지원센터에서 만든 홈페이지
+
+#### 특징
+- 실종아동, 성범죄, 학교폭력, 가정폭력, 스토킹 등의 범죄를 다룸.
+- 피해자 보호, 지원과 관련된 정보 제공
+- 지도에서 생활안전시설 검색 가능 (아동안전지킴이집, 노인보호시설, 아동보호시설, 청소년지원시설, 해바라기 센터)
+#### 문제점
+- 현재 내 주변 아동안전 지킴이집을 찾기 힘들다. 
+- 예를 들면, ‘공릉’을 검색했을 때 공릉동에 있는 아동안전 지킴이집이 검색되는 것이 아니라 상호명에 ‘공릉’이 들어가는 가게가 검색된다.
+- 공릉역이나 태릉입구역을 검색했을 때 주변에 있는 아동안전 지킴이집을 찾을 수 없다. 
 
 ### ② 차별화 전략
-- 1. 매일 바뀌는 독특한 콘텐츠 제공하여 사용자들에게 새로운 경험 제공
+- 1. 위치 검색 강화
+  - 현재 내 위치 기준으로 주변에 있는 아동안전 지킴이집들을 보여준다. 
+  - 주소별 검색 기능 추가
+- 2. 동네 자율방범대 커뮤니티
+  - 동네 방범 상황을 공유하여 더 안전하고 안심 가능한 동네 환경 조성 
 
-- 2. 다양한 글의 형태 제공: 호김심 자극, 간단한 문제풀이 콘텐츠 제공
-
-- 3. 사람들과의 자유로운 소통: 커뮤니티 기능을 제공하여, 문해력에 대한 자료로운 소통 제공
+- 3. 아동안전수호천사 리스트 제작
+  - 내 주변 아동안전수호천사 리스트를 제공하여 동네 아동 안전 강화
 
      
 ## 6. DB/프로젝트 구조
 ### 논리/물리 ERD
 
- ![KakaoTalk_Photo_2024-05-23-01-19-05 001](https://github.com/2024-literacy-project/2024-literacy-project/assets/129252557/0c368ca5-dd16-4a83-b347-74549ef24156)
- 
- ![KakaoTalk_Photo_2024-05-23-01-19-05 002](https://github.com/2024-literacy-project/2024-literacy-project/assets/129252557/d4966ab9-1bc2-4644-8c57-94f1cc47aa23)
 
   ```
- 
-   ├── main
-    │   ├── java
-    │   │   └── com
-    │   │       └── romance
-    │   │           └── literacy_project
-    │   │               ├── LiteracyProjectApplication.java
-    │   │               ├── community
-    │   │               │   ├── Config
-    │   │               │   │   └── MybatisConfig.java
-    │   │               │   ├── Controller
-    │   │               │   │   ├── CmuController.java
-    │   │               │   │   └── TestController.java
-    │   │               │   ├── DTO
-    │   │               │   │   ├── CmuDAO.java
-    │   │               │   │   ├── CmuDTO.java
-    │   │               │   │   ├── CommentDTO.java
-    │   │               │   │   ├── TestDAO.java
-    │   │               │   │   └── TestDTO.java
-    │   │               │   └── Service
-    │   │               │       ├── CmuService.java
-    │   │               │       ├── CmuServiceImpl.java
-    │   │               │       └── TestService.java
-    │   │               ├── config
-    │   │               │   └── MybatisConfig.java
-    │   │               └── main
-    │   │                   ├── controller
-    │   │                   │   └── MainController.java
-    │   │                   ├── model
-    │   │                   │   ├── dao
-    │   │                   │   │   └── MainDAO.java
-    │   │                   │   └── dto
-    │   │                   │       ├── ContentDTO.java
-    │   │                   │       ├── PoemDTO.java
-    │   │                   │       ├── QuizAnswerDTO.java
-    │   │                   │       └── QuizDTO.java
-    │   │                   └── service
-    │   │                       └── MainService.java
-    │   └── resources
-    │       ├── application.properties
-    │       ├── mapper
-    │       │   ├── CmuMapper.xml
-    │       │   ├── MainMapper.xml
-    │       │   └── TestMapper.xml
-    │       ├── mybatis-config.xml
-    │       ├── static
-    │       │   ├── css
-    │       │   │   ├── add.css
-    │       │   │   ├── content.css
-    │       │   │   ├── detail.css
-    │       │   │   ├── list.css
-    │       │   │   ├── main.css
-    │       │   │   └── update.css
-    │       │   ├── img
-    │       │   │   ├── nangman.jpeg
-    │       │   │   └── nangman.jpg
-    │       │   └── index.html
-    │       └── templates
-    │           ├── common
-    │           │   ├── footer.html
-    │           │   └── header.html
-    │           ├── community
-    │           │   ├── add.html
-    │           │   ├── addForm.html
-    │           │   ├── detail.html
-    │           │   ├── errorPage.html
-    │           │   ├── list.html
-    │           │   └── update.html
-    │           └── main
-    │               ├── content.html
-    │               └── main.html
+
  
  ```
 
@@ -229,7 +166,7 @@
       
 | 메인화면 |
 |--------|
-|![main](https://github.com/2024-literacy-project/2024-literacy-project/assets/129252557/ffefb0d3-ba63-4f39-8976-0f5d2cf525a5)|
+|![main]()|
 
  
  
@@ -239,9 +176,9 @@
   
 | 글 상세 페이지 |
 |--------|
-|![detail](https://github.com/2024-literacy-project/2024-literacy-project/assets/129252557/e7502cd4-97a0-4f3b-ac53-092b5397439e)|
+|![detail]()|
 
-### ③ 질문방 게시판 기능
+### ③ 게시판 기능
 - 질문 게시판 ( 글 제목,  글 내용(일부분), 작성자 , 수정 ,삭제)
 - 글 제목 누르면 상세 페이지 이동  
   - DB에 등록된 회원 닉네임으로 글 쓰기 작성
@@ -249,7 +186,7 @@
  
 | 질문 게시판 |
 |--------|
-|![question board](https://github.com/2024-literacy-project/2024-literacy-project/assets/129252557/e21260c8-0c55-4550-81ff-dd043e9349cb)|
+|![question board]()|
 
 ### ④ 질문방 추가/수정 페이지
  - 글 제목, 작성자(회원 닉네임) , 글 내용, 날짜
@@ -257,11 +194,11 @@
 
 | 질문 추가 페이지 |
 |--------|
-|![add](https://github.com/2024-literacy-project/2024-literacy-project/assets/129252557/8286e49d-e1fa-409a-9498-f0947a2c312f)|
+|![add]()|
 
 | 질문 수정 페이지 |
 |--------|
-|![update](https://github.com/2024-literacy-project/2024-literacy-project/assets/129252557/af1267ce-d24f-4c06-8ac4-e0910dd1323d)|
+|![update]()|
 
 
 
@@ -271,7 +208,7 @@
 
 | 상세페이지 댓글 추가 페이지 |
 |--------|
-|![상세페이지](https://github.com/2024-literacy-project/2024-literacy-project/assets/129252557/955b6a34-f333-41a9-9a37-334d356a8890)|
+|![상세페이지]()|
 
 
 
