@@ -1,11 +1,12 @@
 
 
 
-# 📚아동 지킴이 서비스 앱
+# 🦏아동 지킴이 서비스 앱
+
+ 
 
 
-
-![readme_mockup2](https://github.com/2024-literacy-project/2024-literacy-project/assets/129252557/eb271755-76d0-4bd3-aaf5-5cf3eadfaa03)
+![readme_mockup2](https://github.com/2024-literacy-project/2024-child-protect-project/assets/129252557/127e3449-a477-4805-8485-7055a9e1132b)
 
 
                   
@@ -49,7 +50,7 @@
 
  <h1>팀명</h1>
 
- ![KakaoTalk_Photo_2024-05-21-23-04-18 001](https://github.com/2024-literacy-project/2024-literacy-project/assets/129252557/34197657-d763-4ad9-b5c4-9ee1485ed48a)
+ ![KakaoTalk_Photo_2024-05-21-23-04-18 001](https://github.com/2024-literacy-project/2024-child-protect-project/assets/129252557/f793542f-dd4e-4185-b866-e8ba69958dc0)
 
  
  <div align="center">
@@ -64,7 +65,8 @@
 
 <br/>
 
-### 포에버팀 작업관리
+### Wakanda Forever팀 작업관리
+
 
 - GitHub issue, 학교에서 대면으로 진행상황 공유
 - 매일  짧은 회의를 통해 notion에 회의내용을 기록함.
