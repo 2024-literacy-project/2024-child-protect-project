@@ -46,6 +46,9 @@
     - 아동 안전지킴이집에 대한 알림
     - 아동 안전지킴이집 행동수칙
     - 아동 및 부모가 알아야 할 안전 행동 수칙
+   
+  - **수호천사 리스트**: 
+    - 내 주변 아동안전수호천사(아동지킴이들) 리스트를 제공하여 동네 아동 안전 강화
       
  ### ③ 프로젝트 선정 이유:
  - 
@@ -65,7 +68,7 @@
 | :------: |  :------: |  :------: |  :------: |
 | [<img src="https://github.com/2024-literacy-project/2024-literacy-project/assets/82174047/34321251-97e6-4ef1-adfd-059cc4f0066f" height=150 width=150> <br/> @inredzero](https://github.com/inredzero) | [<img src="https://github.com/2024-literacy-project/2024-literacy-project/assets/82174047/e21f081d-d9ee-431a-b8ff-0e963fad3811" height=150 width=150> <br/> @moressangplease](https://github.com/moressangplease) | [<img src="https://github.com/2024-literacy-project/2024-literacy-project/assets/82174047/4a486b99-1b23-4a85-bb09-a29c026e37e1" height=150 width=150> <br/> @se-3-yeon](https://github.com/se-3-yeon) | [<img src="https://github.com/2024-literacy-project/2024-literacy-project/assets/82174047/87154d04-2119-472d-89d9-eb512feff02b" height=150 width=150> <br/> @Realyunjae](https://github.com/Realyunjae) |
 | 팀장 | 팀원 | 팀원 | 팀원 | 
-| 메인 게시판 기능 | 메인 게시판 기능 | 커뮤니티 게시판 | 커뮤니티 게시판 | 
+| open API(안전지킴이집) 연동<br>카카오 map 연동<br>지도 페이지 구현 |  open API(안전지킴이집) 연동<br>카카오 map 연동<br>지도 페이지 구현  | 회원가입, 로그인 페이지 구현<br>게시판 CRUD 기능 구현<br>DB 설계 | 회원가입, 로그인 페이지 구현<br>게시판 CRUD 기능 구현<br>DB 설계  | 
 
 </div>
 
