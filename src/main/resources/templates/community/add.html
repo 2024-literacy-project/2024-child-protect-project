@@ -6,6 +6,18 @@
     <style></style>
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/community/add.css}"/>
+
+<!--    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+<!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+<!--    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>-->
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/i18n/jquery-ui-i18n.min.js"></script>
+
+
+
 </head>
 <body>
 <div id="wrap">
@@ -141,12 +153,47 @@
                             <textarea name="board_contents" rows="5" required class="sec-tbl-cont"></textarea>
                         </td>
                     </tr>
+<!--                    <tr>-->
+<!--                        <th>날짜</th>-->
+<!--                        <td>-->
+<!--                            <input type="text" name="board_date" required  class="sec-tbl-date" placeholder="2024-01-01">-->
+<!--                        </td>-->
+<!--                    </tr>-->
+
+<!--                    <tr>
+                        <th>날짜</th>
+                        <td>
+                            <input type="text" id="datepicker" name="board_date" required class="sec-tbl-date" placeholder="2024-01-01">
+                        </td>
+                    </tr>
+
+                    <script>
+                        $(function() {
+                            $("#datepicker").datepicker({
+                                dateFormat: "yy-mm-dd"  // 날짜 형식을 설정할 수 있습니다
+                            });
+                        });
+                    </script>-->
+
                     <tr>
                         <th>날짜</th>
                         <td>
-                            <input type="text" name="board_date" required  class="sec-tbl-date">
+                            <input type="text" id="datepicker" name="board_date" required class="sec-tbl-date" placeholder="2024-01-01">
                         </td>
                     </tr>
+
+                    <script>
+                        $(function() {
+                            // Datepicker의 지역 설정을 한국어로 설정
+                            $.datepicker.setDefaults($.datepicker.regional['ko']);
+                            // Datepicker 초기화
+                            $("#datepicker").datepicker({
+                                dateFormat: "yy-mm-dd"  // 날짜 형식을 설정할 수 있습니다
+                            });
+                        });
+                    </script>
+
+
 
                 </table>
 

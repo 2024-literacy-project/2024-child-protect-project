@@ -6,6 +6,12 @@
     <style></style>
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/community/update.css}"/>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/i18n/jquery-ui-i18n.min.js"></script>
+
 </head>
 <body>
 <div id="wrap">
@@ -127,7 +133,7 @@
 
                 <table border="1" class="sec-tbl">
                     <tr>
-                        <th>제목</th>
+                        <th style="height: 50px;">제목</th>
                         <td>
                             <input type="text" name="board_title" th:value="${cmu.board_title}" required class="sec-tbl-title">
                         </td>
@@ -141,21 +147,39 @@
                     <tr>
                         <th>지역</th>
                         <td>
-                            <textarea name="region" rows="10" required th:text="${cmu.region}" class="sec-tbl-region"></textarea>
+                            <textarea name="region" rows="3" required th:text="${cmu.region}" class="sec-tbl-region"></textarea>
                         </td>
                     </tr>
                     <tr>
                         <th>내용</th>
                         <td>
-                            <textarea name="board_contents" rows="10" required th:text="${cmu.board_contents}" class="sec-tbl-cont"></textarea>
+                            <textarea name="board_contents" rows="7" required th:text="${cmu.board_contents}" class="sec-tbl-cont"></textarea>
                         </td>
                     </tr>
+<!--                    <tr>-->
+<!--                        <th>날짜</th>-->
+<!--                        <td>-->
+<!--                            <input type="text" name="board_date" th:value="${cmu.board_date}" required class="sec-tbl-date">-->
+<!--                        </td>-->
+<!--                    </tr>-->
                     <tr>
                         <th>날짜</th>
                         <td>
-                            <input type="text" name="board_date" th:value="${cmu.board_date}" required class="sec-tbl-date">
+                            <input type="text" id="datepicker" name="board_date" th:value="${cmu.board_date}" required class="sec-tbl-date">
                         </td>
                     </tr>
+
+                    <script>
+                        $(function() {
+                            // Datepicker의 지역 설정을 한국어로 설정
+                            $.datepicker.setDefaults($.datepicker.regional['ko']);
+                            // Datepicker 초기화
+                            $("#datepicker").datepicker({
+                                dateFormat: "yy-mm-dd"  // 날짜 형식을 설정할 수 있습니다
+                            });
+                        });
+                    </script>
+
                 </table>
 
                 <div class="btn">
