@@ -1,4 +1,4 @@
-package com.ohgiraffers.childprotectproject.test.controller;
+package com.ohgiraffers.childprotectproject.map;
 
 import com.ohgiraffers.childprotectproject.test.model.dto.LocationData;
 import com.ohgiraffers.childprotectproject.test.service.ApiService;

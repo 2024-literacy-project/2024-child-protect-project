@@ -9,43 +9,157 @@
     </script>
 </head>
 <body>
-<h1>아동안전지킴이집 위치 찾기</h1>
+<!-- header -->
+<header th:replace="~{/common/header :: headerFragment}">
+    <h1>HEADER</h1>
+</header>
 
-<!--<button onclick="safeMarker()">마커 생성</button>-->
-<input type="radio" class='radioButton' label='Option 1' name='radiobtn' value="1" onclick="sendLocation(value)" ><label>1km</label>
-<input type='radio' class='radioButton' label='Option 2' name='radiobtn' value="2" onclick="sendLocation(value)" ><label>2km</label>
-<input type='radio' class='radioButton' label='Option 3' name='radiobtn' value="3" onclick="sendLocation(value)" ><label>3km</label>
-<input type='radio' class='radioButton' label='Option 3' name='radiobtn' value="5" onclick="sendLocation(value)" ><label>5km</label>
+<!-- --------------------------------------------------------- -->
+<div>
+    <!-- login : o -->
 
-<!--<button onclick="subwayMarker()">지하철역 근처</button>-->
-
-<div class="option">
-    <form onsubmit="searchPlaces(); return false;">
-        <div class="searchText">지역 검색 <input type="text" id="keyword" class="searchBox" size="15">
-            <button class="searchBtn" type="submit">검색</button>
+    <div th:if="${member_id}" style="display: flex; justify-content: right; margin-right: 150px; margin-bottom: 20px;">
+        <div style="margin-right: 10px;">
+            <p> <span th:text="${member_id}"></span> 님</p>
         </div>
-    </form>
-</div>
-
-<div class="map_wrap">
-    <div id="map" style="width:100%;height:500px;position:relative;overflow:hidden;">
+        <div>
+            <form action="/member/logout" method="get">
+                <button type="submit" style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 70px; height: 35px; border-radius: 5px;">
+                    로그아웃
+                </button>
+            </form>
+        </div>
+        <!---->
+        <!-- 회원리스트보기 버튼(관리자용) -->
+        <div th:if="${member_id == 'admin'}" style="margin-left: 20px;">
+            <button type="button" onclick="location.href='/member/userList'"
+                    style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">
+                회원목록 관리
+            </button>
+        </div>
     </div>
+
+    <!-- login : x -->
+    <div th:if="${member_id == null}" style="display: flex; justify-content: right; margin-right: 150px; margin-bottom: 20px;">
+        <div>
+            <form action="/member/login" method="get">
+                <button type="submit"
+                        style="margin-right: 10px; margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 70px; height: 35px; border-radius: 5px;">
+                    로그인
+                </button>
+            </form>
+        </div>
+        <div>
+            <form action="/member/register" method="get">
+                <button type="submit" style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 80px; height: 35px; border-radius: 5px;">
+                    회원가입
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!--    &lt;!&ndash; 회원리스트보기 버튼(관리자용) &ndash;&gt;-->
+    <!--    <div th:if="${member_id == 'admin'}">-->
+    <!--        <button type="button" onclick="location.href='/member/userList'"-->
+    <!--                style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">-->
+    <!--            회원목록 관리-->
+    <!--        </button>-->
+    <!--    </div>-->
+
 </div>
 
-<!-- 데이터를 표시할 테이블 추가 -->
-<table id="locationTable" border="1">
-    <thead>
-    <tr>
-        <th>RN</th>
-        <th>Business Name</th>
-        <th>Telephone</th>
-        <th>Address</th>
-    </tr>
-    </thead>
-    <tbody>
-    <!-- 데이터가 동적으로 추가될 부분 -->
-    </tbody>
-</table>
+
+
+<!-- --------------------------------------------------------- -->
+<!-- contents-->
+<div class="contents">
+    <!-- aside -->
+    <aside class="aside">
+        <div class="aside-div" >
+            <!-- 바로가기 -->
+            <p class="aside-shortcut">
+                바로가기
+            </p>
+
+            <!-- 간편창 -->
+            <table border="1" class="aside-tbl">
+                <!--        <thead>-->
+                <!--            <tr>-->
+                <!--                <th>바로가기</th>-->
+                <!--            </tr>-->
+                <!--        </thead>-->
+                <tbody>
+                <tr>
+                    <td class="aside-td"><a onclick="location.href='/map'" >내 주변 <br/>아동안전지킴이집</a></td>
+                </tr>
+                <tr>
+                    <td class="aside-td"><a onclick="location.href='/community/list'">자율방범대 <br/> 커뮤니티</a></td>
+                </tr>
+                <tr>
+                    <td class="aside-td"><a onclick="location.href='/angel/angel'">내 근처 <br/> 아동수호천사</a></td>
+                </tr>
+                <tr>
+                    <td class="aside-td"><a  onclick="location.href='/manual/manual'">비상 상황 메뉴얼</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">실종아동센터 <br/> 182</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </aside>
+
+    <!-- 지도-->
+    <section class="section" style="background-color: #E5F3F5;">
+        <div class="sec-div">
+            <!-- mainBox1-->
+            <div class="mainBox1">
+
+                <p class="title">아동안전지킴이집 위치 찾기</p>
+
+                <!--<button onclick="safeMarker()">마커 생성</button>-->
+                <span class="radius-choice">현재위치 반경 선택</span>
+                <input type="radio" class='radioButton' label='Option 1' name='radiobtn' value="1" onclick="sendLocation(value)" ><label>1km</label>
+                <input type='radio' class='radioButton' label='Option 2' name='radiobtn' value="2" onclick="sendLocation(value)" ><label>2km</label>
+                <input type='radio' class='radioButton' label='Option 3' name='radiobtn' value="3" onclick="sendLocation(value)" ><label>3km</label>
+                <input type='radio' class='radioButton' label='Option 3' name='radiobtn' value="5" onclick="sendLocation(value)" ><label>5km</label>
+
+                <!--<button onclick="subwayMarker()">지하철역 근처</button>-->
+
+                <form class="search-box" onsubmit="searchPlaces(); return false;">
+                    <div class="search-text">지역검색 <input type="text" id="keyword" class="search-form" placeholder="ex) 태릉입구역, 태릉초등학교..." size="15">
+                        <button class="search-button" type="submit">검색</button>
+                        <p style="font-size: 16px; text-align: right; padding: 0; margin: 0 0 5px 0">검색위치
+                            <img style="width: 15px; height: 20px;" src="https://t1.daumcdn.net/localimg/localimages/07/2018/pc/img/marker_spot.png">
+                        </p>
+                    </div>
+                </form>
+
+
+                <div class="map_wrap">
+                    <div id="map" style="width:500px;height:450px;position:relative;overflow:hidden;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- mainBox2 -->
+            <div class="mainBox2">
+                <div class="safeListBox1">
+                    <p style="font-size: 21px; font-weight: bold; text-align: center">아동안전지킴이집 리스트</p>
+                </div>
+                <div class="safeListBox2">
+                    <!-- 데이터를 표시할 요소 추가 -->
+                    <div id="locationList"></div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+</div>
+
+
+<!-- script -->
 
 <!-- JSON 데이터를 포함시킵니다 -->
 <script th:inline="javascript">
@@ -150,8 +264,8 @@
                 removeMarker();
 
                 // 데이터 표시할 HTML 요소 초기화
-                const locationTableBody = document.getElementById('locationTable').getElementsByTagName('tbody')[0];
-                locationTableBody.innerHTML = '';
+                const locationListDiv = document.getElementById('locationList');
+                locationListDiv.innerHTML = '';
 
                 data.forEach(locationData => {
                     var safetyHouse = new kakao.maps.LatLng(locationData.lcinfoLa, locationData.lcinfoLo);
@@ -171,12 +285,16 @@
                     marker.setMap(map);
                     markers.push(marker);
 
-                    // 테이블에 데이터 추가
-                    const row = locationTableBody.insertRow();
-                    row.insertCell(0).textContent = locationData.rn;
-                    row.insertCell(1).textContent = locationData.bsshNm;
-                    row.insertCell(2).textContent = locationData.telno;
-                    row.insertCell(3).textContent = locationData.adres;
+                    // HTML에 데이터 추가
+                    const locationDiv = document.createElement('div');
+                    locationDiv.classList.add('location-item');
+                    locationDiv.innerHTML = `
+                        <p class="list-style-title">${locationData.rn}. ${locationData.bsshNm}</p>
+                        <p class="list-style" style="padding-left: 30px;padding-right: 10px; line-height: 1.6">${locationData.adres}</p>
+                        <p class="list-style" style="padding-bottom: 10px;padding-left: 30px;">${locationData.telno}</p>
+                        <hr>
+                    `;
+                    locationListDiv.appendChild(locationDiv);
                 });
             })
             .catch(error => console.error('Error fetching data:', error));
@@ -284,23 +402,19 @@
         markers1 = [];
     }
 
-
     // 클릭한 마커에 인포윈도우 표시
     function displayInfowindow(marker, title, adres, telno) {
         var infotitle = `안전가게명: ${title}<br>주소: ${adres}<br>전화번호: ${telno}`;
-        var content = `<div style="width:100%; line-height: 17px; padding:5px; z-index:1;">${infotitle}</div>`;
+        var content = `<div style="font-size: 12px; width:100%; line-height: 17px; z-index:1; padding: 7px;">${infotitle}</div>`;
         infowindow.setContent(content);
         infowindow.open(map, marker);
     }
-
-    // 검색결과 목록의 자식 Element를 제거
-    function removeAllChildNods(el) {
-        while (el.hasChildNodes()) {
-            el.removeChild(el.lastChild);
-        }
-    }
-
-
 </script>
+
+<!— footer —>
+<footer th:insert="~{/common/footer :: footerFragment}">
+    <h1>FOOTER</h1>
+</footer>
+
 </body>
 </html>
