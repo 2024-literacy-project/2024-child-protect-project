@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" xmlns: th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>새 글 작성</title>
+    <style></style>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/community/add.css}"/>
+
+<!--    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">-->
+<!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+<!--    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>-->
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/i18n/jquery-ui-i18n.min.js"></script>
+
+
+
+</head>
+<body>
+<div id="wrap">
+
+<!-- header -->
+<header th:replace="~{/common/header :: headerFragment}">
+    <h1>HEADER</h1>
+</header>
+
+<!-- --------------------------------------------------------- -->
+<div>
+    <!-- login : o -->
+
+    <div th:if="${member_id}" style="display: flex; justify-content: right; margin-right: 150px; margin-bottom: 20px;">
+        <div style="margin-right: 10px;">
+            <p> <span th:text="${member_id}"></span> 님</p>
+        </div>
+        <div>
+            <form action="/member/logout" method="get">
+                <button type="submit" style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 70px; height: 35px; border-radius: 5px;">
+                    로그아웃
+                </button>
+            </form>
+        </div>
+        <!---->
+        <!-- 회원리스트보기 버튼(관리자용) -->
+        <div th:if="${member_id == 'admin'}" style="margin-left: 20px;">
+            <button type="button" onclick="location.href='/member/userList'"
+                    style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">
+                회원목록 관리
+            </button>
+        </div>
+    </div>
+
+    <!-- login : x -->
+    <div th:if="${member_id == null}" style="display: flex; justify-content: right; margin-right: 150px; margin-bottom: 20px;">
+        <div>
+            <form action="/member/login" method="get">
+                <button type="submit"
+                        style="margin-right: 10px; margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 70px; height: 35px; border-radius: 5px;">
+                    로그인
+                </button>
+            </form>
+        </div>
+        <div>
+            <form action="/member/register" method="get">
+                <button type="submit" style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 80px; height: 35px; border-radius: 5px;">
+                    회원가입
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!--    &lt;!&ndash; 회원리스트보기 버튼(관리자용) &ndash;&gt;-->
+    <!--    <div th:if="${member_id == 'admin'}">-->
+    <!--        <button type="button" onclick="location.href='/member/userList'"-->
+    <!--                style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">-->
+    <!--            회원목록 관리-->
+    <!--        </button>-->
+    <!--    </div>-->
+
+</div>
+
+<!-- --------------------------------------------------------- -->
+<!-- contents-->
+<div class="contents">
+    <!-- aside -->
+    <aside class="aside">
+        <div class="aside-div" >
+            <!-- 바로가기 -->
+            <p class="aside-shortcut">
+                바로가기
+            </p>
+
+            <!-- 간편창 -->
+            <table border="1" class="aside-tbl">
+                <!--        <thead>-->
+                <!--            <tr>-->
+                <!--                <th>바로가기</th>-->
+                <!--            </tr>-->
+                <!--        </thead>-->
+                <tbody>
+                <tr>
+                    <td class="aside-td"><a href="#" >내 주변 <br/>아동안전지킴이집</a></td>
+                </tr>
+                <tr>
+                    <td class="aside-td"><a onclick="location.href='/community/list'">자율방범대 <br/> 커뮤니티</a></td>
+                </tr>
+                <tr>
+                    <td class="aside-td"><a onclick="location.href='/angel/angel'">내 근처 <br/> 아동수호천사</a></td>
+                </tr>
+                <tr>
+                    <td class="aside-td"><a  onclick="location.href='/manual/manual'">비상 상황 메뉴얼</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">실종아동센터 <br/> 182</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </aside>
+    <!-- section -->
+    <!-- 게시판 -->
+    <section class="section">
+
+        <div class="sec-div">
+
+            <p class="sec-title">새 글 작성</p>
+
+            <form action="/community/add" method="post">
+                <table border="1" class="sec-tbl">
+                    <tr>
+                        <th>제목</th>
+                        <td>
+                            <input type="text" name="board_title" required  class="sec-tbl-title">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>작성자</th>
+                        <td>
+                            <input type="text" name="member_id" th:value="${member_id}" readonly  class="sec-tbl-member">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>지역</th>
+                        <td>
+                            <textarea name="region" required class="sec-tbl-region"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>내용</th>
+                        <td>
+                            <textarea name="board_contents" rows="5" required class="sec-tbl-cont"></textarea>
+                        </td>
+                    </tr>
+<!--                    <tr>-->
+<!--                        <th>날짜</th>-->
+<!--                        <td>-->
+<!--                            <input type="text" name="board_date" required  class="sec-tbl-date" placeholder="2024-01-01">-->
+<!--                        </td>-->
+<!--                    </tr>-->
+
+<!--                    <tr>
+                        <th>날짜</th>
+                        <td>
+                            <input type="text" id="datepicker" name="board_date" required class="sec-tbl-date" placeholder="2024-01-01">
+                        </td>
+                    </tr>
+
+                    <script>
+                        $(function() {
+                            $("#datepicker").datepicker({
+                                dateFormat: "yy-mm-dd"  // 날짜 형식을 설정할 수 있습니다
+                            });
+                        });
+                    </script>-->
+
+                    <tr>
+                        <th>날짜</th>
+                        <td>
+                            <input type="text" id="datepicker" name="board_date" required class="sec-tbl-date" placeholder="2024-01-01">
+                        </td>
+                    </tr>
+
+                    <script>
+                        $(function() {
+                            // Datepicker의 지역 설정을 한국어로 설정
+                            $.datepicker.setDefaults($.datepicker.regional['ko']);
+                            // Datepicker 초기화
+                            $("#datepicker").datepicker({
+                                dateFormat: "yy-mm-dd"  // 날짜 형식을 설정할 수 있습니다
+                            });
+                        });
+                    </script>
+
+
+
+                </table>
+
+                <!-- 버튼 -->
+                <div class="btn">
+                    <button type="submit" class="btn-write">
+                        작성
+                    </button>
+                    <button class="btn-cancel">
+                        <a href="/community/list">취소</a>
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </section>
+
+</div>
+
+<!-- --------------------------------------------------------- -->
+<!-- footer -->
+<footer th:insert="~{/common/footer :: footerFragment}">
+    <h1>FOOTER</h1>
+</footer>
+
+</div>
+</body>
+</html>

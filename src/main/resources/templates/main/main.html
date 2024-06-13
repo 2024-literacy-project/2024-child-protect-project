@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style></style>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main/main.css}">
+</head>
+<body>
+<div id="wrap">
+
+<!-- header -->
+<header th:replace="~{/common/header :: headerFragment}">
+    <h1>HEADER</h1>
+</header>
+
+<!-- --------------------------------------------------------- -->
+<div>
+    <!-- login : o -->
+
+    <div th:if="${member_id}" style="display: flex; justify-content: right; margin-right: 30px; margin-bottom: 20px;">
+        <div style="margin-right: 10px;">
+            <p> <span th:text="${member_id}"></span> 님</p>
+        </div>
+        <div>
+            <form action="/member/logout" method="get">
+                <button type="submit" style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 70px; height: 35px; border-radius: 5px;">
+                    로그아웃
+                </button>
+            </form>
+        </div>
+        <!---->
+        <!-- 회원리스트보기 버튼(관리자용) -->
+        <div th:if="${member_id == 'admin'}" style="margin-left: 20px;">
+            <button type="button" onclick="location.href='/member/userList'"
+                    style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">
+                회원목록 관리
+            </button>
+        </div>
+    </div>
+
+    <!-- login : x -->
+    <div th:if="${member_id == null}" style="display: flex; justify-content: right; margin-right: 30px; margin-bottom: 20px;">
+        <div>
+            <form action="/member/login" method="get">
+                <button type="submit"
+                        style="margin-right: 10px; margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 70px; height: 35px; border-radius: 5px;">
+                    로그인
+                </button>
+            </form>
+        </div>
+        <div>
+            <form action="/member/register" method="get">
+                <button type="submit" style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 80px; height: 35px; border-radius: 5px;">
+                    회원가입
+                </button>
+            </form>
+        </div>
+    </div>
+
+<!--    &lt;!&ndash; 회원리스트보기 버튼(관리자용) &ndash;&gt;-->
+<!--    <div th:if="${member_id == 'admin'}">-->
+<!--        <button type="button" onclick="location.href='/member/userList'"-->
+<!--                style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">-->
+<!--            회원목록 관리-->
+<!--        </button>-->
+<!--    </div>-->
+
+</div>
+
+<!-- --------------------------------------------------------- -->
+<!-- contents -->
+    <hr>
+    <section class="section">
+        <!-- content01 -->
+        <div class="content01">
+
+            <!-- 지문등록 -->
+            <div class="con01-div01">
+                <div class="con01-div01-01">
+                    <p class="con01-div01-p01">
+                        지문 사전등록 신청
+                    </p>
+                    <p class="con01-div01-p02">
+                       아동, 여성, 장애인 경찰지원 센터에서 <br>
+                        아동들의 실종을 방지하고<br>
+                       실종 발생 시 신속한 발견을 위해서<br>
+                       지문 사전등록제를 운영하고 있습니다.
+                    </p>
+                </div>
+                <div class="image-finger">
+                    <!-- 사진 -->
+                </div>
+            </div>
+
+            <!-- 실종 아동 찾기 -->
+            <div class="con01-div02">
+
+                <div class="image-182">
+                    <!--사진-->
+                </div>
+                <div class="con02-div02-01">
+                    <p class="p-182">182</p>
+                </div>
+                <div class="con02-div02-02">
+                    <p class="con02-div02-02-p01">실종아동 찾기</p>
+                    <p class="con02-div02-02-p02">실종아동찾기 센터는 여러분의 <br/>가정을 지키는 사랑의 메신저입니다.</p>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <!-- content02 (페이지이동) -->
+        <div class="content02">
+            <!-- 내 주변 -->
+            <div class="con02-div">
+                <button class="con02-btn">
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="5.5em" height="5.5em" viewBox="0 0 32 32"><path fill="currentColor" d="m16 24l-6.09-8.6A8.14 8.14 0 0 1 16 2a8.08 8.08 0 0 1 8 8.13a8.2 8.2 0 0 1-1.8 5.13Zm0-20a6.07 6.07 0 0 0-6 6.13a6.2 6.2 0 0 0 1.49 4L16 20.52L20.63 14A6.24 6.24 0 0 0 22 10.13A6.07 6.07 0 0 0 16 4"/><circle cx="16" cy="9" r="2" fill="currentColor"/><path fill="currentColor" d="M28 12h-2v2h2v14H4V14h2v-2H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V14a2 2 0 0 0-2-2"/></svg></a>
+                </button>
+                <p class="con02-p">내 주변 <br/> 아동안전이킴이집</p>
+            </div>
+
+            <div class="con02-div">
+                <button class="con02-btn" onclick="location.href='/community/list'">
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="5.5em" height="5.5em" viewBox="0 0 32 32"><path fill="currentColor" d="M8 7a2 2 0 1 1 4 0a2 2 0 0 1-4 0m2-4a4 4 0 1 0 0 8a4 4 0 0 0 0-8M4.5 13A2.5 2.5 0 0 0 2 15.5v.25c0 .275 0 1.845 1.054 3.36c.757 1.088 1.983 2.047 3.899 2.54a4 4 0 0 1 1.735-1.717c-2.33-.251-3.437-1.167-3.992-1.965A4 4 0 0 1 4 15.75v-.25a.5.5 0 0 1 .5-.5h6c0-.706.133-1.38.375-2zm24.446 6.11c-.757 1.088-1.983 2.047-3.899 2.54a4 4 0 0 0-1.735-1.717c2.33-.251 3.437-1.167 3.992-1.965A4 4 0 0 0 28 15.75v-.25a.5.5 0 0 0-.5-.5h-6c0-.706-.133-1.38-.375-2H27.5a2.5 2.5 0 0 1 2.5 2.5v.25c0 .275 0 1.845-1.054 3.36M20 7a2 2 0 1 1 4 0a2 2 0 0 1-4 0m2-4a4 4 0 1 0 0 8a4 4 0 0 0 0-8m-6 10a2 2 0 1 0 0 4a2 2 0 0 0 0-4m-4 2a4 4 0 1 1 8 0a4 4 0 0 1-8 0m-4 8.5a2.5 2.5 0 0 1 2.5-2.5h11a2.5 2.5 0 0 1 2.5 2.5v.25c0 .275 0 1.845-1.054 3.36C21.846 28.691 19.756 30 16 30s-5.846-1.309-6.946-2.89C8 25.595 8 24.026 8 23.75zm2.5-.5a.5.5 0 0 0-.5.5v.25c0 .165.001 1.22.696 2.218c.65.935 2.06 2.032 5.304 2.032s4.654-1.097 5.304-2.032A4 4 0 0 0 22 23.75v-.25a.5.5 0 0 0-.5-.5z"/></svg></a>
+                </button>
+                <p class="con02-p">자율방범대 <br/> 커뮤니티</p>
+            </div>
+
+            <div class="con02-div">
+                <button class="con02-btn" onclick="location.href='/angel/angel'">
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="5.5em" height="5.5em" viewBox="0 0 14 14"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M7.36 13.43a1 1 0 0 1-.72 0v0a9.67 9.67 0 0 1-6.14-9V1.5a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v2.92a9.67 9.67 0 0 1-6.14 9.01"/><path d="M2.837 10.73A4.995 4.995 0 0 1 7 8.5c1.737 0 3.267.886 4.164 2.23M7 7a2.25 2.25 0 1 0 0-4.5A2.25 2.25 0 0 0 7 7"/></g></svg></a>
+                </button>
+                <p class="con02-p">내 근처 <br/> 아동수호천사 보기</p>
+            </div>
+
+            <div class="con02-div">
+                <button class="con02-btn" onclick="location.href='/manual/manual'">
+                    <!--            <button class="con02-btn" th:href="@{/manual/manual}">-->
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="5.5em" height="5.5em" viewBox="0 0 256 256"><path fill="currentColor" d="M120 16V8a8 8 0 0 1 16 0v8a8 8 0 0 1-16 0m80 32a8 8 0 0 0 5.66-2.34l8-8a8 8 0 0 0-11.32-11.32l-8 8A8 8 0 0 0 200 48M50.34 45.66a8 8 0 0 0 11.32-11.32l-8-8a8 8 0 0 0-11.32 11.32Zm87 26.45a8 8 0 1 0-2.64 15.78C153.67 91.08 168 108.32 168 128a8 8 0 0 0 16 0c0-27.4-20.07-51.43-46.68-55.89ZM232 176v24a16 16 0 0 1-16 16H40a16 16 0 0 1-16-16v-24a16 16 0 0 1 16-16v-32a88 88 0 0 1 88.67-88c48.15.36 87.33 40.29 87.33 89v31a16 16 0 0 1 16 16M56 160h144v-31c0-40-32.05-72.71-71.45-73H128a72 72 0 0 0-72 72Zm160 40v-24H40v24z"/></svg></a>
+                </button>
+                <p class="con02-p">비상상황 메뉴얼</p>
+            </div>
+
+        </div>
+    </section>
+
+    <br>
+    <hr>
+    <br>
+
+
+<!-- --------------------------------------------------------- -->
+<!-- footer -->
+<footer th:insert="~{/common/footer :: footerFragment}">
+    <h1>FOOTER</h1>
+</footer>
+
+</div>
+</body>
+</html>

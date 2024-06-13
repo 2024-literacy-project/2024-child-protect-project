@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common/header.css}"/>
 </head>
 <body>
+    <header th:fragment="headerFragment" class="header">
+        <!--      <h1>header Fragment</h1>-->
+        <p>
+            <!--<a href="#">HOME</a>-->
+            <a href="/" th:href="@{/}">
+                <!--<p class="header-home">HOME</p>-->
+                <div style="display: flex; justify-content: center;">
+                    <div class="logo"></div>
+                </div>
+            </a>
+        </p>
 
-<header th:fragment="headerFragment" class="header">
-    <!--      <h1>header Fragment</h1>-->
-    <p>
-        <!--            <a href="#">HOME</a>-->
-        <a href="/" th:href="@{/}">HOME</a>
-    </p>
-
-</header>
-
+    </header>
 </body>
 </html>

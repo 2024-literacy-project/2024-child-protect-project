@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 수정</title>
+    <style></style>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/member/editList.css}"/>
+</head>
+<body>
+<div id="wrap">
+
+<!-- header -->
+<header th:replace="~{/common/header :: headerFragment}">
+    <h1>HEADER</h1>
+</header>
+
+<!-- --------------------------------------------------------- -->
+<div>
+    <!-- login : o -->
+
+<!--    <div th:if="${member_id}" style="display: flex;">-->
+<!--        <div style="margin-right: 10px;">-->
+<!--            <p> <span th:text="${member_id}"></span> 님</p>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <form action="/member/logout" method="get">-->
+<!--                <button type="submit" style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 70px; height: 35px; border-radius: 5px;">-->
+<!--                    로그아웃-->
+<!--                </button>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <!-- login : x -->
+<!--    <div th:if="${member_id == null}" style="display: flex;">-->
+<!--        <div>-->
+<!--            <form action="/member/login" method="get">-->
+<!--                <button type="submit"-->
+<!--                        style="margin-right: 10px; margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 70px; height: 35px; border-radius: 5px;">-->
+<!--                    로그인-->
+<!--                </button>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <form action="/member/register" method="get">-->
+<!--                <button type="submit" style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 80px; height: 35px; border-radius: 5px;">-->
+<!--                    회원가입-->
+<!--                </button>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+
+    <!-- 회원리스트보기 버튼(관리자용) -->
+<!--    <div th:if="${member_id == 'admin'}">-->
+<!--        <button type="button" onclick="location.href='/member/userList'"-->
+<!--                style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">-->
+<!--            회원목록 관리-->
+<!--        </button>-->
+<!--    </div>-->
+    <div th:if="${member_id}" style="display: flex; justify-content: right;  margin-right: 150px; margin-bottom: 20px;">
+        <button type="button" onclick="location.href='/member/userList'"
+                style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">
+            회원목록 관리
+        </button>
+    </div>
+
+</div>
+
+<!-- --------------------------------------------------------- -->
+<!-- contents-->
+<div style="display: flex;">
+    <!-- aside -->
+    <!--    <aside th:replace="~{/common/aside :: asideFragment}">-->
+    <!--        <h1>aside</h1>-->
+    <!--    </aside>-->
+    <aside class="aside" style="margin-left: 10%;">
+        <div class="aside-div" style="border: 1px solid white;width: 220px;border-radius: 10px; background-color: #E5F3F5; height: 650px;">
+
+            <p class="aside-shortcut" style="text-align: center;margin-top: 30px;margin-bottom: 30px;font-size: 20px; font-weight: bolder">
+                바로가기
+            </p>
+
+            <table border="1" class="aside-tbl" style="background-color: white;width: 160px;margin-left: 30px;height: 500px;border-collapse: collapse;margin-bottom: 25px; border: 1px solid lightgray; box-shadow: 1px 1px 1px lightgray;">
+                <!--        <thead>-->
+                <!--            <tr>-->
+                <!--                <th>바로가기</th>-->
+                <!--            </tr>-->
+                <!--        </thead>-->
+                <tbody style="text-align: center;">
+                <tr>
+                    <td style="height: 100px;"><a href="#" >내 주변 <br/>아동안전지킴이집</a></td>
+                </tr>
+                <tr>
+                    <td style="height: 100px;"><a onclick="location.href='/community/list'">자율방범대 <br/> 커뮤니티</a></td>
+                </tr>
+                <tr>
+                    <td style="height: 100px;"><a onclick="location.href='/angel/angel'">내 근처 <br/> 아동수호천사</a></td>
+                </tr>
+                <tr>
+                    <td style="height: 100px;"><a  onclick="location.href='/manual/manual'">비상 상황 메뉴얼</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">실종아동센터 <br/> 182</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </aside>
+    <!-- 게시글 상세 -->
+    <section class="board-sec" style="border: 1px solid white; border-radius: 10px; width: 65%;margin-left: 3%; background-color: #E5F3F5;box-shadow: 1px 1px 1px lightgray; ">
+        <div style="margin-left: 10%; width: 90%">
+            <p style="font-size: 30px; font-weight: bolder;">회원 수정</p>
+
+            <!---->
+<!--            <h1>회원 수정</h1>-->
+
+            <form action="/member/editList" method="post">
+            <!--    <input type="hidden" id="memberNo" name="memberNo" th:value="${member.memberNo}">-->
+
+                <div>
+                    <div><label for="member_id" style="font-size: 15px;">회원 아이디&nbsp;</label></div>
+                    <input type="text" id="member_id" name="member_id" th:value="${member.member_id}" required
+                            style="border: 1px solid lightgray; width: 40%; height: 30px; margin-bottom: 15px;margin-top: 5px;">
+                </div>
+                <div>
+                    <div><label for="member_pw">회원 비밀번호</label></div>
+                    <input type="password" id="member_pw" name="member_pw" th:value="${member.member_pw}" required
+                           style="border: 1px solid lightgray; width: 40%; height: 30px;  margin-bottom: 15px;margin-top: 5px;">
+                </div>
+                <div>
+                    <div><label for="member_name">회원 이름</label></div>
+                    <input type="text" id="member_name" name="member_name" th:value="${member.member_name}" required
+                           style="border: 1px solid lightgray; width: 40%; height: 30px;  margin-bottom: 15px;margin-top: 5px;">
+                </div>
+                <div>
+                    <div><label for="member_phone">회원 전화번호</label></div>
+                    <input type="text" id="member_phone" name="member_phone" th:value="${member.member_phone}" required
+                           style="border: 1px solid lightgray; width: 40%; height: 30px; margin-bottom: 15px;margin-top: 5px;">
+                </div>
+                <div>
+                    <div><label for="member_role">권한 </label></div>
+                    <input type="text" id="member_role" name="member_role" th:value="${member.member_role}" required
+                           style="border: 1px solid lightgray; width: 40%; height: 30px;  margin-bottom: 15px;margin-top: 5px;">
+                </div>
+                <div>
+                    <div><label for="guardians_role">방범대 권한</label></div>
+                    <input type="text" id="guardians_role" name="guardians_role" th:value="${member.guardians_role}" required
+                           style="border: 1px solid lightgray; width: 40%; height: 30px; margin-bottom: 15px;margin-top: 5px;">
+                </div>
+
+            <!--    <label for="role">역할:</label>-->
+            <!--    <select id="role" name="role" th:value="${member.role}">-->
+            <!--        <option value="USER">사용자</option>-->
+            <!--        <option value="ADMIN">관리자</option>-->
+            <!--    </select>-->
+
+                <div>
+                    <button type="submit"
+                            style="margin-top: 10px; border: 1px solid #F5F5F5; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 70px; height: 35px; border-radius: 5px;">
+                        수정
+                    </button>
+                    <button style="margin-top: 10px; border: 1px solid #F5F5F5; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 70px; height: 35px; border-radius: 5px;">
+                        <a href="/member/userList">취소</a>
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </section>
+
+</div>
+
+<!-- --------------------------------------------------------- -->
+<!-- footer -->
+<footer th:insert="~{/common/footer :: footerFragment}">
+    <h1>FOOTER</h1>
+</footer>
+
+
+</div>
+</body>
+</html>

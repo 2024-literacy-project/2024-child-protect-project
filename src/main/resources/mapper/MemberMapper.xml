@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ohgiraffers.childprotectproject.member.DTO.MemberDAO">
+
+    <!--  로그인에 사용  -->
+    <select id="findByMemberIdAndPassword" parameterType="map" resultType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
+--         SELECT member_id
+        SELECT *
+        FROM member
+        WHERE member_id = #{member_id} AND member_pw = #{member_pw}
+    </select>
+
+    <!-- 회원가입 -->
+    <insert id="saveMember" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
+        INSERT INTO member (member_id, member_pw, member_name, member_phone, member_role, guardians_role)
+        VALUES (#{member_id}, #{member_pw}, #{member_name}, #{member_phone}, '사용자', 'N')
+    </insert>
+
+    <!-- 사용자리스트 (관리자용)-->
+    <!-- 보기 -->
+    <select id="getAllMemberList" resultType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
+        SELECT * FROM member
+    </select>
+    <!-- 수정 -->
+    <update id="updateMember" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
+        UPDATE member
+        SET member_id = #{member_id}, member_pw=#{member_pw}, member_name=#{member_name}, member_phone=#{member_phone}, member_role=#{member_role}, guardians_role=#{guardians_role}
+        WHERE member_id = #{member_id}
+    </update>
+    <!-- 특정 id로 조회 -->
+    <select id="findByMemberId" parameterType="com.ohgiraffers.childprotectproject.member.DTO.MemberDTO">
+        SELECT * FROM member WHERE member_id = #{member_id}
+    </select>
+
+    <!-- 삭제 -->
+    <delete id="deleteMember" parameterType="string">
+        DELETE FROM member WHERE member_id = #{member_id}
+    </delete>
+
+    <!---->
+
+</mapper>

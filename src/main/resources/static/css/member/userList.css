@@ -1,0 +1,50 @@
+body{}
+/* 공통 */
+a{
+    text-decoration: none;
+}
+#wrap{
+    min-height: 100%;
+    position: relative;
+    /*padding-bottom: 50px;*/
+}
+/* header */
+header{
+    text-align: center;
+}
+.header-home{
+    /*font-size: 30px;*/
+    /*font-weight: bolder;*/
+}
+.logo{
+    background-image: url("../../img/headerlogo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    width: 120px;
+    height: 65px;
+
+}
+
+/* 승인, 미승인 */
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+/* footer */
+footer{
+    text-align: center;
+    width: 100%;
+    /*position: absolute;*/
+    /*position: fixed;*/
+    bottom: 0px;
+    background-color: white;
+    height: 80px;
+}
+
+/* ---------------------------------- */

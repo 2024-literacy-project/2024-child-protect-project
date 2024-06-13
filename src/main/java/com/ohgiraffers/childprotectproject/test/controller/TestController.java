@@ -17,7 +17,7 @@ public class TestController {
         this.testService = testService;
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/test")
     public ModelAndView openAll() throws Exception {
 
         ModelAndView mv = new ModelAndView("test/test");

@@ -1,0 +1,145 @@
+body{}
+/* 공통 */
+a{
+    text-decoration: none;
+}
+#wrap{
+    min-height: 100%;
+    position: relative;
+    /*padding-bottom: 50px;*/
+}
+header{
+    text-align: center;
+    height: 60px;
+}
+.header-home{
+    /*font-size: 30px;*/
+    /*font-weight: bolder;*/
+}
+.logo{
+    background-image: url("../../img/headerlogo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    width: 120px;
+    height: 65px;
+
+}
+/* footer */
+footer{
+    text-align: center;
+    width: 100%;
+    /*position: absolute;*/
+    /*position: fixed;*/
+    bottom: 0px;
+    height: 80px;
+    background-color: white;
+    height: 80px;
+}
+/* ---------------------------------- */
+/* contents */
+.contents{
+    display: flex;
+}
+/* aside */
+.aside{
+    margin-left: 10%;
+}
+.aside-div {
+    border: 1px solid white;
+    width: 220px;
+    border-radius: 10px;
+    background-color: #E5F3F5;
+    height: 650px;
+}
+/* 바로가기 */
+.aside-shortcut {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+/* 간편창 */
+.aside-tbl {
+    background-color: white;
+    width: 160px;
+    margin-left: 30px;
+    height: 500px;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    border: 1px solid lightgray;
+    box-shadow: 1px 1px 1px lightgray;
+}
+.aside-tbl>tbody{
+    text-align: center;
+}
+.aside-td{
+    height: 100px;
+}
+/* section */
+/* 게시판 */
+.section {
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 65%;
+    margin-left: 3%;
+    background-color: #E5F3F5;
+    box-shadow: 1px 1px 1px lightgray;
+}
+.sec-div {
+    margin-left: 7%;
+    width: 90%;
+}
+.sec-title {
+    font-size: 30px;
+    font-weight: bolder;
+}
+.sec-tbl {
+    text-align: center;
+    border-collapse: collapse;
+    width: 95%;
+    height: 470px;
+    background-color: white;
+    border: 1px solid lightgray;
+    box-shadow: 1px 1px 1px lightgray;
+}
+
+.sec-tbl-title{
+    border: 1px solid lightgray; width: 70%;height: 25px;
+}
+.sec-tbl-member{
+    border: 1px solid white;
+}
+.sec-tbl-cont{
+    border: 1px solid lightgray; width: 70%;height: 80%;
+}
+.sec-tbl-region{
+    border: 1px solid lightgray; width: 70%;height: 80%;
+}
+.sec-tbl-date{
+    border: 1px solid lightgray; width: 50%;height: 25px;
+}
+/* 버튼 */
+.btn{
+    margin-top: 10px;
+}
+.btn-update {
+    margin-top: 10px;
+    border: 1px solid #F5F5F5;
+    background-color: #F5F5F5;
+    box-shadow: 1px 1px 1px gray;
+    width: 70px;
+    height: 35px;
+    border-radius: 5px;
+}
+.btn-cancel {
+    margin-top: 10px;
+    border: 1px solid #F5F5F5;
+    background-color: #F5F5F5;
+    box-shadow: 1px 1px 1px gray;
+    width: 70px;
+    height: 35px;
+    border-radius: 5px;
+}

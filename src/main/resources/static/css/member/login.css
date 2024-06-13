@@ -1,0 +1,62 @@
+body{}
+
+/* 공통 */
+a{
+    text-decoration-line: none;
+}
+/* header */
+header{
+    text-align: center;
+    /*position: fixed;*/
+    /*height: 60px;*/
+}
+/* footer */
+footer{
+    text-align: center;
+    width: 100%;
+    /*position: absolute;*/
+    /*position: fixed;*/
+    bottom: 0px;
+    background-color: white;
+    height: 80px;
+}
+/* ---------------------------------- */
+
+.header-home{
+    /*font-size: 30px;*/
+    /*font-weight: bolder;*/
+}
+.logo{
+    background-image: url("../../img/headerlogo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    width: 120px;
+    height: 65px;
+
+}
+
+/* ---------------------------------- */
+/* contents */
+/* input box */
+.member_id{
+    /*width: 400px;*/
+    /*height: 35px;*/
+    /*margin-bottom: 10px;*/
+}
+.member_pw{
+    /*width: 400px;*/
+    /*height: 35px;*/
+}
+/* btn */
+.login-btn{
+    width: 180px;
+    height: 35px;
+    margin-left: 10px;
+    margin-right: 30px;
+}
+.signup-btn{
+    width: 180px;
+    height: 35px;
+}

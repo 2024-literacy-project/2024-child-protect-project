@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style></style>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/manual/manual.css}">
+</head>
+<body>
+<!-- header -->
+<header th:replace="~{/common/header :: headerFragment}">
+    <h1>HEADER</h1>
+</header>
+
+<!-- --------------------------------------------------------- -->
+<div>
+    <!-- login : o -->
+
+    <div th:if="${member_id}" style="display: flex; justify-content: right; margin-right: 150px; margin-bottom: 20px;">
+        <div style="margin-right: 10px;">
+            <p> <span th:text="${member_id}"></span> 님</p>
+        </div>
+        <div>
+            <form action="/member/logout" method="get">
+                <button type="submit" style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 70px; height: 35px; border-radius: 5px;">
+                    로그아웃
+                </button>
+            </form>
+        </div>
+        <!---->
+        <!-- 회원리스트보기 버튼(관리자용) -->
+        <div th:if="${member_id == 'admin'}" style="margin-left: 20px;">
+            <button type="button" onclick="location.href='/member/userList'"
+                    style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">
+                회원목록 관리
+            </button>
+        </div>
+    </div>
+
+    <!-- login : x -->
+    <div th:if="${member_id == null}" style="display: flex; justify-content: right; margin-right: 150px; margin-bottom: 20px;">
+        <div>
+            <form action="/member/login" method="get">
+                <button type="submit"
+                        style="margin-right: 10px; margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 70px; height: 35px; border-radius: 5px;">
+                    로그인
+                </button>
+            </form>
+        </div>
+        <div>
+            <form action="/member/register" method="get">
+                <button type="submit" style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 80px; height: 35px; border-radius: 5px;">
+                    회원가입
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!--    &lt;!&ndash; 회원리스트보기 버튼(관리자용) &ndash;&gt;-->
+    <!--    <div th:if="${member_id == 'admin'}">-->
+    <!--        <button type="button" onclick="location.href='/member/userList'"-->
+    <!--                style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">-->
+    <!--            회원목록 관리-->
+    <!--        </button>-->
+    <!--    </div>-->
+
+</div>
+
+<!-- --------------------------------------------------------- -->
+<!-- contents-->
+<div class="contents">
+    <!-- aside -->
+    <aside class="aside">
+        <div class="aside-div" >
+            <!-- 바로가기 -->
+            <p class="aside-shortcut">
+                바로가기
+            </p>
+
+            <!-- 간편창 -->
+            <table border="1" class="aside-tbl">
+                <!--        <thead>-->
+                <!--            <tr>-->
+                <!--                <th>바로가기</th>-->
+                <!--            </tr>-->
+                <!--        </thead>-->
+                <tbody>
+                <tr>
+                    <td class="aside-td"><a href="#" >내 주변 <br/>아동안전지킴이집</a></td>
+                </tr>
+                <tr>
+                    <td class="aside-td"><a onclick="location.href='/community/list'">자율방범대 <br/> 커뮤니티</a></td>
+                </tr>
+                <tr>
+                    <td class="aside-td"><a onclick="location.href='/angel/angel'">내 근처 <br/> 아동수호천사</a></td>
+                </tr>
+                <tr>
+                    <td class="aside-td"><a  onclick="location.href='/manual/manual'">비상 상황 메뉴얼</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">실종아동센터 <br/> 182</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </aside>
+    <!-- section -->
+    <!-- 게시판 -->
+    <section class="section">
+
+        <!-- content01 -->
+        <div class="content01">
+            <p class="con01-title">아동안전지킴이집 안전메뉴얼</p>
+
+            <div class="con01-div01">
+                <p class="con01-div01-p01">아동안전지킴이집이란</p>
+
+                <div class=".image-guardians">
+                    <!--사진-->
+                </div>
+
+                <p class="con01-div01-p02">
+                    학교주변, 통학로, 공원 주변의 문구점, 편의점, 약국 등을 <br> 아동안전지킴이집으로 지정하여
+                    위험에 처한 아동을 <br> 임시보호하고 경찰에 인계하는 곳.
+                </p>
+            </div>
+
+            <div class="con01-div02">
+                <h3>아동안전지킴이집은?</h3>
+                <h4>아이들을 도와주세요!</h4>
+
+                <div class="manual01">
+                    <p class="manual01-p01">1. 어린이가 아동안전지킴이집에 들어와 도움을 요청하면</p>
+                    <p class="manual01-p02" style="height: 30px;">곧바로 112 또는 관할 지구대로 연락한다.</p>
+                </div>
+                <div class="manual01">
+                    <p class="manual01-p01" >2. 낯선 사람이나 동물로부터 위협을 받는 어린이를 목격한 경우,</p>
+                    <p class="manual01-p02">경찰에 정확한 현 위치와 상황을 신속히 알리고,<br>
+                        어린이를 개방된 곳에서 안정시키며 <br> 아이의 부모나 보호자에게 연락을 취한다.
+                    </p>
+                </div>
+                <div class="manual01">
+                    <p class="manual01-p01">3. 길을 잃은 어린이를 발견한 경우,</p>
+                    <p class="manual01-p02">경찰청 실종아동찾기(국번없이 182)에 신고하고, <br> 어린이를 개방된 공간에서 잠시 보호해준다.</p>
+                </div>
+                <div class="manual01">
+                    <p class="manual01-p01">4. 어린이를 보호하는 동안에 어린이를 안심시키며,</p>
+                    <p class="manual01-p02">침착하게 어린이 나름대로 세세한 점을 <br> 기억하도록 놓아 둔다.</p>
+                </div>
+                <div class="manual01">
+                    <p class="manual01-p01">5. 경찰관서에 연락할 때에는 </p>
+                    <p class="manual01-p02">아동안전지킴이라는 것을 분명히 밝히고, <br>상황을 정확히 설명한다.</p>
+                </div>
+
+            </div>
+        </div>
+        <!-- 02  -->
+        <div class="content02">
+            <div class="con02-div01">
+                <h3>어린이들은?</h3>
+                <h4>도움이 필요할 때!</h4>
+
+                <div class="manual02">
+                    <p>1. 부모님의 허락 없이는 누구든지 따라가면 안돼요!</p>
+                </div>
+                <div class="manual02">
+                    <p>2. 절대 모르는 사람의 차는 타면 안 돼요!</p>
+                </div>
+                <div class="manual02">
+                    <p>3. 이상한 느낌의 사람과는 절대 같이 가면 안 돼요!</p>
+                </div>
+                <div class="manual02">
+                    <p>4. 낯선 사람이 주는 선물을 받아서는 안 돼요!</p>
+                </div>
+                <div class="manual02" style="margin-bottom: 25px;">
+                    <p style="width: 95%;margin-left: 2%;">5. 낯선 사람이 따라오거나 말을 걸 때엔 절대 따라가지 말고
+                        도움이 필요한 상황이 발생했을 시 가까운 곳에 있는 아동안전지킴이집으로 들어가 도움을 요청하세요!
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="con02-div02">
+                <h3>부모님들은?</h3>
+                <h4>아이에게 미리 알려주세요!</h4>
+
+                <div class="manual03">
+                    <p>1. 낯선 사람은 절대 따라가지 말고,
+                        아이에게 이름과 나이,<br> 주소,전화번호, 부모이름 등을 기억하도록 가르쳐 주세요!
+                    </p>
+                </div>
+                <div class="manual03">
+                    <p>2. 아이들에게 아동안전지킴이집이 무엇인지 알려주고<br>
+                        근처에 위치한 아동안전지킴이집을 미리 알려주세요!
+                    </p>
+                </div>
+                <div class="manual03" style="margin-bottom: 25px;">
+                    <p>
+                        3. 항상 연락처가 적힌 목걸이, 팔찌, 이름표 등 인식표를<br>
+                        노출하지 않도록 착용하게 해주세요!
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <!--내용-->
+
+        </section>
+<!--    </div>-->
+
+    <!-- -->
+        </div>
+    </section>
+
+</div>
+<!-- --------------------------------------------------------- -->
+    <!-- footer -->
+    <footer th:insert="~{/common/footer :: footerFragment}">
+        <h1>FOOTER</h1>
+    </footer>
+
+</body>
+</html>
