@@ -159,13 +159,16 @@
 
      
 ## 6. DB/프로젝트 구조
-### 논리/물리 ERD
+### 논리 ERD
+![논리erd](https://github.com/2024-literacy-project/2024-child-protect-project/assets/82174047/27771b96-6c3a-4676-8df0-7e506c817a0a)
 
-
-  ```
+ ### 물리 ERD
+![물리erd](https://github.com/2024-literacy-project/2024-child-protect-project/assets/82174047/ccf7c1ec-1356-4403-a2ae-593fdf412d73)
 
  
+ ``` 
  ```
+
 
    
 ## 7. 페이지별 설명
