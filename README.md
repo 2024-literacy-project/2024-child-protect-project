@@ -139,7 +139,8 @@
 
 ## 4. 유사 프로그램 분석
 ### ① 안전드림
-  <div align="left"> <img src="https://github.com/2024-literacy-project/2024-child-protect-project/assets/129252557/7501d40e-18b8-4d82-b6c0-7bc0c5d8ce8f)" alt="사진" width="350" height="150">
+<div align="left"> <img src="https://github.com/2024-literacy-project/2024-child-protect-project/assets/82174047/b15b597e-df9a-4db1-98d6-58f9e9ec93b3" alt="사진" width="380" height="130">
+
 
 - 사회적 약자 대상 범죄에 대한 피해 신고 접수와 신속한 구조 활동을 지원하기 위해 경찰청 아동∙여성∙장애인 경찰지원센터에서 만든 홈페이지
 
