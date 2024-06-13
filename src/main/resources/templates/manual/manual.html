@@ -14,8 +14,8 @@
 </header>
 
 <!-- --------------------------------------------------------- -->
-<!--<div>
-    &lt;!&ndash; login : o &ndash;&gt;
+<div>
+    <!-- login : o -->
 
     <div th:if="${member_id}" style="display: flex; justify-content: right; margin-right: 150px; margin-bottom: 20px;">
         <div style="margin-right: 10px;">
@@ -28,8 +28,8 @@
                 </button>
             </form>
         </div>
-        &lt;!&ndash;&ndash;&gt;
-        &lt;!&ndash; 회원리스트보기 버튼(관리자용) &ndash;&gt;
+        <!---->
+        <!-- 회원리스트보기 버튼(관리자용) -->
         <div th:if="${member_id == 'admin'}" style="margin-left: 20px;">
             <button type="button" onclick="location.href='/member/userList'"
                     style="margin-top: 10px; border: 1px solid lightgray; background-color: #F5F5F5; box-shadow: 1px 1px 1px gray; width: 100px; height: 35px; border-radius: 5px;">
@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    &lt;!&ndash; login : x &ndash;&gt;
+    <!-- login : x -->
     <div th:if="${member_id == null}" style="display: flex; justify-content: right; margin-right: 150px; margin-bottom: 20px;">
         <div>
             <form action="/member/login" method="get">
@@ -55,7 +55,7 @@
                 </button>
             </form>
         </div>
-    </div>-->
+    </div>
 
     <!--    &lt;!&ndash; 회원리스트보기 버튼(관리자용) &ndash;&gt;-->
     <!--    <div th:if="${member_id == 'admin'}">-->
@@ -65,7 +65,7 @@
     <!--        </button>-->
     <!--    </div>-->
 
-<!--</div>-->
+</div>
 
 <!-- --------------------------------------------------------- -->
 <!-- contents-->

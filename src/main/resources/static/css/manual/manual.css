@@ -41,7 +41,6 @@ footer{
 /* contents */
 .contents{
     display: flex;
-    margin-top: 40px;           /* 여기 다시... */
 }
 /* aside */
 .aside{
