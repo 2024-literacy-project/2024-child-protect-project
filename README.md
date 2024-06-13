@@ -160,10 +160,10 @@
      
 ## 6. DB/프로젝트 구조
 ### 논리 ERD
-![논리erd](https://github.com/2024-literacy-project/2024-child-protect-project/assets/82174047/27771b96-6c3a-4676-8df0-7e506c817a0a)
+![논리](https://github.com/2024-literacy-project/2024-child-protect-project/assets/82174047/267fa14d-6bb7-4fa8-aff7-fe2b1a7c959e)
 
  ### 물리 ERD
-![물리erd](https://github.com/2024-literacy-project/2024-child-protect-project/assets/82174047/ccf7c1ec-1356-4403-a2ae-593fdf412d73)
+![물리](https://github.com/2024-literacy-project/2024-child-protect-project/assets/82174047/91629ee3-e309-44c2-b723-f3e40f0698a7)
 
  
  ``` 
