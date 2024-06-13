@@ -202,7 +202,7 @@
  - 아동 안전지킴이집에 대한 알림
  - 아동 안전지킴이집 행동수칙
  - 아동 및 부모가 알아야 할 안전 행동 수칙
-
+<img width="900" alt="스크린샷 2024-06-03 오후 6 34 30" src="https://github.com/2024-literacy-project/2024-child-protect-project/assets/129252557/186ebed3-13a1-4413-908b-18d6fe563cc0">
 
 
 
@@ -215,8 +215,8 @@
 
 
 
-
  
+
 
   
 
