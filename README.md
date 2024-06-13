@@ -173,7 +173,124 @@
 ![물리](https://github.com/2024-literacy-project/2024-child-protect-project/assets/82174047/91629ee3-e309-44c2-b723-f3e40f0698a7)
 
  
- ``` 
+ ```
+.
+├── java
+│   └── com
+│       └── ohgiraffers
+│           └── childprotectproject
+│               ├── Application.java
+│               ├── angel
+│               │   └── Controller
+│               │       └── AngelController.java
+│               ├── community
+│               │   ├── Controller
+│               │   │   └── CmuController.java
+│               │   ├── DTO
+│               │   │   ├── CmuDAO.java
+│               │   │   └── CmuDTO.java
+│               │   └── Service
+│               │       ├── CmuService.java
+│               │       └── CmuServiceImpl.java
+│               ├── config
+│               │   ├── MybatisConfiguration.java
+│               │   └── RestTemplateConfig.java
+│               ├── main
+│               │   └── Controller
+│               │       └── MainController.java
+│               ├── manual
+│               │   └── Controller
+│               │       └── ManualController.java
+│               ├── map
+│               │   ├── DataController.java
+│               │   └── MapController.java
+│               ├── member
+│               │   ├── Controller
+│               │   │   └── MemberController.java
+│               │   ├── DTO
+│               │   │   ├── MemberDAO.java
+│               │   │   └── MemberDTO.java
+│               │   ├── Service
+│               │   │   ├── MemberService.java
+│               │   │   └── MemberServiceImpl.java
+│               │   └── common
+│               │       └── UserRole.java
+│               └── test
+│                   ├── controller
+│                   │   └── TestController.java
+│                   ├── model
+│                   │   ├── dao
+│                   │   │   └── TestDAO.java
+│                   │   └── dto
+│                   │       ├── ApiResponse.java
+│                   │       ├── LocationData.java
+│                   │       └── TestDTO.java
+│                   └── service
+│                       ├── ApiService.java
+│                       └── TestService.java
+└── resources
+    ├── application.properties
+    ├── mapper
+    │   ├── CmuMapper.xml
+    │   ├── MemberMapper.xml
+    │   └── TestMapper.xml
+    ├── mybatis-config.xml
+    ├── static
+    │   ├── css
+    │   │   ├── angel
+    │   │   │   └── angel.css
+    │   │   ├── common
+    │   │   │   └── header.css
+    │   │   ├── community
+    │   │   │   ├── add.css
+    │   │   │   ├── detail.css
+    │   │   │   ├── list.css
+    │   │   │   └── update.css
+    │   │   ├── main
+    │   │   │   └── main.css
+    │   │   ├── manual
+    │   │   │   └── manual.css
+    │   │   ├── map
+    │   │   │   └── map.css
+    │   │   └── member
+    │   │       ├── editList.css
+    │   │       ├── login.css
+    │   │       ├── register.css
+    │   │       └── userList.css
+    │   ├── img
+    │   │   ├── call.png
+    │   │   ├── fingerprint.png
+    │   │   ├── guardians.png
+    │   │   ├── headerlogo.png
+    │   │   └── logo.png
+    │   └── index.html
+    └── templates
+        ├── angel
+        │   └── angel.html
+        ├── common
+        │   ├── aside.html
+        │   ├── footer.html
+        │   └── header.html
+        ├── community
+        │   ├── add.html
+        │   ├── detail.html
+        │   ├── errorPage.html
+        │   ├── list.html
+        │   └── update.html
+        ├── dataView.html
+        ├── dataViewForm.html
+        ├── main
+        │   └── main.html
+        ├── manual
+        │   └── manual.html
+        ├── map
+        │   └── map.html
+        ├── member
+        │   ├── editList.html
+        │   ├── errorPage.html
+        │   ├── login.html
+        │   ├── register.html
+        │   └── userList.html
  ```
 
 
@@ -189,11 +306,13 @@
  <img width="700" alt="스크린샷 2024-06-03 오후 6 34 30" src="https://github.com/2024-literacy-project/2024-child-protect-project/assets/129252557/841e559f-e427-46d5-a56a-b28eb7cab931">
 
 
-### ② 메인 지도 기능(내 주변 아동안전 지킴이집
+### ② 메인 지도 기능(내 주변 아동안전 지킴이집)
 
 - 현재 내 위치 기준으로 주변 아동안전지킴이집 리스트 확인/보여주기
+- 내 현재 위치 반경 1km, 2km ,3km, 5km 주변 아동지킴이집 검색
+ <img width="972" alt="스크린샷 2024-06-13 오후 11 37 33" src="https://github.com/2024-literacy-project/2024-child-protect-project/assets/129252557/9ae4d4d1-e08d-42f5-8d0f-4440743ed25a">
 
- 
+
 ### ③ 로그인 & 회원가입 
 
 - 사용자 회원가입 
