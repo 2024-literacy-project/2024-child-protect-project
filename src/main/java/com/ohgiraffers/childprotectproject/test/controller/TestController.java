@@ -8,25 +8,23 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-
 @Controller
 public class TestController {
 
-    private final TestService mainService;
+    private final TestService testService;
 
-    public TestController(TestService mainService) {
-        this.mainService = mainService;
+    public TestController(TestService testService) {
+        this.testService = testService;
     }
 
     @RequestMapping("/test")
     public ModelAndView openAll() throws Exception {
 
         ModelAndView mv = new ModelAndView("test/test");
-        List<TestDTO> listMember = mainService.getAllMemberList();
+        List<TestDTO> listMember = testService.getAllMemberList();
 
         mv.addObject("listMember", listMember);
 
         return mv;
     }
-
 }

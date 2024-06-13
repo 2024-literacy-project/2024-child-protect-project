@@ -1,0 +1,200 @@
+body{}
+/* 공통 */
+a{
+    text-decoration: none;
+}
+#wrap{
+    min-height: 100%;
+    position: relative;
+    /*padding-bottom: 50px;*/
+}
+header{
+    text-align: center;
+    height: 60px;
+}
+.header-home{
+    /*font-size: 30px;*/
+    /*font-weight: bolder;*/
+}
+.logo{
+    /*background-image: url("../../img/headerlogo.png");*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    width: 120px;
+    height: 65px;
+
+}
+/* footer */
+footer{
+    text-align: center;
+    width: 100%;
+    /*position: absolute;*/
+    /*position: fixed;*/
+    bottom: 0px;
+    height: 80px;
+    background-color: white;
+    height: 80px;
+}
+/* ---------------------------------- */
+/* contents */
+.contents{
+    display: flex;
+}
+/* aside */
+.aside{
+    margin-left: 8%;
+}
+.aside-div {
+    border: 1px solid white;
+    width: 220px;
+    border-radius: 10px;
+    background-color: #E5F3F5;
+    height: 650px;
+}
+/* 바로가기 */
+.aside-shortcut {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+/* 간편창 */
+.aside-tbl {
+    background-color: white;
+    width: 160px;
+    margin-left: 30px;
+    height: 500px;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    border: 1px solid lightgray;
+    box-shadow: 1px 1px 1px lightgray;
+}
+.aside-tbl>tbody{
+    text-align: center;
+}
+.aside-td{
+    height: 100px;
+}
+/* section */
+/* 게시판 */
+.section {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    width: 65%;
+    margin-left: 2%;
+    background-color: white;
+    box-shadow: 1px 1px 1px lightgray;
+}
+.sec-div {
+    width: 90%;
+    display: flex;
+}
+/*-----------------------------------*/
+
+/* map page*/
+.title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.safety-map-box {
+    width: 1000px;
+    height: 700px;
+}
+
+.map_wrap {
+    width: 500px;
+}
+
+.radius-choice {
+    margin-right: 15px;
+}
+
+.search-box {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.search-form {
+    font-size: 13px;
+    border: 1px solid lightgray;
+    box-shadow: 1px 1px 1px gray;
+    outline: none;
+    padding-left: 10px;
+    background-color: white;
+    height: 25px;
+    width: 200px;
+    margin: 10px 15px 13px 15px;
+}
+
+.search-button {
+    background: #F5F5F5;
+    border: none;
+    box-shadow: 1px 1px 1px gray;;
+    padding: 7px;
+}
+
+#locationList {
+    line-height: 7px;
+    width: 350px;
+    background-color: white;
+}
+
+.list-style-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.list-style {
+    padding-left: 15px;
+    font-size: 12px;
+}
+
+.mainBox1{
+    border: none;
+    margin: 50px 0px 50px 60px;
+}
+
+.mainBox2 {
+    border: none;
+    margin-top: 80px;
+    margin-right: 60px;
+    height: 600px;
+    flex-direction: column;
+}
+
+.safeListBox2::-webkit-scrollbar {
+    width: 0.8em;
+}
+
+.safeListBox2::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #E5F3F5;
+
+}
+
+.safeListBox2::-webkit-scrollbar-track:vertical {
+    background: white;
+    border-radius: 10px;
+
+}
+
+.safeListBox1 {
+    border: none;
+    /*height: 500px;/*/
+}
+
+.safeListBox2{
+    border: none;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-top: 30px;
+    margin-left: 40px;
+    height: 495px;
+}
+

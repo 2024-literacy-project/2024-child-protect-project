@@ -9,112 +9,43 @@
     </script>
 </head>
 <body>
-<!-- header -->
-<header th:replace="~{/common/header :: headerFragment}">
-    <h1>HEADER</h1>
-</header>
+<h1>아동안전지킴이집 위치 찾기</h1>
 
-<!-- --------------------------------------------------------- -->
-<!-- contents-->
-<div class="contents">
-    <!-- aside -->
-    <aside class="aside">
-        <div class="aside-div" >
-            <!-- 바로가기 -->
-            <p class="aside-shortcut">
-                바로가기
-            </p>
+<!--<button onclick="safeMarker()">마커 생성</button>-->
+<input type="radio" class='radioButton' label='Option 1' name='radiobtn' value="1" onclick="sendLocation(value)" ><label>1km</label>
+<input type='radio' class='radioButton' label='Option 2' name='radiobtn' value="2" onclick="sendLocation(value)" ><label>2km</label>
+<input type='radio' class='radioButton' label='Option 3' name='radiobtn' value="3" onclick="sendLocation(value)" ><label>3km</label>
+<input type='radio' class='radioButton' label='Option 3' name='radiobtn' value="5" onclick="sendLocation(value)" ><label>5km</label>
 
-            <!-- 간편창 -->
-            <table border="1" class="aside-tbl">
-                <!--        <thead>-->
-                <!--            <tr>-->
-                <!--                <th>바로가기</th>-->
-                <!--            </tr>-->
-                <!--        </thead>-->
-                <tbody>
-                <tr>
-                    <td class="aside-td"><a onclick="location.href='/map/map'" >내 주변 <br/>아동안전지킴이집</a></td>
-                </tr>
-                <tr>
-                    <td class="aside-td"><a onclick="location.href='/community/list'">자율방범대 <br/> 커뮤니티</a></td>
-                </tr>
-                <tr>
-                    <td class="aside-td"><a onclick="location.href='/angel/angel'">내 근처 <br/> 아동수호천사</a></td>
-                </tr>
-                <tr>
-                    <td class="aside-td"><a  onclick="location.href='/manual/manual'">비상 상황 메뉴얼</a></td>
-                </tr>
-                <tr>
-                    <td><a href="#">실종아동센터 <br/> 182</a></td>
-                </tr>
-                </tbody>
-            </table>
+<!--<button onclick="subwayMarker()">지하철역 근처</button>-->
+
+<div class="option">
+    <form onsubmit="searchPlaces(); return false;">
+        <div class="searchText">지역 검색 <input type="text" id="keyword" class="searchBox" size="15">
+            <button class="searchBtn" type="submit">검색</button>
         </div>
-    </aside>
-
-    <!-- 지도-->
-    <!-- content -->
-    <!-- 게시판 -->
-    <section class="section" style="background-color: #E5F3F5;">
-        <div class="sec-div">
-            <div class="con" style=" display: flex; justify-content: center;">
-
-                <!-- mainBox1-->
-                <div class="mainBox1" style="background-color: white; width: 510px; padding-left: 20px;padding-top: 20px; padding-bottom: 20px;">
-
-                    <p class="title">아동안전지킴이집 위치 찾기</p>
-
-                    <!--<button onclick="safeMarker()">마커 생성</button>-->
-                    <span class="radius-choice">현재위치 반경 선택</span>
-                    <input type="radio" class='radioButton' label='Option 1' name='radiobtn' value="1" onclick="sendLocation(value)" ><label>1km</label>
-                    <input type='radio' class='radioButton' label='Option 2' name='radiobtn' value="2" onclick="sendLocation(value)" ><label>2km</label>
-                    <input type='radio' class='radioButton' label='Option 3' name='radiobtn' value="3" onclick="sendLocation(value)" ><label>3km</label>
-                    <input type='radio' class='radioButton' label='Option 3' name='radiobtn' value="5" onclick="sendLocation(value)" ><label>5km</label>
-
-                    <!--<button onclick="subwayMarker()">지하철역 근처</button>-->
-
-                    <form class="search-box" onsubmit="searchPlaces(); return false;">
-                        <div class="search-text">지하철역 주변 검색 <input type="text" id="keyword" class="search-form" placeholder="ex) 태릉입구역" size="15">
-                            <button class="search-button" type="submit">검색</button>
-                            <p style="font-size: 16px; text-align: right; padding: 0px; margin: 0px 0px 5px 0px">기준기준!!
-                                <img style="width: 15px; height: 20px;" src="https://t1.daumcdn.net/localimg/localimages/07/2018/pc/img/marker_spot.png">
-                            </p>
-                        </div>
-                    </form>
-
-
-                    <div class="map_wrap">
-                        <div id="map" style="width:500px;height:450px;position:relative;overflow:hidden;">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- mainBox2 -->
-                <div class="mainBox2" style="background-color: yellow;">
-                    <div class="safeListBox1">
-
-                        <p style="font-size: 21px; font-weight: bold; text-align: center">아동안전지킴이집 리스트</p>
-
-                        <div class="safeListBox2" style="background-color: blue;">
-                            <!-- 데이터를 표시할 요소 추가 -->
-                            <div id="locationList"></div>
-                        </div>
-                    </div>
-                    <!--                <div class="safeListBox2" style="background-color: blue;">-->
-                    <!--                    &lt;!&ndash; 데이터를 표시할 요소 추가 &ndash;&gt;-->
-                    <!--                    <div id="locationList"></div>-->
-                    <!--                </div>-->
-                </div>
-
-            </div>
-
-        </div>
-    </section>
+    </form>
 </div>
 
+<div class="map_wrap">
+    <div id="map" style="width:100%;height:500px;position:relative;overflow:hidden;">
+    </div>
+</div>
 
-<!-- script -->
+<!-- 데이터를 표시할 테이블 추가 -->
+<table id="locationTable" border="1">
+    <thead>
+    <tr>
+        <th>RN</th>
+        <th>Business Name</th>
+        <th>Telephone</th>
+        <th>Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- 데이터가 동적으로 추가될 부분 -->
+    </tbody>
+</table>
 
 <!-- JSON 데이터를 포함시킵니다 -->
 <script th:inline="javascript">
@@ -219,8 +150,8 @@
                 removeMarker();
 
                 // 데이터 표시할 HTML 요소 초기화
-                const locationListDiv = document.getElementById('locationList');
-                locationListDiv.innerHTML = '';
+                const locationTableBody = document.getElementById('locationTable').getElementsByTagName('tbody')[0];
+                locationTableBody.innerHTML = '';
 
                 data.forEach(locationData => {
                     var safetyHouse = new kakao.maps.LatLng(locationData.lcinfoLa, locationData.lcinfoLo);
@@ -240,16 +171,12 @@
                     marker.setMap(map);
                     markers.push(marker);
 
-                    // HTML에 데이터 추가
-                    const locationDiv = document.createElement('div');
-                    locationDiv.classList.add('location-item');
-                    locationDiv.innerHTML = `
-                        <p class="list-style-title" style="padding-top: 20px">${locationData.rn}. ${locationData.bsshNm}</p>
-                        <p class="list-style">주소: ${locationData.adres}</p>
-                        <p class="list-style" style="padding-bottom: 10px;">전화번호: ${locationData.telno}</p>
-                        <hr>
-                    `;
-                    locationListDiv.appendChild(locationDiv);
+                    // 테이블에 데이터 추가
+                    const row = locationTableBody.insertRow();
+                    row.insertCell(0).textContent = locationData.rn;
+                    row.insertCell(1).textContent = locationData.bsshNm;
+                    row.insertCell(2).textContent = locationData.telno;
+                    row.insertCell(3).textContent = locationData.adres;
                 });
             })
             .catch(error => console.error('Error fetching data:', error));
@@ -357,19 +284,23 @@
         markers1 = [];
     }
 
+
     // 클릭한 마커에 인포윈도우 표시
     function displayInfowindow(marker, title, adres, telno) {
         var infotitle = `안전가게명: ${title}<br>주소: ${adres}<br>전화번호: ${telno}`;
-        var content = `<div style="font-size: 12px; width:100%; line-height: 17px; padding:5px; z-index:1;">${infotitle}</div>`;
+        var content = `<div style="width:100%; line-height: 17px; padding:5px; z-index:1;">${infotitle}</div>`;
         infowindow.setContent(content);
         infowindow.open(map, marker);
     }
+
+    // 검색결과 목록의 자식 Element를 제거
+    function removeAllChildNods(el) {
+        while (el.hasChildNodes()) {
+            el.removeChild(el.lastChild);
+        }
+    }
+
+
 </script>
-
-<!— footer —>
-<footer th:insert="~{/common/footer :: footerFragment}">
-    <h1>FOOTER</h1>
-</footer>
-
 </body>
 </html>
