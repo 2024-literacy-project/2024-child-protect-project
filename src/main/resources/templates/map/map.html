@@ -7,6 +7,10 @@
     <script type="text/javascript"
             src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6b56a30bfcc4e88c31b709180704c3ee&libraries=services,clusterer,drawing">
     </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&family=Nanum+Gothic&display=swap" rel="stylesheet">
 </head>
 <body>
 <!-- header -->
@@ -127,7 +131,7 @@
                 <!--<button onclick="subwayMarker()">지하철역 근처</button>-->
 
                 <form class="search-box" onsubmit="searchPlaces(); return false;">
-                    <div class="search-text">지역검색 <input type="text" id="keyword" class="search-form" placeholder="ex) 태릉입구역, 태릉초등학교..." size="15">
+                    <div class="search-text">지역검색 <input type="text" id="keyword" class="search-form" placeholder="ex) 춘천역, 태릉입구 초등학교.." size="15">
                         <button class="search-button" type="submit">검색</button>
                         <p style="font-size: 16px; text-align: right; padding: 0; margin: 0 0 5px 0">검색위치
                             <img style="width: 15px; height: 20px;" src="https://t1.daumcdn.net/localimg/localimages/07/2018/pc/img/marker_spot.png">
@@ -153,7 +157,6 @@
                 </div>
             </div>
         </div>
-
 
     </section>
 </div>
@@ -184,6 +187,7 @@
 
     // 지도 생성
     var map = new kakao.maps.Map(mapContainer, mapOption);
+
     // 장소 검색 객체 생성
     var ps = new kakao.maps.services.Places();
     // 마커 클릭 시 장소명 표출하는 인포윈도우
@@ -199,6 +203,7 @@
             displayMarker(locPosition);
         });
 
+
     // JSON 데이터를 파싱하여 리스트로 변환합니다
     var locationList = JSON.parse(JSON.stringify(locationData));
 
@@ -208,10 +213,12 @@
                 var lat = position.coords.latitude, // 위도
                     lon = position.coords.longitude; // 경도
                 var locPosition = new kakao.maps.LatLng(lat, lon); // 마커가 표시될 위치를 좌표로 생성
+
                 // 마커 표시
                 displayMarker(locPosition);
                 // 범위 계산
                 const bounds = calculateBounds(lat, lon, value); // km 범위 계산
+
 
                 // fetchData로 이동하면서 계산된 범위 전달
                 // window.location.href = `/fetchData?minLat=${bounds.minLat}&maxLat=${bounds.maxLat}&minLon=${bounds.minLon}&maxLon=${bounds.maxLon}`;
@@ -220,6 +227,8 @@
                 fetchSafetyHouses(bounds);
             });
     }
+
+
 
     // 위도와 경도의 범위를 계산하는 함수
     function calculateBounds(lat, lon, radius) {
@@ -250,7 +259,7 @@
             position: locPosition
         });
         // 지도 중심좌표를 접속위치로 변경
-        map.setCenter(locPosition);
+        map.setCenter(locPosition)
 
         marker.setMap(map);
         markers1.push(marker);
