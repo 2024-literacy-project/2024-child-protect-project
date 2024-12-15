@@ -64,9 +64,9 @@
  ## 2. 팀원 소개
 
  <h1>팀명</h1>
-
- ![KakaoTalk_Photo_2024-05-21-23-04-18 001](https://github.com/2024-literacy-project/2024-child-protect-project/assets/129252557/f793542f-dd4e-4185-b866-e8ba69958dc0)
-
+ <p align="center">
+<img src="https://github.com/user-attachments/assets/14b8e49e-1695-4243-90d4-fc0fe007721c" alt="사진" width="600" height="200">
+ </p>
  
  <div align="center">
 
@@ -74,22 +74,23 @@
 | :------: |  :------: |  :------: |  :------: |
 | [<img src="https://github.com/2024-literacy-project/2024-literacy-project/assets/82174047/34321251-97e6-4ef1-adfd-059cc4f0066f" height=150 width=150> <br/> @inredzero](https://github.com/inredzero) | [<img src="https://github.com/2024-literacy-project/2024-literacy-project/assets/82174047/e21f081d-d9ee-431a-b8ff-0e963fad3811" height=150 width=150> <br/> @moressangplease](https://github.com/moressangplease) | [<img src="https://github.com/2024-literacy-project/2024-literacy-project/assets/82174047/4a486b99-1b23-4a85-bb09-a29c026e37e1" height=150 width=150> <br/> @se-3-yeon](https://github.com/se-3-yeon) | [<img src="https://github.com/2024-literacy-project/2024-literacy-project/assets/82174047/87154d04-2119-472d-89d9-eb512feff02b" height=150 width=150> <br/> @Realyunjae](https://github.com/Realyunjae) |
 | 팀장 | 팀원 | 팀원 | 팀원 | 
-| open API(안전지킴이집) 연동<br>카카오 map 연동<br>지도 페이지 구현 |  open API(안전지킴이집) 연동<br>카카오 map 연동<br>지도 페이지 구현  | 회원가입, 로그인 페이지 구현<br>게시판 CRUD 기능 구현<br>DB 설계 | 회원가입, 로그인 페이지 구현<br>게시판 CRUD 기능 구현<br>DB 설계  | 
-
+|  |    |  | 공지사항, 수업지원(성적,출석) 페이지 구현<br>게시판 CRUD 기능 구현<br>  | 
 </div>
+
+
 
 <br/>
 
-### Wakanda Forever팀 작업관리
+### LastDance 팀 작업관리
 
 
 - GitHub issue, 학교에서 대면으로 진행상황 공유
 - 매일  짧은 회의를 통해 notion에 회의내용을 기록함.
-- notion에 역할 분담,
-- 매일 학교에서 짧은 회의를 통해 notion 에 회의내용을 기록함.
+- 매주 멘토님과 Zoom미팅 후 피드백
+-  notion 에 회의내용을 기록함.
 
 #### 개발 기간
--  개발 기간 : 2024-06-04 ~ 2024-06-13
+-  개발 기간 : 2024-08 ~ 2024-12
   
 
 ## 3.채택한 개발 기술과 브랜치 전략
